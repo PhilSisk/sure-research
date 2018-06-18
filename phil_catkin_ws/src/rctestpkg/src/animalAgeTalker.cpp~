@@ -1,0 +1,28 @@
+#include "ros/ros.h"
+#include "rctestpkg/animalAge.h"
+#include <string>
+#include <sstream>
+
+int main(int argc, char ** argv) {
+	ros::init(argc, argv, "animalAgeTalker");
+	ros::Nodehandle n;
+	ros::Publisher pub = n.advertise<rctestpkg::animalAge>("animalAge1", 1000);
+	ros::Rate loop_rate(2); // 2 Hz
+	int ages[4] = {10, 20, 30, 40};
+	std::string animals[4] = {"gorilla", "aardvark", "butterfly", "camel"};
+	int count = 0;
+	while (ros::ok()) {
+		rctestpkg::animalAge msg;
+		msg.species = animals[count];
+		msg.age = ages[count];
+		pub.publish(msg);
+		std::stringstream ss;
+		ss << msg.species << " " << msg.age;
+		std::string s = ss.str();
+		ROS_INFO(s.c_str());
+		count = (count + 1) % 4;
+		ros::spinOnce();
+		loop_rate.sleep();
+	}
+	return 0;
+}

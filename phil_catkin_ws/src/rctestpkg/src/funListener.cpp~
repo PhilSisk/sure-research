@@ -1,0 +1,17 @@
+#include "ros/ros.h"
+#include "rctestpkg/funMessage.h"
+#include <sstream>
+#include <string>
+
+void callback(const rctestpkg::funMessage::ConstPtr& msgptr) {
+	std::string msg_s = msgptr->msg;
+	ROS_INFO("MESSAGE RECEIVED: %s", msg_s);
+}
+
+int main(int argc, char **argv) {
+	ros::init(argc, argv, "funListener");
+	ros::NodeHandle n;
+	ros::Subscriber sub = n.subscribe("funTalk", 1000, callback);
+	ros::spin();
+	return 0;
+}
