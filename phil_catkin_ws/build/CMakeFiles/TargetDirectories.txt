@@ -14,6 +14,7 @@
 /home/ubuntu/phil_catkin_ws/build/gtest/CMakeFiles/gtest.dir
 /home/ubuntu/phil_catkin_ws/build/gtest/CMakeFiles/gtest_main.dir
 /home/ubuntu/phil_catkin_ws/build/rctestpkg/CMakeFiles/motorTest.dir
+/home/ubuntu/phil_catkin_ws/build/rctestpkg/CMakeFiles/motorTestTalker.dir
 /home/ubuntu/phil_catkin_ws/build/rctestpkg/CMakeFiles/rctestpkg_gencpp.dir
 /home/ubuntu/phil_catkin_ws/build/rctestpkg/CMakeFiles/rctestpkg_generate_messages.dir
 /home/ubuntu/phil_catkin_ws/build/rctestpkg/CMakeFiles/rctestpkg_generate_messages_cpp.dir

@@ -307,6 +307,20 @@ motorTest/fast:
 .PHONY : motorTest/fast
 
 # Convenience name for target.
+rctestpkg/CMakeFiles/motorTestTalker.dir/rule:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/motorTestTalker.dir/rule
+.PHONY : rctestpkg/CMakeFiles/motorTestTalker.dir/rule
+
+# Convenience name for target.
+motorTestTalker: rctestpkg/CMakeFiles/motorTestTalker.dir/rule
+.PHONY : motorTestTalker
+
+# fast build rule for target.
+motorTestTalker/fast:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorTestTalker.dir/build.make rctestpkg/CMakeFiles/motorTestTalker.dir/build
+.PHONY : motorTestTalker/fast
+
+# Convenience name for target.
 rctestpkg/CMakeFiles/rctestpkg_gencpp.dir/rule:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/rctestpkg_gencpp.dir/rule
 .PHONY : rctestpkg/CMakeFiles/rctestpkg_gencpp.dir/rule
@@ -786,6 +800,30 @@ src/motorTest.cpp.s:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorTest.dir/build.make rctestpkg/CMakeFiles/motorTest.dir/src/motorTest.cpp.s
 .PHONY : src/motorTest.cpp.s
 
+src/motorTestTalker.o: src/motorTestTalker.cpp.o
+.PHONY : src/motorTestTalker.o
+
+# target to build an object file
+src/motorTestTalker.cpp.o:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorTestTalker.dir/build.make rctestpkg/CMakeFiles/motorTestTalker.dir/src/motorTestTalker.cpp.o
+.PHONY : src/motorTestTalker.cpp.o
+
+src/motorTestTalker.i: src/motorTestTalker.cpp.i
+.PHONY : src/motorTestTalker.i
+
+# target to preprocess a source file
+src/motorTestTalker.cpp.i:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorTestTalker.dir/build.make rctestpkg/CMakeFiles/motorTestTalker.dir/src/motorTestTalker.cpp.i
+.PHONY : src/motorTestTalker.cpp.i
+
+src/motorTestTalker.s: src/motorTestTalker.cpp.s
+.PHONY : src/motorTestTalker.s
+
+# target to generate assembly for a file
+src/motorTestTalker.cpp.s:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorTestTalker.dir/build.make rctestpkg/CMakeFiles/motorTestTalker.dir/src/motorTestTalker.cpp.s
+.PHONY : src/motorTestTalker.cpp.s
+
 src/rs232.o: src/rs232.cpp.o
 .PHONY : src/rs232.o
 
@@ -880,6 +918,7 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... motorTest"
+	@echo "... motorTestTalker"
 	@echo "... rctestpkg_gencpp"
 	@echo "... rctestpkg_generate_messages"
 	@echo "... rctestpkg_generate_messages_cpp"
@@ -924,6 +963,9 @@ help:
 	@echo "... src/motorTest.o"
 	@echo "... src/motorTest.i"
 	@echo "... src/motorTest.s"
+	@echo "... src/motorTestTalker.o"
+	@echo "... src/motorTestTalker.i"
+	@echo "... src/motorTestTalker.s"
 	@echo "... src/rs232.o"
 	@echo "... src/rs232.i"
 	@echo "... src/rs232.s"

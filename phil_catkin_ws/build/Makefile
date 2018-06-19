@@ -387,6 +387,19 @@ motorTest/fast:
 .PHONY : motorTest/fast
 
 #=============================================================================
+# Target rules for targets named motorTestTalker
+
+# Build rule for target.
+motorTestTalker: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 motorTestTalker
+.PHONY : motorTestTalker
+
+# fast build rule for target.
+motorTestTalker/fast:
+	$(MAKE) -f rctestpkg/CMakeFiles/motorTestTalker.dir/build.make rctestpkg/CMakeFiles/motorTestTalker.dir/build
+.PHONY : motorTestTalker/fast
+
+#=============================================================================
 # Target rules for targets named rctestpkg_gencpp
 
 # Build rule for target.
@@ -729,6 +742,7 @@ help:
 	@echo "... _rctestpkg_generate_messages_check_deps_TestTalkerMsg"
 	@echo "... _rctestpkg_generate_messages_check_deps_currentTime"
 	@echo "... motorTest"
+	@echo "... motorTestTalker"
 	@echo "... rctestpkg_gencpp"
 	@echo "... rctestpkg_generate_messages"
 	@echo "... rctestpkg_generate_messages_cpp"

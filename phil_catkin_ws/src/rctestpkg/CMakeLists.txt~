@@ -236,3 +236,7 @@ add_executable(motorTest src/motorTest.cpp)
 add_dependencies(motorTest rctestpkg_generate_messages_cpp)
 target_link_libraries(rs232 ${catkin_LIBRARIES})
 target_link_libraries(motorTest ${catkin_LIBRARIES} rs232)
+
+add_executable(motorTestTalker src/motorTestTalker.cpp)
+target_link_libraries(motorTestTalker ${catkin_LIBRARIES})
+add_dependencies(motorTestTalker rctestpkg_generate_messages_cpp

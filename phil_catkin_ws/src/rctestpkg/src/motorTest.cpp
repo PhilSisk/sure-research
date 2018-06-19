@@ -18,19 +18,12 @@ Phil Sisk
 
 #define DELAY 10000		// # of microseconds between motor commands
 
-using namespace std;
-
-int cport_nr = 0,		// /dev/ELMO		defined in rs232.cpp
-    bdrate = 115200;		// 115200 baud
-
-
 // Initialize motor data message to all zeros
 // Due to the way that callback functions work, this argument must be global
 // at the moment. I am looking into how to pass multiple arguments to a
 // callback function.
 rctestpkg::Motor_data msg;
 char currentStr[50] = "TC=0.0\r";
-	
 
 
 /*
@@ -42,7 +35,7 @@ class motor_communicator {
 private:
 	std::stringstream ss;
 	unsigned char buf[128];
-	const int CPORT_NR;			// /dev/ELMO, defined in rs232.cpp
+	const int CPORT_NR;		// /dev/ELMO, defined in rs232.cpp
 	const int BDRATE;		// baud rate
 	const std::string MODE;
 public:
@@ -65,46 +58,48 @@ public:
 		// Enable the motor
 		std::string str = "MO=1\r";
 		send_msg(str.c_str());
-		int n = RS232_PollComport(CPORT_NR, buf, 127);
+		RS232_PollComport(CPORT_NR, buf, 127);
 		usleep(DELAY);
 
 		// Set the mode to current control
 		str = "UM=1\r";
 		send_msg(str.c_str());
-		n = RS232_PollComport(CPORT_NR, buf, 127);
+		RS232_PollComport(CPORT_NR, buf, 127);
 		return true;
 	}
 
 	// Send message to the motor
 	void send_msg(const char * str) {
+		std::cout << "STRING: " << str << std::endl;
 		RS232_cputs(CPORT_NR, str);
 	}
 
 	// Read velocity, position, and current data from the motor	
 	bool read_data(rctestpkg::Motor_data & md_msg) {
-		string junk;
+		std::string junk;
 		int n = RS232_PollComport(CPORT_NR, buf, 127);
 		if(n > 0) {
 			buf[n-1]='\0';
 			buf[2]=' ';
 			ss << buf;
+			std::cout << "Stringstream: " << ss.str() << std::endl;
 			switch (buf[0]){
 				case 'V':  ss >> junk >> md_msg.countPerSecond;
-				md_msg.countPerSecond = -md_msg.countPerSecond;
+				md_msg.countPerSecond *= -1;
 				break;
 
 				case 'P':  ss >> junk >> md_msg.position;
-				md_msg.position = -msg.position;
+				md_msg.position *= -1;
 				break;
 
-				case 'I':  ss >> junk >> msg.current;
-				md_msg.current = -md_msg.current;
+				case 'I':  ss >> junk >> md_msg.current;
+				md_msg.current *= -1;
 				break;
 
 				default: break;
-				ss.clear();
-		       		ss.str("");
-				}
+			}
+			ss.clear();
+		       	ss.str("");
 			return false; // NotUpdated = false;
 		}
 		else{
@@ -120,7 +115,7 @@ public:
 void motorCallback(const std_msgs::Float32::ConstPtr& Rmsg)
 {
 	sprintf(currentStr, "TC=%0.3lf\r", -Rmsg->data);
-	cout << currentStr << endl;
+	std::cout << currentStr << std::endl;
 }
 
 /* TODO: add new parameter for motor data message to this function
@@ -152,10 +147,8 @@ int main(int argc, char **argv) {
 	std::cout << "start\n";
 	
 	motor_communicator mc;
-	mc.setup();
+	if (!mc.setup()) return 1;
 	usleep(DELAY);
-
-	bool notUpdated = false;
 
 	
 	// Main ROS loop
@@ -181,7 +174,6 @@ int main(int argc, char **argv) {
 		str = "IQ\r";
 		mc.send_msg(str.c_str());
 		mc.read_data(msg);
-
 		loop_rate.sleep();
 
 		/*Publish data*/
@@ -189,7 +181,6 @@ int main(int argc, char **argv) {
 		
 		// Current gets updated	
 		ros::spinOnce();
-		notUpdated = false;
 	}
 
 	return 0;
