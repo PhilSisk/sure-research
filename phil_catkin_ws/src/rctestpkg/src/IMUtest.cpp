@@ -9,8 +9,8 @@ ROS node definition for IMUtest node
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>		// What is this used for?
-#include <errno.h>
-#include <termios.h>
+#include <errno.h>		// Error number definitions
+#include <termios.h>		// Port communication
 #include <sstream>
 #include <eigen3/Eigen/Dense>   // Used by yaw rate filter
 #include <vector>		// Used in calculating mean
@@ -22,7 +22,7 @@ ROS node definition for IMUtest node
 void tty_setup(termios & tty, int USB);
 int read_IMU_response(char * response, int USB);
 
-// A second-order low-pass butterworth filter for IMU only with a cornering frequency of 40 Hz
+// A second-order low-pass butterworth filter for IMU only with a cornering frequency of 20 Hz
 // and a sampling frequency of 100 Hz
 // state space matrices calculated using MATLAB [A,B,C,D] = butter(n, Wn) function
 class butterworth {
@@ -100,6 +100,8 @@ int main (int argc, char ** argv) {
 		// Filter the yaw rate signal		
 		msg.gz = yaw_rate_filter.filt(msg.gz) - mean;
 		// Gather a mean to eliminate an apparent bias in the yaw rate signal
+		// After reading 1024 inputs, it continually subtracts this mean from
+		// the raw data
 		if (!init) {
 			initVec.push_back(msg.gz);
 			if (initVec.size() > SIZE - 1) {

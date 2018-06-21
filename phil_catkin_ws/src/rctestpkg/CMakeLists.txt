@@ -123,6 +123,7 @@ catkin_package(
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
+  ${CURSES_INCLUDE_DIR}
 )
 
 ## Declare a C++ library
@@ -240,3 +241,10 @@ target_link_libraries(motorTest ${catkin_LIBRARIES} rs232)
 add_executable(motorTestTalker src/motorTestTalker.cpp)
 target_link_libraries(motorTestTalker ${catkin_LIBRARIES})
 add_dependencies(motorTestTalker rctestpkg_generate_messages_cpp)
+
+find_package(Curses REQUIRED)
+SET(CURSES_USES_NCURSES TRUE)
+
+add_executable(motorCommand src/motorCommand.cpp)
+target_link_libraries(motorCommand ${catkin_LIBRARIES} ${CURSES_LIBRARIES})
+add_dependencies(motorCommand rctestpkg_generate_messages_cpp)

@@ -70,7 +70,7 @@ public:
 
 	// Send message to the motor
 	void send_msg(const char * str) {
-		std::cout << "STRING: " << str << std::endl;
+		//std::cout << "STRING: " << str << std::endl;
 		RS232_cputs(CPORT_NR, str);
 	}
 
@@ -97,7 +97,7 @@ public:
 				break;
 
 				default: break;
-				}
+			}
 			ss.clear();
 		       	ss.str("");
 			return false; // NotUpdated = false;
@@ -149,6 +149,12 @@ int main(int argc, char **argv) {
 	motor_communicator mc;
 	if (!mc.setup()) return 1;
 	usleep(DELAY);
+	
+	// Gets the maximum current allowed by the motor
+	std::string str1 = "MC\r";
+	mc.send_msg(str1.c_str());
+	mc.read_data(msg);
+	loop_rate.sleep();
 
 	
 	// Main ROS loop

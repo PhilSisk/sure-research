@@ -293,6 +293,20 @@ _rctestpkg_generate_messages_check_deps_currentTime/fast:
 .PHONY : _rctestpkg_generate_messages_check_deps_currentTime/fast
 
 # Convenience name for target.
+rctestpkg/CMakeFiles/motorCommand.dir/rule:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/motorCommand.dir/rule
+.PHONY : rctestpkg/CMakeFiles/motorCommand.dir/rule
+
+# Convenience name for target.
+motorCommand: rctestpkg/CMakeFiles/motorCommand.dir/rule
+.PHONY : motorCommand
+
+# fast build rule for target.
+motorCommand/fast:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorCommand.dir/build.make rctestpkg/CMakeFiles/motorCommand.dir/build
+.PHONY : motorCommand/fast
+
+# Convenience name for target.
 rctestpkg/CMakeFiles/motorTest.dir/rule:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/motorTest.dir/rule
 .PHONY : rctestpkg/CMakeFiles/motorTest.dir/rule
@@ -776,6 +790,30 @@ src/TestTalker.cpp.s:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/TestTalker.dir/build.make rctestpkg/CMakeFiles/TestTalker.dir/src/TestTalker.cpp.s
 .PHONY : src/TestTalker.cpp.s
 
+src/motorCommand.o: src/motorCommand.cpp.o
+.PHONY : src/motorCommand.o
+
+# target to build an object file
+src/motorCommand.cpp.o:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorCommand.dir/build.make rctestpkg/CMakeFiles/motorCommand.dir/src/motorCommand.cpp.o
+.PHONY : src/motorCommand.cpp.o
+
+src/motorCommand.i: src/motorCommand.cpp.i
+.PHONY : src/motorCommand.i
+
+# target to preprocess a source file
+src/motorCommand.cpp.i:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorCommand.dir/build.make rctestpkg/CMakeFiles/motorCommand.dir/src/motorCommand.cpp.i
+.PHONY : src/motorCommand.cpp.i
+
+src/motorCommand.s: src/motorCommand.cpp.s
+.PHONY : src/motorCommand.s
+
+# target to generate assembly for a file
+src/motorCommand.cpp.s:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorCommand.dir/build.make rctestpkg/CMakeFiles/motorCommand.dir/src/motorCommand.cpp.s
+.PHONY : src/motorCommand.cpp.s
+
 src/motorTest.o: src/motorTest.cpp.o
 .PHONY : src/motorTest.o
 
@@ -917,6 +955,7 @@ help:
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
+	@echo "... motorCommand"
 	@echo "... motorTest"
 	@echo "... motorTestTalker"
 	@echo "... rctestpkg_gencpp"
@@ -960,6 +999,9 @@ help:
 	@echo "... src/TestTalker.o"
 	@echo "... src/TestTalker.i"
 	@echo "... src/TestTalker.s"
+	@echo "... src/motorCommand.o"
+	@echo "... src/motorCommand.i"
+	@echo "... src/motorCommand.s"
 	@echo "... src/motorTest.o"
 	@echo "... src/motorTest.i"
 	@echo "... src/motorTest.s"

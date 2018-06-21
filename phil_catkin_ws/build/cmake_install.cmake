@@ -117,7 +117,19 @@ ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unsp
 IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   INCLUDE("/home/ubuntu/phil_catkin_ws/build/gtest/cmake_install.cmake")
+  INCLUDE("/home/ubuntu/phil_catkin_ws/build/rosserial/rosserial/cmake_install.cmake")
+  INCLUDE("/home/ubuntu/phil_catkin_ws/build/rosserial/rosserial_arduino/cmake_install.cmake")
+  INCLUDE("/home/ubuntu/phil_catkin_ws/build/rosserial/rosserial_mbed/cmake_install.cmake")
+  INCLUDE("/home/ubuntu/phil_catkin_ws/build/rosserial/rosserial_msgs/cmake_install.cmake")
+  INCLUDE("/home/ubuntu/phil_catkin_ws/build/rosserial/rosserial_python/cmake_install.cmake")
+  INCLUDE("/home/ubuntu/phil_catkin_ws/build/rosserial/rosserial_tivac/cmake_install.cmake")
+  INCLUDE("/home/ubuntu/phil_catkin_ws/build/rosserial/rosserial_xbee/cmake_install.cmake")
+  INCLUDE("/home/ubuntu/phil_catkin_ws/build/rosserial/rosserial_client/cmake_install.cmake")
   INCLUDE("/home/ubuntu/phil_catkin_ws/build/rctestpkg/cmake_install.cmake")
+  INCLUDE("/home/ubuntu/phil_catkin_ws/build/rosserial/rosserial_server/cmake_install.cmake")
+  INCLUDE("/home/ubuntu/phil_catkin_ws/build/rosserial/rosserial_embeddedlinux/cmake_install.cmake")
+  INCLUDE("/home/ubuntu/phil_catkin_ws/build/rosserial/rosserial_test/cmake_install.cmake")
+  INCLUDE("/home/ubuntu/phil_catkin_ws/build/rosserial/rosserial_windows/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 

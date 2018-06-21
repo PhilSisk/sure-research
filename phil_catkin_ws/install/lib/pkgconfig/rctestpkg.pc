@@ -1,0 +1,8 @@
+prefix=/home/ubuntu/phil_catkin_ws/install
+
+Name: rctestpkg
+Description: Description of rctestpkg
+Version: 0.0.0
+Cflags: -I/home/ubuntu/phil_catkin_ws/install/include
+Libs: -L/home/ubuntu/phil_catkin_ws/install/lib -lrctestpkg
+Requires: roscpp rospy std_msgs
