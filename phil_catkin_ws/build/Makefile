@@ -1037,6 +1037,19 @@ motorTestTalker/fast:
 .PHONY : motorTestTalker/fast
 
 #=============================================================================
+# Target rules for targets named mouseTest
+
+# Build rule for target.
+mouseTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mouseTest
+.PHONY : mouseTest
+
+# fast build rule for target.
+mouseTest/fast:
+	$(MAKE) -f rctestpkg/CMakeFiles/mouseTest.dir/build.make rctestpkg/CMakeFiles/mouseTest.dir/build
+.PHONY : mouseTest/fast
+
+#=============================================================================
 # Target rules for targets named rctestpkg_gencpp
 
 # Build rule for target.
@@ -1269,6 +1282,19 @@ rs232: cmake_check_build_system
 rs232/fast:
 	$(MAKE) -f rctestpkg/CMakeFiles/rs232.dir/build.make rctestpkg/CMakeFiles/rs232.dir/build
 .PHONY : rs232/fast
+
+#=============================================================================
+# Target rules for targets named servoCommandTest
+
+# Build rule for target.
+servoCommandTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 servoCommandTest
+.PHONY : servoCommandTest
+
+# fast build rule for target.
+servoCommandTest/fast:
+	$(MAKE) -f rctestpkg/CMakeFiles/servoCommandTest.dir/build.make rctestpkg/CMakeFiles/servoCommandTest.dir/build
+.PHONY : servoCommandTest/fast
 
 #=============================================================================
 # Target rules for targets named std_msgs_generate_messages_cpp
@@ -1897,6 +1923,7 @@ help:
 	@echo "... motorCommand"
 	@echo "... motorTest"
 	@echo "... motorTestTalker"
+	@echo "... mouseTest"
 	@echo "... rctestpkg_gencpp"
 	@echo "... rctestpkg_generate_messages"
 	@echo "... rctestpkg_generate_messages_cpp"
@@ -1915,6 +1942,7 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... rs232"
+	@echo "... servoCommandTest"
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_eus"
 	@echo "... std_msgs_generate_messages_lisp"

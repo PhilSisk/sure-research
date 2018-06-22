@@ -248,3 +248,12 @@ SET(CURSES_USES_NCURSES TRUE)
 add_executable(motorCommand src/motorCommand.cpp)
 target_link_libraries(motorCommand ${catkin_LIBRARIES} ${CURSES_LIBRARIES})
 add_dependencies(motorCommand rctestpkg_generate_messages_cpp)
+
+add_executable(servoCommandTest src/servoCommandTest.cpp)
+target_link_libraries(servoCommandTest ${catkin_LIBRARIES})
+add_dependencies(servoCommandTest rctestpkg_generate_messages_cpp)
+
+add_executable(mouseTest src/mouseTest.cpp)
+target_link_libraries(mouseTest ${catkin_LIBRARIES})
+add_dependencies(mouseTest rctestpkg_generate_messages_cpp)
+

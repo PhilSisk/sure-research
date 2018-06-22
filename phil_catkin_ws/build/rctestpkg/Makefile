@@ -335,6 +335,20 @@ motorTestTalker/fast:
 .PHONY : motorTestTalker/fast
 
 # Convenience name for target.
+rctestpkg/CMakeFiles/mouseTest.dir/rule:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/mouseTest.dir/rule
+.PHONY : rctestpkg/CMakeFiles/mouseTest.dir/rule
+
+# Convenience name for target.
+mouseTest: rctestpkg/CMakeFiles/mouseTest.dir/rule
+.PHONY : mouseTest
+
+# fast build rule for target.
+mouseTest/fast:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/mouseTest.dir/build.make rctestpkg/CMakeFiles/mouseTest.dir/build
+.PHONY : mouseTest/fast
+
+# Convenience name for target.
 rctestpkg/CMakeFiles/rctestpkg_gencpp.dir/rule:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/rctestpkg_gencpp.dir/rule
 .PHONY : rctestpkg/CMakeFiles/rctestpkg_gencpp.dir/rule
@@ -585,6 +599,20 @@ rs232: rctestpkg/CMakeFiles/rs232.dir/rule
 rs232/fast:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/rs232.dir/build.make rctestpkg/CMakeFiles/rs232.dir/build
 .PHONY : rs232/fast
+
+# Convenience name for target.
+rctestpkg/CMakeFiles/servoCommandTest.dir/rule:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/servoCommandTest.dir/rule
+.PHONY : rctestpkg/CMakeFiles/servoCommandTest.dir/rule
+
+# Convenience name for target.
+servoCommandTest: rctestpkg/CMakeFiles/servoCommandTest.dir/rule
+.PHONY : servoCommandTest
+
+# fast build rule for target.
+servoCommandTest/fast:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/servoCommandTest.dir/build.make rctestpkg/CMakeFiles/servoCommandTest.dir/build
+.PHONY : servoCommandTest/fast
 
 # Convenience name for target.
 rctestpkg/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
@@ -862,6 +890,30 @@ src/motorTestTalker.cpp.s:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorTestTalker.dir/build.make rctestpkg/CMakeFiles/motorTestTalker.dir/src/motorTestTalker.cpp.s
 .PHONY : src/motorTestTalker.cpp.s
 
+src/mouseTest.o: src/mouseTest.cpp.o
+.PHONY : src/mouseTest.o
+
+# target to build an object file
+src/mouseTest.cpp.o:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/mouseTest.dir/build.make rctestpkg/CMakeFiles/mouseTest.dir/src/mouseTest.cpp.o
+.PHONY : src/mouseTest.cpp.o
+
+src/mouseTest.i: src/mouseTest.cpp.i
+.PHONY : src/mouseTest.i
+
+# target to preprocess a source file
+src/mouseTest.cpp.i:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/mouseTest.dir/build.make rctestpkg/CMakeFiles/mouseTest.dir/src/mouseTest.cpp.i
+.PHONY : src/mouseTest.cpp.i
+
+src/mouseTest.s: src/mouseTest.cpp.s
+.PHONY : src/mouseTest.s
+
+# target to generate assembly for a file
+src/mouseTest.cpp.s:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/mouseTest.dir/build.make rctestpkg/CMakeFiles/mouseTest.dir/src/mouseTest.cpp.s
+.PHONY : src/mouseTest.cpp.s
+
 src/rs232.o: src/rs232.cpp.o
 .PHONY : src/rs232.o
 
@@ -885,6 +937,30 @@ src/rs232.s: src/rs232.cpp.s
 src/rs232.cpp.s:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/rs232.dir/build.make rctestpkg/CMakeFiles/rs232.dir/src/rs232.cpp.s
 .PHONY : src/rs232.cpp.s
+
+src/servoCommandTest.o: src/servoCommandTest.cpp.o
+.PHONY : src/servoCommandTest.o
+
+# target to build an object file
+src/servoCommandTest.cpp.o:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/servoCommandTest.dir/build.make rctestpkg/CMakeFiles/servoCommandTest.dir/src/servoCommandTest.cpp.o
+.PHONY : src/servoCommandTest.cpp.o
+
+src/servoCommandTest.i: src/servoCommandTest.cpp.i
+.PHONY : src/servoCommandTest.i
+
+# target to preprocess a source file
+src/servoCommandTest.cpp.i:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/servoCommandTest.dir/build.make rctestpkg/CMakeFiles/servoCommandTest.dir/src/servoCommandTest.cpp.i
+.PHONY : src/servoCommandTest.cpp.i
+
+src/servoCommandTest.s: src/servoCommandTest.cpp.s
+.PHONY : src/servoCommandTest.s
+
+# target to generate assembly for a file
+src/servoCommandTest.cpp.s:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/servoCommandTest.dir/build.make rctestpkg/CMakeFiles/servoCommandTest.dir/src/servoCommandTest.cpp.s
+.PHONY : src/servoCommandTest.cpp.s
 
 src/timeListener.o: src/timeListener.cpp.o
 .PHONY : src/timeListener.o
@@ -958,6 +1034,7 @@ help:
 	@echo "... motorCommand"
 	@echo "... motorTest"
 	@echo "... motorTestTalker"
+	@echo "... mouseTest"
 	@echo "... rctestpkg_gencpp"
 	@echo "... rctestpkg_generate_messages"
 	@echo "... rctestpkg_generate_messages_cpp"
@@ -977,6 +1054,7 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... rs232"
+	@echo "... servoCommandTest"
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_eus"
 	@echo "... std_msgs_generate_messages_lisp"
@@ -1008,9 +1086,15 @@ help:
 	@echo "... src/motorTestTalker.o"
 	@echo "... src/motorTestTalker.i"
 	@echo "... src/motorTestTalker.s"
+	@echo "... src/mouseTest.o"
+	@echo "... src/mouseTest.i"
+	@echo "... src/mouseTest.s"
 	@echo "... src/rs232.o"
 	@echo "... src/rs232.i"
 	@echo "... src/rs232.s"
+	@echo "... src/servoCommandTest.o"
+	@echo "... src/servoCommandTest.i"
+	@echo "... src/servoCommandTest.s"
 	@echo "... src/timeListener.o"
 	@echo "... src/timeListener.i"
 	@echo "... src/timeListener.s"

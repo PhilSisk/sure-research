@@ -246,5 +246,14 @@ find_package(Curses REQUIRED)
 SET(CURSES_USES_NCURSES TRUE)
 
 add_executable(motorCommand src/motorCommand.cpp)
-target_link_libraries(motorCommand ${catkin_LIBRARIES} ${Curses_LIBRARIES})
+target_link_libraries(motorCommand ${catkin_LIBRARIES} ${CURSES_LIBRARIES})
 add_dependencies(motorCommand rctestpkg_generate_messages_cpp)
+
+add_executable(servoCommandTest src/servoCommandTest.cpp)
+target_link_libraries(servoCommandTest ${catkin_LIBRARIES})
+add_dependencies(servoCommandTest rctestpkg_generate_messages_cpp)
+
+add_executable(mouseTest src/servoCommandTest.cpp)
+target_link_libraries(servoCommandTest ${catkin_LIBRARIES})
+add_dependencies(servoCommandTest rctestpkg_generate_messages_cpp)
+
