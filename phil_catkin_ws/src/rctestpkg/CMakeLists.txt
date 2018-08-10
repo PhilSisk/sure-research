@@ -55,7 +55,8 @@ add_message_files(
    currentTime.msg
    IMUdata.msg
    Motor_data.msg
-
+   CarState.msg
+   LKdata.msg
 )
 
 ## Generate services in the 'srv' folder

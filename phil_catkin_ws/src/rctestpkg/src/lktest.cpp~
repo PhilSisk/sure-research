@@ -1,3 +1,9 @@
+/*
+lktest.cpp
+Processes rplidar signal to create lanekeeping data based on distance and angle to left wall
+Gets yaw rate from IMU data and publishes all lanekeeping data on an LKdata message
+*/
+
 #include <iostream>
 #include "ros/ros.h"
 #include <string>
@@ -5,6 +11,7 @@
 #include <cmath>
 #include <sensor_msgs/LaserScan.h>
 #include <rctestpkg/IMUdata.h>  // Yaw rate is grabbed from IMU
+#include <rctestpkg/LKdata.h>	// lanekeeping data is published to this topic
 #include <vector>
 #include <algorithm>		// For trig stuff 
 #include <numeric>		// For std::inner_product
@@ -79,6 +86,7 @@ public:
 	void calculate_distance(const sensor_msgs::LaserScan::ConstPtr& msg);
 	void calculate_lat_vel();
 	void set_yaw_rate(float y_r) { yaw_rate = y_r; }
+	void create_lk_msg(rctestpkg::LKdata& msg);
 	void print();
 };
 
@@ -158,11 +166,19 @@ void lanekeeping::calculate_lat_vel() {
 	
 }
 
+void lanekeeping::create_lk_msg(rctestpkg::LKdata & msg) {
+	msg.y = y;
+	msg.vl = lat_velocity;
+	msg.phi = yaw_angle;
+	msg.r = yaw_rate;
+	msg.rd = 0;
+}
+
 void lanekeeping::print() {
 	std::cout << "distance to wall: " << y << " meters" << std::endl;
 	std::cout << "yaw_angle:        " << yaw_angle / 3.1415 * 180 << " degrees" << std::endl;
 	std::cout << "lateral velocity: " << lat_velocity << " m/s" << std::endl;
-	std::cout << "yaw_rate:         " << yaw_rate / 3.1415 * 180 << " deg/s" << std::endl;
+	std::cout << "yaw_rate:         " << yaw_rate << " deg/s" << std::endl;
 	std::cout << std::endl;
 }
 
@@ -203,6 +219,12 @@ int main(int argc, char **argv) {
   ros::Subscriber sub = n.subscribe("IMUchatter", 1000, IMU_callback);
   ros::Subscriber IMU_sub = n.subscribe("scan", 1000, lk_callback);
   ros::Timer timer1 = n.createTimer(ros::Duration(0.1), timed_callback);
-  ros::spin();
+  ros::Publisher pub = n.advertise<rctestpkg::LKdata>("lk_data", 1000);
+  while(ros::ok()) {
+    rctestpkg::LKdata msg;
+    lk.create_lk_msg(msg);
+    pub.publish(msg);
+    ros::spinOnce();
+  }
   return 0;
 }

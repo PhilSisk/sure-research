@@ -920,6 +920,19 @@ MultTwoIntsServer/fast:
 .PHONY : MultTwoIntsServer/fast
 
 #=============================================================================
+# Target rules for targets named _rctestpkg_generate_messages_check_deps_CarState
+
+# Build rule for target.
+_rctestpkg_generate_messages_check_deps_CarState: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _rctestpkg_generate_messages_check_deps_CarState
+.PHONY : _rctestpkg_generate_messages_check_deps_CarState
+
+# fast build rule for target.
+_rctestpkg_generate_messages_check_deps_CarState/fast:
+	$(MAKE) -f rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_CarState.dir/build.make rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_CarState.dir/build
+.PHONY : _rctestpkg_generate_messages_check_deps_CarState/fast
+
+#=============================================================================
 # Target rules for targets named _rctestpkg_generate_messages_check_deps_IMUdata
 
 # Build rule for target.
@@ -931,6 +944,19 @@ _rctestpkg_generate_messages_check_deps_IMUdata: cmake_check_build_system
 _rctestpkg_generate_messages_check_deps_IMUdata/fast:
 	$(MAKE) -f rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_IMUdata.dir/build.make rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_IMUdata.dir/build
 .PHONY : _rctestpkg_generate_messages_check_deps_IMUdata/fast
+
+#=============================================================================
+# Target rules for targets named _rctestpkg_generate_messages_check_deps_LKdata
+
+# Build rule for target.
+_rctestpkg_generate_messages_check_deps_LKdata: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _rctestpkg_generate_messages_check_deps_LKdata
+.PHONY : _rctestpkg_generate_messages_check_deps_LKdata
+
+# fast build rule for target.
+_rctestpkg_generate_messages_check_deps_LKdata/fast:
+	$(MAKE) -f rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_LKdata.dir/build.make rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_LKdata.dir/build
+.PHONY : _rctestpkg_generate_messages_check_deps_LKdata/fast
 
 #=============================================================================
 # Target rules for targets named _rctestpkg_generate_messages_check_deps_MPC_CC
@@ -1966,7 +1992,9 @@ help:
 	@echo "... IMUtest"
 	@echo "... MultTwoIntsClient"
 	@echo "... MultTwoIntsServer"
+	@echo "... _rctestpkg_generate_messages_check_deps_CarState"
 	@echo "... _rctestpkg_generate_messages_check_deps_IMUdata"
+	@echo "... _rctestpkg_generate_messages_check_deps_LKdata"
 	@echo "... _rctestpkg_generate_messages_check_deps_MPC_CC"
 	@echo "... _rctestpkg_generate_messages_check_deps_Motor_data"
 	@echo "... _rctestpkg_generate_messages_check_deps_MultTwoInts"

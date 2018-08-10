@@ -55,7 +55,7 @@ add_message_files(
    currentTime.msg
    IMUdata.msg
    Motor_data.msg
-
+   CarState.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -268,8 +268,8 @@ add_dependencies(CC rctestpkg_generate_messages_cpp)
 target_link_libraries(CC ${catkin_LIBRARIES} ccsolver)
 
 add_executable(lktest src/lktest.cpp)
-add_dependencies(lk_test rctestpkg_generate_messages_cpp)
-target_link_libraries(lk_test ${catkin_LIBRARIES})
+add_dependencies(lktest rctestpkg_generate_messages_cpp)
+target_link_libraries(lktest ${catkin_LIBRARIES})
 
 
 

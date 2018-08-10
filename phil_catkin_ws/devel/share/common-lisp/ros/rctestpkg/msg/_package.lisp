@@ -3,8 +3,12 @@
   (:export
    "<CURRENTTIME>"
    "CURRENTTIME"
+   "<LKDATA>"
+   "LKDATA"
    "<TESTTALKERMSG>"
    "TESTTALKERMSG"
+   "<CARSTATE>"
+   "CARSTATE"
    "<IMUDATA>"
    "IMUDATA"
    "<MOTOR_DATA>"
