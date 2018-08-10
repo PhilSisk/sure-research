@@ -5,6 +5,7 @@ FILE(REMOVE_RECURSE
   "/home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/msg/IMUdata.l"
   "/home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/msg/currentTime.l"
   "/home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/MultTwoInts.l"
+  "/home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/MPC_CC.l"
   "/home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/manifest.l"
 )
 

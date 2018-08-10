@@ -42,7 +42,10 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rctestpkg/srv" TYPE FILE FILES "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rctestpkg/srv" TYPE FILE FILES
+    "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv"
+    "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv"
+    )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")

@@ -311,6 +311,9 @@ actionlib_msgs_DIR:PATH=/opt/ros/jade/share/actionlib_msgs/cmake
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/jade/share/catkin/cmake
 
+//Dependencies for target
+ccsolver_LIB_DEPENDS:STATIC=
+
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/jade/share/cpp_common/cmake
 
@@ -484,7 +487,7 @@ rostest_DIR:PATH=/opt/ros/jade/share/rostest/cmake
 rostime_DIR:PATH=/opt/ros/jade/share/rostime/cmake
 
 //Dependencies for the target
-rs232_LIB_DEPENDS:STATIC=general;/opt/ros/jade/lib/libroscpp.so;general;/usr/lib/arm-linux-gnueabihf/libboost_signals.so;general;/usr/lib/arm-linux-gnueabihf/libboost_filesystem.so;general;/opt/ros/jade/lib/librosconsole.so;general;/opt/ros/jade/lib/librosconsole_log4cxx.so;general;/opt/ros/jade/lib/librosconsole_backend_interface.so;general;/usr/lib/liblog4cxx.so;general;/usr/lib/arm-linux-gnueabihf/libboost_regex.so;general;/opt/ros/jade/lib/libxmlrpcpp.so;general;/opt/ros/jade/lib/libroscpp_serialization.so;general;/opt/ros/jade/lib/librostime.so;general;/usr/lib/arm-linux-gnueabihf/libboost_date_time.so;general;/opt/ros/jade/lib/libcpp_common.so;general;/usr/lib/arm-linux-gnueabihf/libboost_system.so;general;/usr/lib/arm-linux-gnueabihf/libboost_thread.so;general;/usr/lib/arm-linux-gnueabihf/libpthread.so;general;/usr/lib/arm-linux-gnueabihf/libconsole_bridge.so;
+rs232_LIB_DEPENDS:STATIC=general;/opt/ros/jade/lib/libroscpp.so;general;/usr/lib/arm-linux-gnueabihf/libboost_signals.so;general;/usr/lib/arm-linux-gnueabihf/libboost_filesystem.so;general;/opt/ros/jade/lib/librosconsole.so;general;/opt/ros/jade/lib/librosconsole_log4cxx.so;general;/opt/ros/jade/lib/librosconsole_backend_interface.so;general;/usr/lib/liblog4cxx.so;general;/usr/lib/arm-linux-gnueabihf/libboost_regex.so;general;/opt/ros/jade/lib/libxmlrpcpp.so;general;/opt/ros/jade/lib/libroscpp_serialization.so;general;/opt/ros/jade/lib/librostime.so;general;/usr/lib/arm-linux-gnueabihf/libboost_date_time.so;general;/opt/ros/jade/lib/libcpp_common.so;general;/usr/lib/arm-linux-gnueabihf/libboost_system.so;general;/usr/lib/arm-linux-gnueabihf/libboost_thread.so;general;/usr/lib/arm-linux-gnueabihf/libpthread.so;general;/usr/lib/arm-linux-gnueabihf/libconsole_bridge.so;general;/opt/ros/jade/lib/libroscpp.so;general;/usr/lib/arm-linux-gnueabihf/libboost_signals.so;general;/usr/lib/arm-linux-gnueabihf/libboost_filesystem.so;general;/opt/ros/jade/lib/librosconsole.so;general;/opt/ros/jade/lib/librosconsole_log4cxx.so;general;/opt/ros/jade/lib/librosconsole_backend_interface.so;general;/usr/lib/liblog4cxx.so;general;/usr/lib/arm-linux-gnueabihf/libboost_regex.so;general;/opt/ros/jade/lib/libxmlrpcpp.so;general;/opt/ros/jade/lib/libroscpp_serialization.so;general;/opt/ros/jade/lib/librostime.so;general;/usr/lib/arm-linux-gnueabihf/libboost_date_time.so;general;/opt/ros/jade/lib/libcpp_common.so;general;/usr/lib/arm-linux-gnueabihf/libboost_system.so;general;/usr/lib/arm-linux-gnueabihf/libboost_thread.so;general;/usr/lib/arm-linux-gnueabihf/libpthread.so;general;/usr/lib/arm-linux-gnueabihf/libconsole_bridge.so;
 
 //The directory containing a CMake configuration file for sensor_msgs.
 sensor_msgs_DIR:PATH=/opt/ros/jade/share/sensor_msgs/cmake

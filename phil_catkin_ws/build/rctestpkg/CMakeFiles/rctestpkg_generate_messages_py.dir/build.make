@@ -53,6 +53,7 @@ rctestpkg/CMakeFiles/rctestpkg_generate_messages_py: /home/ubuntu/phil_catkin_ws
 rctestpkg/CMakeFiles/rctestpkg_generate_messages_py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/_IMUdata.py
 rctestpkg/CMakeFiles/rctestpkg_generate_messages_py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/_currentTime.py
 rctestpkg/CMakeFiles/rctestpkg_generate_messages_py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv/_MultTwoInts.py
+rctestpkg/CMakeFiles/rctestpkg_generate_messages_py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv/_MPC_CC.py
 rctestpkg/CMakeFiles/rctestpkg_generate_messages_py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/__init__.py
 rctestpkg/CMakeFiles/rctestpkg_generate_messages_py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv/__init__.py
 
@@ -60,31 +61,37 @@ rctestpkg/CMakeFiles/rctestpkg_generate_messages_py: /home/ubuntu/phil_catkin_ws
 /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/_Motor_data.py: /home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/phil_catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python from MSG rctestpkg/Motor_data"
-	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg -Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg -Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg -p rctestpkg -o /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg
+	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg -Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg -Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg -Isensor_msgs:/opt/ros/jade/share/sensor_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/jade/share/geometry_msgs/cmake/../msg -p rctestpkg -o /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg
 
 /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/_TestTalkerMsg.py: /opt/ros/jade/share/genpy/cmake/../../../lib/genpy/genmsg_py.py
 /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/_TestTalkerMsg.py: /home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/TestTalkerMsg.msg
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/phil_catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python from MSG rctestpkg/TestTalkerMsg"
-	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/TestTalkerMsg.msg -Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg -Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg -p rctestpkg -o /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg
+	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/TestTalkerMsg.msg -Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg -Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg -Isensor_msgs:/opt/ros/jade/share/sensor_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/jade/share/geometry_msgs/cmake/../msg -p rctestpkg -o /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg
 
 /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/_IMUdata.py: /opt/ros/jade/share/genpy/cmake/../../../lib/genpy/genmsg_py.py
 /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/_IMUdata.py: /home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/IMUdata.msg
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/phil_catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python from MSG rctestpkg/IMUdata"
-	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/IMUdata.msg -Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg -Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg -p rctestpkg -o /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg
+	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/IMUdata.msg -Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg -Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg -Isensor_msgs:/opt/ros/jade/share/sensor_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/jade/share/geometry_msgs/cmake/../msg -p rctestpkg -o /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg
 
 /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/_currentTime.py: /opt/ros/jade/share/genpy/cmake/../../../lib/genpy/genmsg_py.py
 /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/_currentTime.py: /home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/currentTime.msg
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/phil_catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python from MSG rctestpkg/currentTime"
-	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/currentTime.msg -Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg -Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg -p rctestpkg -o /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg
+	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/currentTime.msg -Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg -Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg -Isensor_msgs:/opt/ros/jade/share/sensor_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/jade/share/geometry_msgs/cmake/../msg -p rctestpkg -o /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg
 
 /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv/_MultTwoInts.py: /opt/ros/jade/share/genpy/cmake/../../../lib/genpy/gensrv_py.py
 /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv/_MultTwoInts.py: /home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/phil_catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python code from SRV rctestpkg/MultTwoInts"
-	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv -Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg -Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg -p rctestpkg -o /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv
+	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv -Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg -Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg -Isensor_msgs:/opt/ros/jade/share/sensor_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/jade/share/geometry_msgs/cmake/../msg -p rctestpkg -o /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv
+
+/home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv/_MPC_CC.py: /opt/ros/jade/share/genpy/cmake/../../../lib/genpy/gensrv_py.py
+/home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv/_MPC_CC.py: /home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/phil_catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python code from SRV rctestpkg/MPC_CC"
+	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv -Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg -Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg -Isensor_msgs:/opt/ros/jade/share/sensor_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/jade/share/geometry_msgs/cmake/../msg -p rctestpkg -o /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv
 
 /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/__init__.py: /opt/ros/jade/share/genpy/cmake/../../../lib/genpy/genmsg_py.py
 /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/__init__.py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/_Motor_data.py
@@ -92,7 +99,8 @@ rctestpkg/CMakeFiles/rctestpkg_generate_messages_py: /home/ubuntu/phil_catkin_ws
 /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/__init__.py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/_IMUdata.py
 /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/__init__.py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/_currentTime.py
 /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/__init__.py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv/_MultTwoInts.py
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/phil_catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_6)
+/home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/__init__.py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv/_MPC_CC.py
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/phil_catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python msg __init__.py for rctestpkg"
 	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg --initpy
 
@@ -102,7 +110,8 @@ rctestpkg/CMakeFiles/rctestpkg_generate_messages_py: /home/ubuntu/phil_catkin_ws
 /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv/__init__.py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/_IMUdata.py
 /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv/__init__.py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/_currentTime.py
 /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv/__init__.py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv/_MultTwoInts.py
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/phil_catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_7)
+/home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv/__init__.py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv/_MPC_CC.py
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/phil_catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python srv __init__.py for rctestpkg"
 	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv --initpy
 
@@ -112,6 +121,7 @@ rctestpkg_generate_messages_py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/
 rctestpkg_generate_messages_py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/_IMUdata.py
 rctestpkg_generate_messages_py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/_currentTime.py
 rctestpkg_generate_messages_py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv/_MultTwoInts.py
+rctestpkg_generate_messages_py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv/_MPC_CC.py
 rctestpkg_generate_messages_py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/msg/__init__.py
 rctestpkg_generate_messages_py: /home/ubuntu/phil_catkin_ws/devel/lib/python2.7/dist-packages/rctestpkg/srv/__init__.py
 rctestpkg_generate_messages_py: rctestpkg/CMakeFiles/rctestpkg_generate_messages_py.dir/build.make

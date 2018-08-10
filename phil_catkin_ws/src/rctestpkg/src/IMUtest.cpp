@@ -22,9 +22,9 @@ ROS node definition for IMUtest node
 void tty_setup(termios & tty, int USB);
 int read_IMU_response(char * response, int USB);
 
-// A second-order low-pass butterworth filter for IMU only with a cornering frequency of 20 Hz
+// A second-order low-pass butterworth filter for IMU with a cornering frequency of 20 Hz
 // and a sampling frequency of 100 Hz
-// state space matrices calculated using MATLAB [A,B,C,D] = butter(n, Wn) function
+// State space matrices calculated using MATLAB [A,B,C,D] = butter(n, Wn) function
 class butterworth {
 private:
 	Eigen::Matrix2d A;

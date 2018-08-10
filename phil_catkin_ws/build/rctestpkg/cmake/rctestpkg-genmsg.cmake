@@ -1,8 +1,8 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "rctestpkg: 4 messages, 1 services")
+message(STATUS "rctestpkg: 4 messages, 2 services")
 
-set(MSG_I_FLAGS "-Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg;-Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg;-Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg;-Isensor_msgs:/opt/ros/jade/share/sensor_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/jade/share/geometry_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -16,6 +16,26 @@ add_custom_target(rctestpkg_generate_messages ALL)
 
 
 
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/TestTalkerMsg.msg" NAME_WE)
+add_custom_target(_rctestpkg_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "rctestpkg" "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/TestTalkerMsg.msg" ""
+)
+
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/currentTime.msg" NAME_WE)
+add_custom_target(_rctestpkg_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "rctestpkg" "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/currentTime.msg" ""
+)
+
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/IMUdata.msg" NAME_WE)
+add_custom_target(_rctestpkg_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "rctestpkg" "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/IMUdata.msg" ""
+)
+
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv" NAME_WE)
+add_custom_target(_rctestpkg_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "rctestpkg" "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv" ""
+)
+
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv" NAME_WE)
 add_custom_target(_rctestpkg_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "rctestpkg" "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv" ""
@@ -24,21 +44,6 @@ add_custom_target(_rctestpkg_generate_messages_check_deps_${_filename}
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg" NAME_WE)
 add_custom_target(_rctestpkg_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "rctestpkg" "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg" ""
-)
-
-get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/TestTalkerMsg.msg" NAME_WE)
-add_custom_target(_rctestpkg_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "rctestpkg" "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/TestTalkerMsg.msg" ""
-)
-
-get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/IMUdata.msg" NAME_WE)
-add_custom_target(_rctestpkg_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "rctestpkg" "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/IMUdata.msg" ""
-)
-
-get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/currentTime.msg" NAME_WE)
-add_custom_target(_rctestpkg_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "rctestpkg" "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/currentTime.msg" ""
 )
 
 #
@@ -79,6 +84,12 @@ _generate_srv_cpp(rctestpkg
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/rctestpkg
 )
+_generate_srv_cpp(rctestpkg
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/rctestpkg
+)
 
 ### Generating Module File
 _generate_module_cpp(rctestpkg
@@ -92,15 +103,17 @@ add_custom_target(rctestpkg_generate_messages_cpp
 add_dependencies(rctestpkg_generate_messages rctestpkg_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv" NAME_WE)
-add_dependencies(rctestpkg_generate_messages_cpp _rctestpkg_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg" NAME_WE)
-add_dependencies(rctestpkg_generate_messages_cpp _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/TestTalkerMsg.msg" NAME_WE)
+add_dependencies(rctestpkg_generate_messages_cpp _rctestpkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/currentTime.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_cpp _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/IMUdata.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_cpp _rctestpkg_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/currentTime.msg" NAME_WE)
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv" NAME_WE)
+add_dependencies(rctestpkg_generate_messages_cpp _rctestpkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv" NAME_WE)
+add_dependencies(rctestpkg_generate_messages_cpp _rctestpkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_cpp _rctestpkg_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -144,6 +157,12 @@ _generate_srv_eus(rctestpkg
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/rctestpkg
 )
+_generate_srv_eus(rctestpkg
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/rctestpkg
+)
 
 ### Generating Module File
 _generate_module_eus(rctestpkg
@@ -157,15 +176,17 @@ add_custom_target(rctestpkg_generate_messages_eus
 add_dependencies(rctestpkg_generate_messages rctestpkg_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv" NAME_WE)
-add_dependencies(rctestpkg_generate_messages_eus _rctestpkg_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg" NAME_WE)
-add_dependencies(rctestpkg_generate_messages_eus _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/TestTalkerMsg.msg" NAME_WE)
+add_dependencies(rctestpkg_generate_messages_eus _rctestpkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/currentTime.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_eus _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/IMUdata.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_eus _rctestpkg_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/currentTime.msg" NAME_WE)
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv" NAME_WE)
+add_dependencies(rctestpkg_generate_messages_eus _rctestpkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv" NAME_WE)
+add_dependencies(rctestpkg_generate_messages_eus _rctestpkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_eus _rctestpkg_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -209,6 +230,12 @@ _generate_srv_lisp(rctestpkg
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/rctestpkg
 )
+_generate_srv_lisp(rctestpkg
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/rctestpkg
+)
 
 ### Generating Module File
 _generate_module_lisp(rctestpkg
@@ -222,15 +249,17 @@ add_custom_target(rctestpkg_generate_messages_lisp
 add_dependencies(rctestpkg_generate_messages rctestpkg_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv" NAME_WE)
-add_dependencies(rctestpkg_generate_messages_lisp _rctestpkg_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg" NAME_WE)
-add_dependencies(rctestpkg_generate_messages_lisp _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/TestTalkerMsg.msg" NAME_WE)
+add_dependencies(rctestpkg_generate_messages_lisp _rctestpkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/currentTime.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_lisp _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/IMUdata.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_lisp _rctestpkg_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/currentTime.msg" NAME_WE)
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv" NAME_WE)
+add_dependencies(rctestpkg_generate_messages_lisp _rctestpkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv" NAME_WE)
+add_dependencies(rctestpkg_generate_messages_lisp _rctestpkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_lisp _rctestpkg_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -274,6 +303,12 @@ _generate_srv_py(rctestpkg
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/rctestpkg
 )
+_generate_srv_py(rctestpkg
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/rctestpkg
+)
 
 ### Generating Module File
 _generate_module_py(rctestpkg
@@ -287,15 +322,17 @@ add_custom_target(rctestpkg_generate_messages_py
 add_dependencies(rctestpkg_generate_messages rctestpkg_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv" NAME_WE)
-add_dependencies(rctestpkg_generate_messages_py _rctestpkg_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg" NAME_WE)
-add_dependencies(rctestpkg_generate_messages_py _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/TestTalkerMsg.msg" NAME_WE)
+add_dependencies(rctestpkg_generate_messages_py _rctestpkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/currentTime.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_py _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/IMUdata.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_py _rctestpkg_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/currentTime.msg" NAME_WE)
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv" NAME_WE)
+add_dependencies(rctestpkg_generate_messages_py _rctestpkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv" NAME_WE)
+add_dependencies(rctestpkg_generate_messages_py _rctestpkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_py _rctestpkg_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -317,6 +354,9 @@ endif()
 if(TARGET std_msgs_generate_messages_cpp)
   add_dependencies(rctestpkg_generate_messages_cpp std_msgs_generate_messages_cpp)
 endif()
+if(TARGET sensor_msgs_generate_messages_cpp)
+  add_dependencies(rctestpkg_generate_messages_cpp sensor_msgs_generate_messages_cpp)
+endif()
 
 if(geneus_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/rctestpkg)
   # install generated code
@@ -327,6 +367,9 @@ if(geneus_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/rc
 endif()
 if(TARGET std_msgs_generate_messages_eus)
   add_dependencies(rctestpkg_generate_messages_eus std_msgs_generate_messages_eus)
+endif()
+if(TARGET sensor_msgs_generate_messages_eus)
+  add_dependencies(rctestpkg_generate_messages_eus sensor_msgs_generate_messages_eus)
 endif()
 
 if(genlisp_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/rctestpkg)
@@ -339,6 +382,9 @@ endif()
 if(TARGET std_msgs_generate_messages_lisp)
   add_dependencies(rctestpkg_generate_messages_lisp std_msgs_generate_messages_lisp)
 endif()
+if(TARGET sensor_msgs_generate_messages_lisp)
+  add_dependencies(rctestpkg_generate_messages_lisp sensor_msgs_generate_messages_lisp)
+endif()
 
 if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/rctestpkg)
   install(CODE "execute_process(COMMAND \"/usr/bin/python\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/rctestpkg\")")
@@ -350,4 +396,7 @@ if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/rcte
 endif()
 if(TARGET std_msgs_generate_messages_py)
   add_dependencies(rctestpkg_generate_messages_py std_msgs_generate_messages_py)
+endif()
+if(TARGET sensor_msgs_generate_messages_py)
+  add_dependencies(rctestpkg_generate_messages_py sensor_msgs_generate_messages_py)
 endif()

@@ -1,6 +1,11 @@
 (cl:defpackage rctestpkg-srv
   (:use )
   (:export
+   "MPC_CC"
+   "<MPC_CC-REQUEST>"
+   "MPC_CC-REQUEST"
+   "<MPC_CC-RESPONSE>"
+   "MPC_CC-RESPONSE"
    "MULTTWOINTS"
    "<MULTTWOINTS-REQUEST>"
    "MULTTWOINTS-REQUEST"
