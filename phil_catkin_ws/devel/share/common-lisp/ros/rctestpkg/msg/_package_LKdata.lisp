@@ -3,8 +3,8 @@
           Y
           VL-VAL
           VL
-          PHI-VAL
-          PHI
+          PSI-VAL
+          PSI
           R-VAL
           R
           RD-VAL

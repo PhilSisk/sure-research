@@ -7,17 +7,17 @@ import struct
 
 
 class LKdata(genpy.Message):
-  _md5sum = "7e0ad131c0d1bef35b3e8e9fd510b179"
+  _md5sum = "7fc80cf63c748797ea4eb8016f886e03"
   _type = "rctestpkg/LKdata"
   _has_header = False #flag to mark the presence of a Header object
   _full_text = """# LK data: includes y-position, lateral velocity, yaw angle, yaw rate, and road curvature
 float64 y
 float64 vl
-float64 phi
+float64 psi
 float64 r
 float64 rd
 """
-  __slots__ = ['y','vl','phi','r','rd']
+  __slots__ = ['y','vl','psi','r','rd']
   _slot_types = ['float64','float64','float64','float64','float64']
 
   def __init__(self, *args, **kwds):
@@ -28,7 +28,7 @@ float64 rd
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       y,vl,phi,r,rd
+       y,vl,psi,r,rd
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -41,8 +41,8 @@ float64 rd
         self.y = 0.
       if self.vl is None:
         self.vl = 0.
-      if self.phi is None:
-        self.phi = 0.
+      if self.psi is None:
+        self.psi = 0.
       if self.r is None:
         self.r = 0.
       if self.rd is None:
@@ -50,7 +50,7 @@ float64 rd
     else:
       self.y = 0.
       self.vl = 0.
-      self.phi = 0.
+      self.psi = 0.
       self.r = 0.
       self.rd = 0.
 
@@ -67,7 +67,7 @@ float64 rd
     """
     try:
       _x = self
-      buff.write(_struct_5d.pack(_x.y, _x.vl, _x.phi, _x.r, _x.rd))
+      buff.write(_struct_5d.pack(_x.y, _x.vl, _x.psi, _x.r, _x.rd))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -81,7 +81,7 @@ float64 rd
       _x = self
       start = end
       end += 40
-      (_x.y, _x.vl, _x.phi, _x.r, _x.rd,) = _struct_5d.unpack(str[start:end])
+      (_x.y, _x.vl, _x.psi, _x.r, _x.rd,) = _struct_5d.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -95,7 +95,7 @@ float64 rd
     """
     try:
       _x = self
-      buff.write(_struct_5d.pack(_x.y, _x.vl, _x.phi, _x.r, _x.rd))
+      buff.write(_struct_5d.pack(_x.y, _x.vl, _x.psi, _x.r, _x.rd))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -110,7 +110,7 @@ float64 rd
       _x = self
       start = end
       end += 40
-      (_x.y, _x.vl, _x.phi, _x.r, _x.rd,) = _struct_5d.unpack(str[start:end])
+      (_x.y, _x.vl, _x.psi, _x.r, _x.rd,) = _struct_5d.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill

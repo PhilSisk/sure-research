@@ -167,6 +167,34 @@ CC/fast:
 .PHONY : CC/fast
 
 # Convenience name for target.
+rctestpkg/CMakeFiles/CC_controller.dir/rule:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/CC_controller.dir/rule
+.PHONY : rctestpkg/CMakeFiles/CC_controller.dir/rule
+
+# Convenience name for target.
+CC_controller: rctestpkg/CMakeFiles/CC_controller.dir/rule
+.PHONY : CC_controller
+
+# fast build rule for target.
+CC_controller/fast:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC_controller.dir/build.make rctestpkg/CMakeFiles/CC_controller.dir/build
+.PHONY : CC_controller/fast
+
+# Convenience name for target.
+rctestpkg/CMakeFiles/GetCarState.dir/rule:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/GetCarState.dir/rule
+.PHONY : rctestpkg/CMakeFiles/GetCarState.dir/rule
+
+# Convenience name for target.
+GetCarState: rctestpkg/CMakeFiles/GetCarState.dir/rule
+.PHONY : GetCarState
+
+# fast build rule for target.
+GetCarState/fast:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/GetCarState.dir/build.make rctestpkg/CMakeFiles/GetCarState.dir/build
+.PHONY : GetCarState/fast
+
+# Convenience name for target.
 rctestpkg/CMakeFiles/IMUtest.dir/rule:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/IMUtest.dir/rule
 .PHONY : rctestpkg/CMakeFiles/IMUtest.dir/rule
@@ -181,32 +209,18 @@ IMUtest/fast:
 .PHONY : IMUtest/fast
 
 # Convenience name for target.
-rctestpkg/CMakeFiles/MultTwoIntsClient.dir/rule:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/MultTwoIntsClient.dir/rule
-.PHONY : rctestpkg/CMakeFiles/MultTwoIntsClient.dir/rule
+rctestpkg/CMakeFiles/LK_MPC.dir/rule:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/LK_MPC.dir/rule
+.PHONY : rctestpkg/CMakeFiles/LK_MPC.dir/rule
 
 # Convenience name for target.
-MultTwoIntsClient: rctestpkg/CMakeFiles/MultTwoIntsClient.dir/rule
-.PHONY : MultTwoIntsClient
+LK_MPC: rctestpkg/CMakeFiles/LK_MPC.dir/rule
+.PHONY : LK_MPC
 
 # fast build rule for target.
-MultTwoIntsClient/fast:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/MultTwoIntsClient.dir/build.make rctestpkg/CMakeFiles/MultTwoIntsClient.dir/build
-.PHONY : MultTwoIntsClient/fast
-
-# Convenience name for target.
-rctestpkg/CMakeFiles/MultTwoIntsServer.dir/rule:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/MultTwoIntsServer.dir/rule
-.PHONY : rctestpkg/CMakeFiles/MultTwoIntsServer.dir/rule
-
-# Convenience name for target.
-MultTwoIntsServer: rctestpkg/CMakeFiles/MultTwoIntsServer.dir/rule
-.PHONY : MultTwoIntsServer
-
-# fast build rule for target.
-MultTwoIntsServer/fast:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/MultTwoIntsServer.dir/build.make rctestpkg/CMakeFiles/MultTwoIntsServer.dir/build
-.PHONY : MultTwoIntsServer/fast
+LK_MPC/fast:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/LK_MPC.dir/build.make rctestpkg/CMakeFiles/LK_MPC.dir/build
+.PHONY : LK_MPC/fast
 
 # Convenience name for target.
 rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_CarState.dir/rule:
@@ -263,6 +277,20 @@ _rctestpkg_generate_messages_check_deps_MPC_CC: rctestpkg/CMakeFiles/_rctestpkg_
 _rctestpkg_generate_messages_check_deps_MPC_CC/fast:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MPC_CC.dir/build.make rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MPC_CC.dir/build
 .PHONY : _rctestpkg_generate_messages_check_deps_MPC_CC/fast
+
+# Convenience name for target.
+rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MPC_LK.dir/rule:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MPC_LK.dir/rule
+.PHONY : rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MPC_LK.dir/rule
+
+# Convenience name for target.
+_rctestpkg_generate_messages_check_deps_MPC_LK: rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MPC_LK.dir/rule
+.PHONY : _rctestpkg_generate_messages_check_deps_MPC_LK
+
+# fast build rule for target.
+_rctestpkg_generate_messages_check_deps_MPC_LK/fast:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MPC_LK.dir/build.make rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MPC_LK.dir/build
+.PHONY : _rctestpkg_generate_messages_check_deps_MPC_LK/fast
 
 # Convenience name for target.
 rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_Motor_data.dir/rule:
@@ -335,6 +363,20 @@ ccsolver/fast:
 .PHONY : ccsolver/fast
 
 # Convenience name for target.
+rctestpkg/CMakeFiles/central_controller.dir/rule:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/central_controller.dir/rule
+.PHONY : rctestpkg/CMakeFiles/central_controller.dir/rule
+
+# Convenience name for target.
+central_controller: rctestpkg/CMakeFiles/central_controller.dir/rule
+.PHONY : central_controller
+
+# fast build rule for target.
+central_controller/fast:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/central_controller.dir/build.make rctestpkg/CMakeFiles/central_controller.dir/build
+.PHONY : central_controller/fast
+
+# Convenience name for target.
 rctestpkg/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
 .PHONY : rctestpkg/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
@@ -391,18 +433,46 @@ geometry_msgs_generate_messages_py/fast:
 .PHONY : geometry_msgs_generate_messages_py/fast
 
 # Convenience name for target.
-rctestpkg/CMakeFiles/lktest.dir/rule:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/lktest.dir/rule
-.PHONY : rctestpkg/CMakeFiles/lktest.dir/rule
+rctestpkg/CMakeFiles/lkdata.dir/rule:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/lkdata.dir/rule
+.PHONY : rctestpkg/CMakeFiles/lkdata.dir/rule
 
 # Convenience name for target.
-lktest: rctestpkg/CMakeFiles/lktest.dir/rule
-.PHONY : lktest
+lkdata: rctestpkg/CMakeFiles/lkdata.dir/rule
+.PHONY : lkdata
 
 # fast build rule for target.
-lktest/fast:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/lktest.dir/build.make rctestpkg/CMakeFiles/lktest.dir/build
-.PHONY : lktest/fast
+lkdata/fast:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/lkdata.dir/build.make rctestpkg/CMakeFiles/lkdata.dir/build
+.PHONY : lkdata/fast
+
+# Convenience name for target.
+rctestpkg/CMakeFiles/lksolver.dir/rule:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/lksolver.dir/rule
+.PHONY : rctestpkg/CMakeFiles/lksolver.dir/rule
+
+# Convenience name for target.
+lksolver: rctestpkg/CMakeFiles/lksolver.dir/rule
+.PHONY : lksolver
+
+# fast build rule for target.
+lksolver/fast:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/lksolver.dir/build.make rctestpkg/CMakeFiles/lksolver.dir/build
+.PHONY : lksolver/fast
+
+# Convenience name for target.
+rctestpkg/CMakeFiles/motor.dir/rule:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/motor.dir/rule
+.PHONY : rctestpkg/CMakeFiles/motor.dir/rule
+
+# Convenience name for target.
+motor: rctestpkg/CMakeFiles/motor.dir/rule
+.PHONY : motor
+
+# fast build rule for target.
+motor/fast:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motor.dir/build.make rctestpkg/CMakeFiles/motor.dir/build
+.PHONY : motor/fast
 
 # Convenience name for target.
 rctestpkg/CMakeFiles/motorCommand.dir/rule:
@@ -419,34 +489,6 @@ motorCommand/fast:
 .PHONY : motorCommand/fast
 
 # Convenience name for target.
-rctestpkg/CMakeFiles/motorTest.dir/rule:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/motorTest.dir/rule
-.PHONY : rctestpkg/CMakeFiles/motorTest.dir/rule
-
-# Convenience name for target.
-motorTest: rctestpkg/CMakeFiles/motorTest.dir/rule
-.PHONY : motorTest
-
-# fast build rule for target.
-motorTest/fast:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorTest.dir/build.make rctestpkg/CMakeFiles/motorTest.dir/build
-.PHONY : motorTest/fast
-
-# Convenience name for target.
-rctestpkg/CMakeFiles/motorTestTalker.dir/rule:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/motorTestTalker.dir/rule
-.PHONY : rctestpkg/CMakeFiles/motorTestTalker.dir/rule
-
-# Convenience name for target.
-motorTestTalker: rctestpkg/CMakeFiles/motorTestTalker.dir/rule
-.PHONY : motorTestTalker
-
-# fast build rule for target.
-motorTestTalker/fast:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorTestTalker.dir/build.make rctestpkg/CMakeFiles/motorTestTalker.dir/build
-.PHONY : motorTestTalker/fast
-
-# Convenience name for target.
 rctestpkg/CMakeFiles/motorTestVelocityMode.dir/rule:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/motorTestVelocityMode.dir/rule
 .PHONY : rctestpkg/CMakeFiles/motorTestVelocityMode.dir/rule
@@ -459,20 +501,6 @@ motorTestVelocityMode: rctestpkg/CMakeFiles/motorTestVelocityMode.dir/rule
 motorTestVelocityMode/fast:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorTestVelocityMode.dir/build.make rctestpkg/CMakeFiles/motorTestVelocityMode.dir/build
 .PHONY : motorTestVelocityMode/fast
-
-# Convenience name for target.
-rctestpkg/CMakeFiles/mouseTest.dir/rule:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/mouseTest.dir/rule
-.PHONY : rctestpkg/CMakeFiles/mouseTest.dir/rule
-
-# Convenience name for target.
-mouseTest: rctestpkg/CMakeFiles/mouseTest.dir/rule
-.PHONY : mouseTest
-
-# fast build rule for target.
-mouseTest/fast:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/mouseTest.dir/build.make rctestpkg/CMakeFiles/mouseTest.dir/build
-.PHONY : mouseTest/fast
 
 # Convenience name for target.
 rctestpkg/CMakeFiles/rctestpkg_gencpp.dir/rule:
@@ -866,34 +894,6 @@ std_msgs_generate_messages_py/fast:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/std_msgs_generate_messages_py.dir/build.make rctestpkg/CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
 
-# Convenience name for target.
-rctestpkg/CMakeFiles/timeListener.dir/rule:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/timeListener.dir/rule
-.PHONY : rctestpkg/CMakeFiles/timeListener.dir/rule
-
-# Convenience name for target.
-timeListener: rctestpkg/CMakeFiles/timeListener.dir/rule
-.PHONY : timeListener
-
-# fast build rule for target.
-timeListener/fast:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/timeListener.dir/build.make rctestpkg/CMakeFiles/timeListener.dir/build
-.PHONY : timeListener/fast
-
-# Convenience name for target.
-rctestpkg/CMakeFiles/timeTalker.dir/rule:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/timeTalker.dir/rule
-.PHONY : rctestpkg/CMakeFiles/timeTalker.dir/rule
-
-# Convenience name for target.
-timeTalker: rctestpkg/CMakeFiles/timeTalker.dir/rule
-.PHONY : timeTalker
-
-# fast build rule for target.
-timeTalker/fast:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/timeTalker.dir/build.make rctestpkg/CMakeFiles/timeTalker.dir/build
-.PHONY : timeTalker/fast
-
 src/CC.o: src/CC.cpp.o
 .PHONY : src/CC.o
 
@@ -917,6 +917,54 @@ src/CC.s: src/CC.cpp.s
 src/CC.cpp.s:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC.dir/build.make rctestpkg/CMakeFiles/CC.dir/src/CC.cpp.s
 .PHONY : src/CC.cpp.s
+
+src/CC_controller.o: src/CC_controller.cpp.o
+.PHONY : src/CC_controller.o
+
+# target to build an object file
+src/CC_controller.cpp.o:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC_controller.dir/build.make rctestpkg/CMakeFiles/CC_controller.dir/src/CC_controller.cpp.o
+.PHONY : src/CC_controller.cpp.o
+
+src/CC_controller.i: src/CC_controller.cpp.i
+.PHONY : src/CC_controller.i
+
+# target to preprocess a source file
+src/CC_controller.cpp.i:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC_controller.dir/build.make rctestpkg/CMakeFiles/CC_controller.dir/src/CC_controller.cpp.i
+.PHONY : src/CC_controller.cpp.i
+
+src/CC_controller.s: src/CC_controller.cpp.s
+.PHONY : src/CC_controller.s
+
+# target to generate assembly for a file
+src/CC_controller.cpp.s:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC_controller.dir/build.make rctestpkg/CMakeFiles/CC_controller.dir/src/CC_controller.cpp.s
+.PHONY : src/CC_controller.cpp.s
+
+src/GetCarState.o: src/GetCarState.cpp.o
+.PHONY : src/GetCarState.o
+
+# target to build an object file
+src/GetCarState.cpp.o:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/GetCarState.dir/build.make rctestpkg/CMakeFiles/GetCarState.dir/src/GetCarState.cpp.o
+.PHONY : src/GetCarState.cpp.o
+
+src/GetCarState.i: src/GetCarState.cpp.i
+.PHONY : src/GetCarState.i
+
+# target to preprocess a source file
+src/GetCarState.cpp.i:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/GetCarState.dir/build.make rctestpkg/CMakeFiles/GetCarState.dir/src/GetCarState.cpp.i
+.PHONY : src/GetCarState.cpp.i
+
+src/GetCarState.s: src/GetCarState.cpp.s
+.PHONY : src/GetCarState.s
+
+# target to generate assembly for a file
+src/GetCarState.cpp.s:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/GetCarState.dir/build.make rctestpkg/CMakeFiles/GetCarState.dir/src/GetCarState.cpp.s
+.PHONY : src/GetCarState.cpp.s
 
 src/IMUtest.o: src/IMUtest.cpp.o
 .PHONY : src/IMUtest.o
@@ -942,53 +990,29 @@ src/IMUtest.cpp.s:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/IMUtest.dir/build.make rctestpkg/CMakeFiles/IMUtest.dir/src/IMUtest.cpp.s
 .PHONY : src/IMUtest.cpp.s
 
-src/MultTwoIntsClient.o: src/MultTwoIntsClient.cpp.o
-.PHONY : src/MultTwoIntsClient.o
+src/LK_MPC.o: src/LK_MPC.cpp.o
+.PHONY : src/LK_MPC.o
 
 # target to build an object file
-src/MultTwoIntsClient.cpp.o:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/MultTwoIntsClient.dir/build.make rctestpkg/CMakeFiles/MultTwoIntsClient.dir/src/MultTwoIntsClient.cpp.o
-.PHONY : src/MultTwoIntsClient.cpp.o
+src/LK_MPC.cpp.o:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/LK_MPC.dir/build.make rctestpkg/CMakeFiles/LK_MPC.dir/src/LK_MPC.cpp.o
+.PHONY : src/LK_MPC.cpp.o
 
-src/MultTwoIntsClient.i: src/MultTwoIntsClient.cpp.i
-.PHONY : src/MultTwoIntsClient.i
-
-# target to preprocess a source file
-src/MultTwoIntsClient.cpp.i:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/MultTwoIntsClient.dir/build.make rctestpkg/CMakeFiles/MultTwoIntsClient.dir/src/MultTwoIntsClient.cpp.i
-.PHONY : src/MultTwoIntsClient.cpp.i
-
-src/MultTwoIntsClient.s: src/MultTwoIntsClient.cpp.s
-.PHONY : src/MultTwoIntsClient.s
-
-# target to generate assembly for a file
-src/MultTwoIntsClient.cpp.s:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/MultTwoIntsClient.dir/build.make rctestpkg/CMakeFiles/MultTwoIntsClient.dir/src/MultTwoIntsClient.cpp.s
-.PHONY : src/MultTwoIntsClient.cpp.s
-
-src/MultTwoIntsServer.o: src/MultTwoIntsServer.cpp.o
-.PHONY : src/MultTwoIntsServer.o
-
-# target to build an object file
-src/MultTwoIntsServer.cpp.o:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/MultTwoIntsServer.dir/build.make rctestpkg/CMakeFiles/MultTwoIntsServer.dir/src/MultTwoIntsServer.cpp.o
-.PHONY : src/MultTwoIntsServer.cpp.o
-
-src/MultTwoIntsServer.i: src/MultTwoIntsServer.cpp.i
-.PHONY : src/MultTwoIntsServer.i
+src/LK_MPC.i: src/LK_MPC.cpp.i
+.PHONY : src/LK_MPC.i
 
 # target to preprocess a source file
-src/MultTwoIntsServer.cpp.i:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/MultTwoIntsServer.dir/build.make rctestpkg/CMakeFiles/MultTwoIntsServer.dir/src/MultTwoIntsServer.cpp.i
-.PHONY : src/MultTwoIntsServer.cpp.i
+src/LK_MPC.cpp.i:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/LK_MPC.dir/build.make rctestpkg/CMakeFiles/LK_MPC.dir/src/LK_MPC.cpp.i
+.PHONY : src/LK_MPC.cpp.i
 
-src/MultTwoIntsServer.s: src/MultTwoIntsServer.cpp.s
-.PHONY : src/MultTwoIntsServer.s
+src/LK_MPC.s: src/LK_MPC.cpp.s
+.PHONY : src/LK_MPC.s
 
 # target to generate assembly for a file
-src/MultTwoIntsServer.cpp.s:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/MultTwoIntsServer.dir/build.make rctestpkg/CMakeFiles/MultTwoIntsServer.dir/src/MultTwoIntsServer.cpp.s
-.PHONY : src/MultTwoIntsServer.cpp.s
+src/LK_MPC.cpp.s:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/LK_MPC.dir/build.make rctestpkg/CMakeFiles/LK_MPC.dir/src/LK_MPC.cpp.s
+.PHONY : src/LK_MPC.cpp.s
 
 src/ccsolver.o: src/ccsolver.cpp.o
 .PHONY : src/ccsolver.o
@@ -1014,29 +1038,101 @@ src/ccsolver.cpp.s:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/ccsolver.dir/build.make rctestpkg/CMakeFiles/ccsolver.dir/src/ccsolver.cpp.s
 .PHONY : src/ccsolver.cpp.s
 
-src/lktest.o: src/lktest.cpp.o
-.PHONY : src/lktest.o
+src/central_controller.o: src/central_controller.cpp.o
+.PHONY : src/central_controller.o
 
 # target to build an object file
-src/lktest.cpp.o:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/lktest.dir/build.make rctestpkg/CMakeFiles/lktest.dir/src/lktest.cpp.o
-.PHONY : src/lktest.cpp.o
+src/central_controller.cpp.o:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/central_controller.dir/build.make rctestpkg/CMakeFiles/central_controller.dir/src/central_controller.cpp.o
+.PHONY : src/central_controller.cpp.o
 
-src/lktest.i: src/lktest.cpp.i
-.PHONY : src/lktest.i
+src/central_controller.i: src/central_controller.cpp.i
+.PHONY : src/central_controller.i
 
 # target to preprocess a source file
-src/lktest.cpp.i:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/lktest.dir/build.make rctestpkg/CMakeFiles/lktest.dir/src/lktest.cpp.i
-.PHONY : src/lktest.cpp.i
+src/central_controller.cpp.i:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/central_controller.dir/build.make rctestpkg/CMakeFiles/central_controller.dir/src/central_controller.cpp.i
+.PHONY : src/central_controller.cpp.i
 
-src/lktest.s: src/lktest.cpp.s
-.PHONY : src/lktest.s
+src/central_controller.s: src/central_controller.cpp.s
+.PHONY : src/central_controller.s
 
 # target to generate assembly for a file
-src/lktest.cpp.s:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/lktest.dir/build.make rctestpkg/CMakeFiles/lktest.dir/src/lktest.cpp.s
-.PHONY : src/lktest.cpp.s
+src/central_controller.cpp.s:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/central_controller.dir/build.make rctestpkg/CMakeFiles/central_controller.dir/src/central_controller.cpp.s
+.PHONY : src/central_controller.cpp.s
+
+src/lkdata.o: src/lkdata.cpp.o
+.PHONY : src/lkdata.o
+
+# target to build an object file
+src/lkdata.cpp.o:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/lkdata.dir/build.make rctestpkg/CMakeFiles/lkdata.dir/src/lkdata.cpp.o
+.PHONY : src/lkdata.cpp.o
+
+src/lkdata.i: src/lkdata.cpp.i
+.PHONY : src/lkdata.i
+
+# target to preprocess a source file
+src/lkdata.cpp.i:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/lkdata.dir/build.make rctestpkg/CMakeFiles/lkdata.dir/src/lkdata.cpp.i
+.PHONY : src/lkdata.cpp.i
+
+src/lkdata.s: src/lkdata.cpp.s
+.PHONY : src/lkdata.s
+
+# target to generate assembly for a file
+src/lkdata.cpp.s:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/lkdata.dir/build.make rctestpkg/CMakeFiles/lkdata.dir/src/lkdata.cpp.s
+.PHONY : src/lkdata.cpp.s
+
+src/lksolver.o: src/lksolver.cpp.o
+.PHONY : src/lksolver.o
+
+# target to build an object file
+src/lksolver.cpp.o:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/lksolver.dir/build.make rctestpkg/CMakeFiles/lksolver.dir/src/lksolver.cpp.o
+.PHONY : src/lksolver.cpp.o
+
+src/lksolver.i: src/lksolver.cpp.i
+.PHONY : src/lksolver.i
+
+# target to preprocess a source file
+src/lksolver.cpp.i:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/lksolver.dir/build.make rctestpkg/CMakeFiles/lksolver.dir/src/lksolver.cpp.i
+.PHONY : src/lksolver.cpp.i
+
+src/lksolver.s: src/lksolver.cpp.s
+.PHONY : src/lksolver.s
+
+# target to generate assembly for a file
+src/lksolver.cpp.s:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/lksolver.dir/build.make rctestpkg/CMakeFiles/lksolver.dir/src/lksolver.cpp.s
+.PHONY : src/lksolver.cpp.s
+
+src/motor.o: src/motor.cpp.o
+.PHONY : src/motor.o
+
+# target to build an object file
+src/motor.cpp.o:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motor.dir/build.make rctestpkg/CMakeFiles/motor.dir/src/motor.cpp.o
+.PHONY : src/motor.cpp.o
+
+src/motor.i: src/motor.cpp.i
+.PHONY : src/motor.i
+
+# target to preprocess a source file
+src/motor.cpp.i:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motor.dir/build.make rctestpkg/CMakeFiles/motor.dir/src/motor.cpp.i
+.PHONY : src/motor.cpp.i
+
+src/motor.s: src/motor.cpp.s
+.PHONY : src/motor.s
+
+# target to generate assembly for a file
+src/motor.cpp.s:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motor.dir/build.make rctestpkg/CMakeFiles/motor.dir/src/motor.cpp.s
+.PHONY : src/motor.cpp.s
 
 src/motorCommand.o: src/motorCommand.cpp.o
 .PHONY : src/motorCommand.o
@@ -1062,54 +1158,6 @@ src/motorCommand.cpp.s:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorCommand.dir/build.make rctestpkg/CMakeFiles/motorCommand.dir/src/motorCommand.cpp.s
 .PHONY : src/motorCommand.cpp.s
 
-src/motorTest.o: src/motorTest.cpp.o
-.PHONY : src/motorTest.o
-
-# target to build an object file
-src/motorTest.cpp.o:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorTest.dir/build.make rctestpkg/CMakeFiles/motorTest.dir/src/motorTest.cpp.o
-.PHONY : src/motorTest.cpp.o
-
-src/motorTest.i: src/motorTest.cpp.i
-.PHONY : src/motorTest.i
-
-# target to preprocess a source file
-src/motorTest.cpp.i:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorTest.dir/build.make rctestpkg/CMakeFiles/motorTest.dir/src/motorTest.cpp.i
-.PHONY : src/motorTest.cpp.i
-
-src/motorTest.s: src/motorTest.cpp.s
-.PHONY : src/motorTest.s
-
-# target to generate assembly for a file
-src/motorTest.cpp.s:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorTest.dir/build.make rctestpkg/CMakeFiles/motorTest.dir/src/motorTest.cpp.s
-.PHONY : src/motorTest.cpp.s
-
-src/motorTestTalker.o: src/motorTestTalker.cpp.o
-.PHONY : src/motorTestTalker.o
-
-# target to build an object file
-src/motorTestTalker.cpp.o:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorTestTalker.dir/build.make rctestpkg/CMakeFiles/motorTestTalker.dir/src/motorTestTalker.cpp.o
-.PHONY : src/motorTestTalker.cpp.o
-
-src/motorTestTalker.i: src/motorTestTalker.cpp.i
-.PHONY : src/motorTestTalker.i
-
-# target to preprocess a source file
-src/motorTestTalker.cpp.i:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorTestTalker.dir/build.make rctestpkg/CMakeFiles/motorTestTalker.dir/src/motorTestTalker.cpp.i
-.PHONY : src/motorTestTalker.cpp.i
-
-src/motorTestTalker.s: src/motorTestTalker.cpp.s
-.PHONY : src/motorTestTalker.s
-
-# target to generate assembly for a file
-src/motorTestTalker.cpp.s:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorTestTalker.dir/build.make rctestpkg/CMakeFiles/motorTestTalker.dir/src/motorTestTalker.cpp.s
-.PHONY : src/motorTestTalker.cpp.s
-
 src/motorTestVelocityMode.o: src/motorTestVelocityMode.cpp.o
 .PHONY : src/motorTestVelocityMode.o
 
@@ -1133,30 +1181,6 @@ src/motorTestVelocityMode.s: src/motorTestVelocityMode.cpp.s
 src/motorTestVelocityMode.cpp.s:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorTestVelocityMode.dir/build.make rctestpkg/CMakeFiles/motorTestVelocityMode.dir/src/motorTestVelocityMode.cpp.s
 .PHONY : src/motorTestVelocityMode.cpp.s
-
-src/mouseTest.o: src/mouseTest.cpp.o
-.PHONY : src/mouseTest.o
-
-# target to build an object file
-src/mouseTest.cpp.o:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/mouseTest.dir/build.make rctestpkg/CMakeFiles/mouseTest.dir/src/mouseTest.cpp.o
-.PHONY : src/mouseTest.cpp.o
-
-src/mouseTest.i: src/mouseTest.cpp.i
-.PHONY : src/mouseTest.i
-
-# target to preprocess a source file
-src/mouseTest.cpp.i:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/mouseTest.dir/build.make rctestpkg/CMakeFiles/mouseTest.dir/src/mouseTest.cpp.i
-.PHONY : src/mouseTest.cpp.i
-
-src/mouseTest.s: src/mouseTest.cpp.s
-.PHONY : src/mouseTest.s
-
-# target to generate assembly for a file
-src/mouseTest.cpp.s:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/mouseTest.dir/build.make rctestpkg/CMakeFiles/mouseTest.dir/src/mouseTest.cpp.s
-.PHONY : src/mouseTest.cpp.s
 
 src/rs232.o: src/rs232.cpp.o
 .PHONY : src/rs232.o
@@ -1230,54 +1254,6 @@ src/servoCommandTest.cpp.s:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/servoCommandTest.dir/build.make rctestpkg/CMakeFiles/servoCommandTest.dir/src/servoCommandTest.cpp.s
 .PHONY : src/servoCommandTest.cpp.s
 
-src/timeListener.o: src/timeListener.cpp.o
-.PHONY : src/timeListener.o
-
-# target to build an object file
-src/timeListener.cpp.o:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/timeListener.dir/build.make rctestpkg/CMakeFiles/timeListener.dir/src/timeListener.cpp.o
-.PHONY : src/timeListener.cpp.o
-
-src/timeListener.i: src/timeListener.cpp.i
-.PHONY : src/timeListener.i
-
-# target to preprocess a source file
-src/timeListener.cpp.i:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/timeListener.dir/build.make rctestpkg/CMakeFiles/timeListener.dir/src/timeListener.cpp.i
-.PHONY : src/timeListener.cpp.i
-
-src/timeListener.s: src/timeListener.cpp.s
-.PHONY : src/timeListener.s
-
-# target to generate assembly for a file
-src/timeListener.cpp.s:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/timeListener.dir/build.make rctestpkg/CMakeFiles/timeListener.dir/src/timeListener.cpp.s
-.PHONY : src/timeListener.cpp.s
-
-src/timeTalker.o: src/timeTalker.cpp.o
-.PHONY : src/timeTalker.o
-
-# target to build an object file
-src/timeTalker.cpp.o:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/timeTalker.dir/build.make rctestpkg/CMakeFiles/timeTalker.dir/src/timeTalker.cpp.o
-.PHONY : src/timeTalker.cpp.o
-
-src/timeTalker.i: src/timeTalker.cpp.i
-.PHONY : src/timeTalker.i
-
-# target to preprocess a source file
-src/timeTalker.cpp.i:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/timeTalker.dir/build.make rctestpkg/CMakeFiles/timeTalker.dir/src/timeTalker.cpp.i
-.PHONY : src/timeTalker.cpp.i
-
-src/timeTalker.s: src/timeTalker.cpp.s
-.PHONY : src/timeTalker.s
-
-# target to generate assembly for a file
-src/timeTalker.cpp.s:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/timeTalker.dir/build.make rctestpkg/CMakeFiles/timeTalker.dir/src/timeTalker.cpp.s
-.PHONY : src/timeTalker.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1285,18 +1261,21 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... CC"
+	@echo "... CC_controller"
+	@echo "... GetCarState"
 	@echo "... IMUtest"
-	@echo "... MultTwoIntsClient"
-	@echo "... MultTwoIntsServer"
+	@echo "... LK_MPC"
 	@echo "... _rctestpkg_generate_messages_check_deps_CarState"
 	@echo "... _rctestpkg_generate_messages_check_deps_IMUdata"
 	@echo "... _rctestpkg_generate_messages_check_deps_LKdata"
 	@echo "... _rctestpkg_generate_messages_check_deps_MPC_CC"
+	@echo "... _rctestpkg_generate_messages_check_deps_MPC_LK"
 	@echo "... _rctestpkg_generate_messages_check_deps_Motor_data"
 	@echo "... _rctestpkg_generate_messages_check_deps_MultTwoInts"
 	@echo "... _rctestpkg_generate_messages_check_deps_TestTalkerMsg"
 	@echo "... _rctestpkg_generate_messages_check_deps_currentTime"
 	@echo "... ccsolver"
+	@echo "... central_controller"
 	@echo "... edit_cache"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_eus"
@@ -1306,12 +1285,11 @@ help:
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
-	@echo "... lktest"
+	@echo "... lkdata"
+	@echo "... lksolver"
+	@echo "... motor"
 	@echo "... motorCommand"
-	@echo "... motorTest"
-	@echo "... motorTestTalker"
 	@echo "... motorTestVelocityMode"
-	@echo "... mouseTest"
 	@echo "... rctestpkg_gencpp"
 	@echo "... rctestpkg_generate_messages"
 	@echo "... rctestpkg_generate_messages_cpp"
@@ -1342,41 +1320,42 @@ help:
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... test"
-	@echo "... timeListener"
-	@echo "... timeTalker"
 	@echo "... src/CC.o"
 	@echo "... src/CC.i"
 	@echo "... src/CC.s"
+	@echo "... src/CC_controller.o"
+	@echo "... src/CC_controller.i"
+	@echo "... src/CC_controller.s"
+	@echo "... src/GetCarState.o"
+	@echo "... src/GetCarState.i"
+	@echo "... src/GetCarState.s"
 	@echo "... src/IMUtest.o"
 	@echo "... src/IMUtest.i"
 	@echo "... src/IMUtest.s"
-	@echo "... src/MultTwoIntsClient.o"
-	@echo "... src/MultTwoIntsClient.i"
-	@echo "... src/MultTwoIntsClient.s"
-	@echo "... src/MultTwoIntsServer.o"
-	@echo "... src/MultTwoIntsServer.i"
-	@echo "... src/MultTwoIntsServer.s"
+	@echo "... src/LK_MPC.o"
+	@echo "... src/LK_MPC.i"
+	@echo "... src/LK_MPC.s"
 	@echo "... src/ccsolver.o"
 	@echo "... src/ccsolver.i"
 	@echo "... src/ccsolver.s"
-	@echo "... src/lktest.o"
-	@echo "... src/lktest.i"
-	@echo "... src/lktest.s"
+	@echo "... src/central_controller.o"
+	@echo "... src/central_controller.i"
+	@echo "... src/central_controller.s"
+	@echo "... src/lkdata.o"
+	@echo "... src/lkdata.i"
+	@echo "... src/lkdata.s"
+	@echo "... src/lksolver.o"
+	@echo "... src/lksolver.i"
+	@echo "... src/lksolver.s"
+	@echo "... src/motor.o"
+	@echo "... src/motor.i"
+	@echo "... src/motor.s"
 	@echo "... src/motorCommand.o"
 	@echo "... src/motorCommand.i"
 	@echo "... src/motorCommand.s"
-	@echo "... src/motorTest.o"
-	@echo "... src/motorTest.i"
-	@echo "... src/motorTest.s"
-	@echo "... src/motorTestTalker.o"
-	@echo "... src/motorTestTalker.i"
-	@echo "... src/motorTestTalker.s"
 	@echo "... src/motorTestVelocityMode.o"
 	@echo "... src/motorTestVelocityMode.i"
 	@echo "... src/motorTestVelocityMode.s"
-	@echo "... src/mouseTest.o"
-	@echo "... src/mouseTest.i"
-	@echo "... src/mouseTest.s"
 	@echo "... src/rs232.o"
 	@echo "... src/rs232.i"
 	@echo "... src/rs232.s"
@@ -1386,12 +1365,6 @@ help:
 	@echo "... src/servoCommandTest.o"
 	@echo "... src/servoCommandTest.i"
 	@echo "... src/servoCommandTest.s"
-	@echo "... src/timeListener.o"
-	@echo "... src/timeListener.i"
-	@echo "... src/timeListener.s"
-	@echo "... src/timeTalker.o"
-	@echo "... src/timeTalker.i"
-	@echo "... src/timeTalker.s"
 .PHONY : help
 
 

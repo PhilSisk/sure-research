@@ -52,9 +52,9 @@
     :initarg :v
     :type cl:float
     :initform 0.0)
-   (phi
-    :reader phi
-    :initarg :phi
+   (psi
+    :reader psi
+    :initarg :psi
     :type cl:float
     :initform 0.0)
    (r
@@ -122,10 +122,10 @@
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader rctestpkg-msg:v-val is deprecated.  Use rctestpkg-msg:v instead.")
   (v m))
 
-(cl:ensure-generic-function 'phi-val :lambda-list '(m))
-(cl:defmethod phi-val ((m <CarState>))
-  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader rctestpkg-msg:phi-val is deprecated.  Use rctestpkg-msg:phi instead.")
-  (phi m))
+(cl:ensure-generic-function 'psi-val :lambda-list '(m))
+(cl:defmethod psi-val ((m <CarState>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader rctestpkg-msg:psi-val is deprecated.  Use rctestpkg-msg:psi instead.")
+  (psi m))
 
 (cl:ensure-generic-function 'r-val :lambda-list '(m))
 (cl:defmethod r-val ((m <CarState>))
@@ -219,7 +219,7 @@
     (cl:write-byte (cl:ldb (cl:byte 8 40) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 48) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 56) bits) ostream))
-  (cl:let ((bits (roslisp-utils:encode-double-float-bits (cl:slot-value msg 'phi))))
+  (cl:let ((bits (roslisp-utils:encode-double-float-bits (cl:slot-value msg 'psi))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
@@ -348,7 +348,7 @@
       (cl:setf (cl:ldb (cl:byte 8 40) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 48) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 56) bits) (cl:read-byte istream))
-    (cl:setf (cl:slot-value msg 'phi) (roslisp-utils:decode-double-float-bits bits)))
+    (cl:setf (cl:slot-value msg 'psi) (roslisp-utils:decode-double-float-bits bits)))
     (cl:let ((bits 0))
       (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
@@ -379,16 +379,16 @@
   "rctestpkg/CarState")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<CarState>)))
   "Returns md5sum for a message object of type '<CarState>"
-  "0b0e5a3f5ddda168d828da3790d8086d")
+  "5c168035e6a7af9bba6d62e824c5dd6a")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'CarState)))
   "Returns md5sum for a message object of type 'CarState"
-  "0b0e5a3f5ddda168d828da3790d8086d")
+  "5c168035e6a7af9bba6d62e824c5dd6a")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<CarState>)))
   "Returns full string definition for message of type '<CarState>"
-  (cl:format cl:nil "float64 time~%float64 x_global~%float64 y_global~%float64 yaw_global~%float64 h~%float64 vl~%float64 u~%float64 y~%float64 v~%float64 phi~%float64 r~%float64 rd~%~%"))
+  (cl:format cl:nil "float64 time~%float64 x_global~%float64 y_global~%float64 yaw_global~%float64 h~%float64 vl~%float64 u~%float64 y~%float64 v~%float64 psi~%float64 r~%float64 rd~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'CarState)))
   "Returns full string definition for message of type 'CarState"
-  (cl:format cl:nil "float64 time~%float64 x_global~%float64 y_global~%float64 yaw_global~%float64 h~%float64 vl~%float64 u~%float64 y~%float64 v~%float64 phi~%float64 r~%float64 rd~%~%"))
+  (cl:format cl:nil "float64 time~%float64 x_global~%float64 y_global~%float64 yaw_global~%float64 h~%float64 vl~%float64 u~%float64 y~%float64 v~%float64 psi~%float64 r~%float64 rd~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <CarState>))
   (cl:+ 0
      8
@@ -416,7 +416,7 @@
     (cl:cons ':u (u msg))
     (cl:cons ':y (y msg))
     (cl:cons ':v (v msg))
-    (cl:cons ':phi (phi msg))
+    (cl:cons ':psi (psi msg))
     (cl:cons ':r (r msg))
     (cl:cons ':rd (rd msg))
 ))

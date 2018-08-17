@@ -17,9 +17,9 @@
     :initarg :vl
     :type cl:float
     :initform 0.0)
-   (phi
-    :reader phi
-    :initarg :phi
+   (psi
+    :reader psi
+    :initarg :psi
     :type cl:float
     :initform 0.0)
    (r
@@ -52,10 +52,10 @@
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader rctestpkg-msg:vl-val is deprecated.  Use rctestpkg-msg:vl instead.")
   (vl m))
 
-(cl:ensure-generic-function 'phi-val :lambda-list '(m))
-(cl:defmethod phi-val ((m <LKdata>))
-  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader rctestpkg-msg:phi-val is deprecated.  Use rctestpkg-msg:phi instead.")
-  (phi m))
+(cl:ensure-generic-function 'psi-val :lambda-list '(m))
+(cl:defmethod psi-val ((m <LKdata>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader rctestpkg-msg:psi-val is deprecated.  Use rctestpkg-msg:psi instead.")
+  (psi m))
 
 (cl:ensure-generic-function 'r-val :lambda-list '(m))
 (cl:defmethod r-val ((m <LKdata>))
@@ -86,7 +86,7 @@
     (cl:write-byte (cl:ldb (cl:byte 8 40) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 48) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 56) bits) ostream))
-  (cl:let ((bits (roslisp-utils:encode-double-float-bits (cl:slot-value msg 'phi))))
+  (cl:let ((bits (roslisp-utils:encode-double-float-bits (cl:slot-value msg 'psi))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
@@ -145,7 +145,7 @@
       (cl:setf (cl:ldb (cl:byte 8 40) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 48) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 56) bits) (cl:read-byte istream))
-    (cl:setf (cl:slot-value msg 'phi) (roslisp-utils:decode-double-float-bits bits)))
+    (cl:setf (cl:slot-value msg 'psi) (roslisp-utils:decode-double-float-bits bits)))
     (cl:let ((bits 0))
       (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
@@ -176,16 +176,16 @@
   "rctestpkg/LKdata")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<LKdata>)))
   "Returns md5sum for a message object of type '<LKdata>"
-  "7e0ad131c0d1bef35b3e8e9fd510b179")
+  "7fc80cf63c748797ea4eb8016f886e03")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'LKdata)))
   "Returns md5sum for a message object of type 'LKdata"
-  "7e0ad131c0d1bef35b3e8e9fd510b179")
+  "7fc80cf63c748797ea4eb8016f886e03")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<LKdata>)))
   "Returns full string definition for message of type '<LKdata>"
-  (cl:format cl:nil "# LK data: includes y-position, lateral velocity, yaw angle, yaw rate, and road curvature~%float64 y~%float64 vl~%float64 phi~%float64 r~%float64 rd~%~%~%"))
+  (cl:format cl:nil "# LK data: includes y-position, lateral velocity, yaw angle, yaw rate, and road curvature~%float64 y~%float64 vl~%float64 psi~%float64 r~%float64 rd~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'LKdata)))
   "Returns full string definition for message of type 'LKdata"
-  (cl:format cl:nil "# LK data: includes y-position, lateral velocity, yaw angle, yaw rate, and road curvature~%float64 y~%float64 vl~%float64 phi~%float64 r~%float64 rd~%~%~%"))
+  (cl:format cl:nil "# LK data: includes y-position, lateral velocity, yaw angle, yaw rate, and road curvature~%float64 y~%float64 vl~%float64 psi~%float64 r~%float64 rd~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <LKdata>))
   (cl:+ 0
      8
@@ -199,7 +199,7 @@
   (cl:list 'LKdata
     (cl:cons ':y (y msg))
     (cl:cons ':vl (vl msg))
-    (cl:cons ':phi (phi msg))
+    (cl:cons ':psi (psi msg))
     (cl:cons ':r (r msg))
     (cl:cons ':rd (rd msg))
 ))

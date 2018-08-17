@@ -9,9 +9,9 @@ Gets yaw rate from IMU data and publishes all lanekeeping data on an LKdata mess
 #include <string>
 #include <sstream>
 #include <cmath>
-#include <sensor_msgs/LaserScan.h>
+#include <sensor_msgs/LaserScan.h>	// rplidar node publishes this message
 #include <rctestpkg/IMUdata.h>  // Yaw rate is grabbed from IMU
-#include <rctestpkg/LKdata.h>	// lanekeeping data is published to this topic
+#include <rctestpkg/LKdata.h>	// lanekeeping data is published to this message
 #include <vector>
 #include <algorithm>		// For trig stuff 
 #include <numeric>		// For std::inner_product
@@ -20,7 +20,7 @@ Gets yaw rate from IMU data and publishes all lanekeeping data on an LKdata mess
 
 #define RANGE_SIZE 40		// Number of scans from rplidar used in calculations
 #define MID_SCAN 270		// scan used as center of calculation (can be calibrated)
-#define NUM_Y 3			// Number of 
+#define NUM_Y 3			// Number of previous y measurements used to calculate lat vel
 
 
 
@@ -37,7 +37,15 @@ private:
 	Eigen::Vector2d x;
 public:
 	butterworth() {
-		x << 0, 0;
+	        x << 0, 0;
+		// Note: making the LPF even more extreme:
+		A << 0.601184806929141, -0.253602759501623,
+			0.253602759501623, 0.959833268871577;
+		B << 0.358648461942437,
+			0.056804335818009;
+		C << 0.089662115485609, 0.692905697207045;
+		D = 0.020083365564211; 
+	/*
 		A << 0.277891050318045, -0.415211971888089,
 			0.415211971888089, 0.865089452221856;
 		B << 0.587198401903811,
@@ -169,7 +177,7 @@ void lanekeeping::calculate_lat_vel() {
 void lanekeeping::create_lk_msg(rctestpkg::LKdata & msg) {
 	msg.y = y;
 	msg.vl = lat_velocity;
-	msg.phi = yaw_angle;
+	msg.psi = yaw_angle;
 	msg.r = yaw_rate;
 	msg.rd = 0;
 }
@@ -210,21 +218,24 @@ void timed_callback(const ros::TimerEvent &) {
 	lk.calculate_lat_vel();
 }
 
+/* END CALLBACK FUNCTIONS */
 
 
 // Main function
 int main(int argc, char **argv) {
-  ros::init(argc, argv, "lk_test");
-  ros::NodeHandle n;
-  ros::Subscriber sub = n.subscribe("IMUchatter", 1000, IMU_callback);
-  ros::Subscriber IMU_sub = n.subscribe("scan", 1000, lk_callback);
-  ros::Timer timer1 = n.createTimer(ros::Duration(0.1), timed_callback);
-  ros::Publisher pub = n.advertise<rctestpkg::LKdata>("lk_data", 1000);
-  while(ros::ok()) {
-    rctestpkg::LKdata msg;
-    lk.create_lk_msg(msg);
-    pub.publish(msg);
-    ros::spinOnce();
-  }
-  return 0;
+	ros::init(argc, argv, "lk_test");
+	ros::NodeHandle n;
+	ros::Subscriber sub = n.subscribe("IMUchatter", 1000, IMU_callback);
+	ros::Subscriber IMU_sub = n.subscribe("scan", 1000, lk_callback);
+	ros::Timer timer1 = n.createTimer(ros::Duration(0.1), timed_callback);
+	ros::Publisher pub = n.advertise<rctestpkg::LKdata>("lk_data", 1000);
+	ros::Rate loop_rate(50);
+	while(ros::ok()) {
+		rctestpkg::LKdata msg;
+		lk.create_lk_msg(msg);
+		pub.publish(msg);
+		ros::spinOnce();
+		loop_rate.sleep();
+	}
+	return 0;
 }

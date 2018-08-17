@@ -7,7 +7,7 @@ import struct
 
 
 class CarState(genpy.Message):
-  _md5sum = "0b0e5a3f5ddda168d828da3790d8086d"
+  _md5sum = "5c168035e6a7af9bba6d62e824c5dd6a"
   _type = "rctestpkg/CarState"
   _has_header = False #flag to mark the presence of a Header object
   _full_text = """float64 time
@@ -19,10 +19,11 @@ float64 vl
 float64 u
 float64 y
 float64 v
-float64 phi
+float64 psi
 float64 r
-float64 rd"""
-  __slots__ = ['time','x_global','y_global','yaw_global','h','vl','u','y','v','phi','r','rd']
+float64 rd
+"""
+  __slots__ = ['time','x_global','y_global','yaw_global','h','vl','u','y','v','psi','r','rd']
   _slot_types = ['float64','float64','float64','float64','float64','float64','float64','float64','float64','float64','float64','float64']
 
   def __init__(self, *args, **kwds):
@@ -33,7 +34,7 @@ float64 rd"""
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       time,x_global,y_global,yaw_global,h,vl,u,y,v,phi,r,rd
+       time,x_global,y_global,yaw_global,h,vl,u,y,v,psi,r,rd
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -60,8 +61,8 @@ float64 rd"""
         self.y = 0.
       if self.v is None:
         self.v = 0.
-      if self.phi is None:
-        self.phi = 0.
+      if self.psi is None:
+        self.psi = 0.
       if self.r is None:
         self.r = 0.
       if self.rd is None:
@@ -76,7 +77,7 @@ float64 rd"""
       self.u = 0.
       self.y = 0.
       self.v = 0.
-      self.phi = 0.
+      self.psi = 0.
       self.r = 0.
       self.rd = 0.
 
@@ -93,7 +94,7 @@ float64 rd"""
     """
     try:
       _x = self
-      buff.write(_struct_12d.pack(_x.time, _x.x_global, _x.y_global, _x.yaw_global, _x.h, _x.vl, _x.u, _x.y, _x.v, _x.phi, _x.r, _x.rd))
+      buff.write(_struct_12d.pack(_x.time, _x.x_global, _x.y_global, _x.yaw_global, _x.h, _x.vl, _x.u, _x.y, _x.v, _x.psi, _x.r, _x.rd))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -107,7 +108,7 @@ float64 rd"""
       _x = self
       start = end
       end += 96
-      (_x.time, _x.x_global, _x.y_global, _x.yaw_global, _x.h, _x.vl, _x.u, _x.y, _x.v, _x.phi, _x.r, _x.rd,) = _struct_12d.unpack(str[start:end])
+      (_x.time, _x.x_global, _x.y_global, _x.yaw_global, _x.h, _x.vl, _x.u, _x.y, _x.v, _x.psi, _x.r, _x.rd,) = _struct_12d.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -121,7 +122,7 @@ float64 rd"""
     """
     try:
       _x = self
-      buff.write(_struct_12d.pack(_x.time, _x.x_global, _x.y_global, _x.yaw_global, _x.h, _x.vl, _x.u, _x.y, _x.v, _x.phi, _x.r, _x.rd))
+      buff.write(_struct_12d.pack(_x.time, _x.x_global, _x.y_global, _x.yaw_global, _x.h, _x.vl, _x.u, _x.y, _x.v, _x.psi, _x.r, _x.rd))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -136,7 +137,7 @@ float64 rd"""
       _x = self
       start = end
       end += 96
-      (_x.time, _x.x_global, _x.y_global, _x.yaw_global, _x.h, _x.vl, _x.u, _x.y, _x.v, _x.phi, _x.r, _x.rd,) = _struct_12d.unpack(str[start:end])
+      (_x.time, _x.x_global, _x.y_global, _x.yaw_global, _x.h, _x.vl, _x.u, _x.y, _x.v, _x.psi, _x.r, _x.rd,) = _struct_12d.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill

@@ -14,21 +14,21 @@
 
 (defclass rctestpkg::LKdata
   :super ros::object
-  :slots (_y _vl _phi _r _rd ))
+  :slots (_y _vl _psi _r _rd ))
 
 (defmethod rctestpkg::LKdata
   (:init
    (&key
     ((:y __y) 0.0)
     ((:vl __vl) 0.0)
-    ((:phi __phi) 0.0)
+    ((:psi __psi) 0.0)
     ((:r __r) 0.0)
     ((:rd __rd) 0.0)
     )
    (send-super :init)
    (setq _y (float __y))
    (setq _vl (float __vl))
-   (setq _phi (float __phi))
+   (setq _psi (float __psi))
    (setq _r (float __r))
    (setq _rd (float __rd))
    self)
@@ -38,9 +38,9 @@
   (:vl
    (&optional __vl)
    (if __vl (setq _vl __vl)) _vl)
-  (:phi
-   (&optional __phi)
-   (if __phi (setq _phi __phi)) _phi)
+  (:psi
+   (&optional __psi)
+   (if __psi (setq _psi __psi)) _psi)
   (:r
    (&optional __r)
    (if __r (setq _r __r)) _r)
@@ -54,7 +54,7 @@
     8
     ;; float64 _vl
     8
-    ;; float64 _phi
+    ;; float64 _psi
     8
     ;; float64 _r
     8
@@ -69,8 +69,8 @@
        (sys::poke _y (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
      ;; float64 _vl
        (sys::poke _vl (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-     ;; float64 _phi
-       (sys::poke _phi (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; float64 _psi
+       (sys::poke _psi (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
      ;; float64 _r
        (sys::poke _r (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
      ;; float64 _rd
@@ -83,8 +83,8 @@
      (setq _y (sys::peek buf ptr- :double)) (incf ptr- 8)
    ;; float64 _vl
      (setq _vl (sys::peek buf ptr- :double)) (incf ptr- 8)
-   ;; float64 _phi
-     (setq _phi (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; float64 _psi
+     (setq _psi (sys::peek buf ptr- :double)) (incf ptr- 8)
    ;; float64 _r
      (setq _r (sys::peek buf ptr- :double)) (incf ptr- 8)
    ;; float64 _rd
@@ -93,13 +93,13 @@
    self)
   )
 
-(setf (get rctestpkg::LKdata :md5sum-) "7e0ad131c0d1bef35b3e8e9fd510b179")
+(setf (get rctestpkg::LKdata :md5sum-) "7fc80cf63c748797ea4eb8016f886e03")
 (setf (get rctestpkg::LKdata :datatype-) "rctestpkg/LKdata")
 (setf (get rctestpkg::LKdata :definition-)
       "# LK data: includes y-position, lateral velocity, yaw angle, yaw rate, and road curvature
 float64 y
 float64 vl
-float64 phi
+float64 psi
 float64 r
 float64 rd
 
@@ -107,6 +107,6 @@ float64 rd
 
 
 
-(provide :rctestpkg/LKdata "7e0ad131c0d1bef35b3e8e9fd510b179")
+(provide :rctestpkg/LKdata "7fc80cf63c748797ea4eb8016f886e03")
 
 

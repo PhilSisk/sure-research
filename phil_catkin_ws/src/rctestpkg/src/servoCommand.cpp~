@@ -11,9 +11,10 @@ http://docs.ros.org/groovy/api/turtlesim/html/teleop__turtle__key_8cpp_source.ht
 #include "ros/ros.h"
 #include <string>
 #include <sstream>
-#include <std_msgs/Float32.h>
-#include <rctestpkg/Motor_data.h>	// Motor command
+#include <std_msgs/Float32.h>		// Motor command
+#include <rctestpkg/Motor_data.h>	// Motor data
 #include <std_msgs/UInt16.h>		// Servo command
+#include <rctestpkg/MPC_CC.h>		// cruise controller
 #include <stdio.h>
 #include <unistd.h>
 #include <iostream>
@@ -25,11 +26,15 @@ http://docs.ros.org/groovy/api/turtlesim/html/teleop__turtle__key_8cpp_source.ht
 #define KEYCODE_U 0x41	// up arrow
 #define KEYCODE_D 0x42	// down arrow
 #define KEYCODE_Q 0x71	// 'Q' key
+#define KEYCODE_C 0x63 	// 'C' key
 
 #define CURRENT		4.0	// Current constant (4.0 AMPS)
 #define STRAIGHT_PWM	1537 	// Number of microseconds per pulse for straight wheels
 #define MAX_PWM 	1837
 #define MIN_PWM		1237
+#define SRV_REQ_VEL 0.5	// cruise control velocity
+#define CPS2V 0.004653	//countPerSecond to velocity
+
 
 // class TeleopCar - defines functions for controlling car via keyboard
 class TeleopCar {
@@ -37,13 +42,20 @@ private:
 	// Private member variables+
 	int kfd; // File descriptor for keyboard input, is equal to stdin = 0
 	const float FWD_CURRENT, RVS_CURRENT;
+	double velocity, cruise_vel;
 	struct termios oldt, newt;
 	ros::NodeHandle n;
+	
 	ros::Publisher command_pub;
 	ros::Publisher servo_pub;
 	std_msgs::Float32 motor_cmd_msg;
 	std_msgs::UInt16 servo_cmd_msg;
 	ros::Rate loop_rate; // Loops at 10 Hz (this isn't currently used)
+
+	ros::ServiceClient cc_client;	// Cruise control service client
+	rctestpkg::MPC_CC cc_srv;	// Cruise control service message
+
+	ros::Subscriber motor_msg_sub;	// Motor data message
 
 
 	// Private member functions
@@ -53,6 +65,8 @@ private:
 	void send_left_cmd();
 	void send_straight_cmd();
 	void send_right_cmd();
+	void call_cc_service();
+	void motor_callback(const rctestpkg::Motor_data::ConstPtr& msg);
 
 	
 public:
@@ -60,6 +74,8 @@ public:
 	TeleopCar() :	kfd(STDIN_FILENO),		// fd for the keyboard (STDIN_FILENO = 0)
 			FWD_CURRENT(CURRENT),		// 3.0 AMPS
 			RVS_CURRENT(-CURRENT),		// -3.0 AMPS
+			velocity(0.0),
+			cruise_vel(0.0),
 			loop_rate(20)			// loop at 20 Hz
 	{
 		// Update keyboard input settings
@@ -74,6 +90,9 @@ public:
 		command_pub = n.advertise<std_msgs::Float32>("Motor_command2", 1);
 		servo_pub = n.advertise<std_msgs::UInt16>("servo", 1);
 		servo_cmd_msg.data = 1537;
+		cc_client = n.serviceClient<rctestpkg::MPC_CC>("MPC_CC2");
+		motor_msg_sub = n.subscribe("Motor_data2", 10, &TeleopCar::motor_callback, this);
+
 
 	}
 	// Destructor
@@ -94,17 +113,24 @@ void TeleopCar::keyLoop() {
 	char c, dummy;
 	int count = 0;	// Keeps track of successive inputs to avoid jerky control
 	bool forward = 0, reverse = 0, left = 0, right = 0;
-	std::cout << "Use the arrow keys to control the car or press .\n";
+	std::cout << "Use the arrow keys to control the car or use Ctrl-C to quit.\n";
+	std::cout << "Press 'c' for cruise control and 's' for manual steering.\n";
+	bool cruise_control = false;
 	while (ros::ok()) {
+		// Spin for callback functions
+		ros::spinOnce();
+		std::cout << "Velocity: " << velocity << std::endl;
 		// Reads one character from the input
-		if (!(read(kfd, &c, 1) > 0)) { 
-			send_stop_cmd();
-			send_straight_cmd();
-			std::cout << "\33[2K\rStop" << std::flush;
-			forward = reverse = false;
-			left = right = false;
-			count = 0;
-			loop_rate.sleep();
+		if (!(read(kfd, &c, 1) > 0)) {
+			if (!cruise_control) {
+				send_stop_cmd();
+				send_straight_cmd();
+				std::cout << "\33[2K\rStop" << std::flush;
+				forward = reverse = false;
+				left = right = false;
+				count = 0;
+				loop_rate.sleep();
+			}
 			continue;
 		}
 		

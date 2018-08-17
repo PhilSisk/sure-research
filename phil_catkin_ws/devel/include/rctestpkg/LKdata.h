@@ -26,14 +26,14 @@ struct LKdata_
   LKdata_()
     : y(0.0)
     , vl(0.0)
-    , phi(0.0)
+    , psi(0.0)
     , r(0.0)
     , rd(0.0)  {
     }
   LKdata_(const ContainerAllocator& _alloc)
     : y(0.0)
     , vl(0.0)
-    , phi(0.0)
+    , psi(0.0)
     , r(0.0)
     , rd(0.0)  {
   (void)_alloc;
@@ -47,8 +47,8 @@ struct LKdata_
    typedef double _vl_type;
   _vl_type vl;
 
-   typedef double _phi_type;
-  _phi_type phi;
+   typedef double _psi_type;
+  _psi_type psi;
 
    typedef double _r_type;
   _r_type r;
@@ -133,12 +133,12 @@ struct MD5Sum< ::rctestpkg::LKdata_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "7e0ad131c0d1bef35b3e8e9fd510b179";
+    return "7fc80cf63c748797ea4eb8016f886e03";
   }
 
   static const char* value(const ::rctestpkg::LKdata_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x7e0ad131c0d1bef3ULL;
-  static const uint64_t static_value2 = 0x5b3e8e9fd510b179ULL;
+  static const uint64_t static_value1 = 0x7fc80cf63c748797ULL;
+  static const uint64_t static_value2 = 0xea4eb8016f886e03ULL;
 };
 
 template<class ContainerAllocator>
@@ -160,7 +160,7 @@ struct Definition< ::rctestpkg::LKdata_<ContainerAllocator> >
     return "# LK data: includes y-position, lateral velocity, yaw angle, yaw rate, and road curvature\n\
 float64 y\n\
 float64 vl\n\
-float64 phi\n\
+float64 psi\n\
 float64 r\n\
 float64 rd\n\
 ";
@@ -183,7 +183,7 @@ namespace serialization
     {
       stream.next(m.y);
       stream.next(m.vl);
-      stream.next(m.phi);
+      stream.next(m.psi);
       stream.next(m.r);
       stream.next(m.rd);
     }
@@ -208,8 +208,8 @@ struct Printer< ::rctestpkg::LKdata_<ContainerAllocator> >
     Printer<double>::stream(s, indent + "  ", v.y);
     s << indent << "vl: ";
     Printer<double>::stream(s, indent + "  ", v.vl);
-    s << indent << "phi: ";
-    Printer<double>::stream(s, indent + "  ", v.phi);
+    s << indent << "psi: ";
+    Printer<double>::stream(s, indent + "  ", v.psi);
     s << indent << "r: ";
     Printer<double>::stream(s, indent + "  ", v.r);
     s << indent << "rd: ";

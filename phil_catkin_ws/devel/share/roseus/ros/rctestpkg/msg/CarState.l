@@ -14,7 +14,7 @@
 
 (defclass rctestpkg::CarState
   :super ros::object
-  :slots (_time _x_global _y_global _yaw_global _h _vl _u _y _v _phi _r _rd ))
+  :slots (_time _x_global _y_global _yaw_global _h _vl _u _y _v _psi _r _rd ))
 
 (defmethod rctestpkg::CarState
   (:init
@@ -28,7 +28,7 @@
     ((:u __u) 0.0)
     ((:y __y) 0.0)
     ((:v __v) 0.0)
-    ((:phi __phi) 0.0)
+    ((:psi __psi) 0.0)
     ((:r __r) 0.0)
     ((:rd __rd) 0.0)
     )
@@ -42,7 +42,7 @@
    (setq _u (float __u))
    (setq _y (float __y))
    (setq _v (float __v))
-   (setq _phi (float __phi))
+   (setq _psi (float __psi))
    (setq _r (float __r))
    (setq _rd (float __rd))
    self)
@@ -73,9 +73,9 @@
   (:v
    (&optional __v)
    (if __v (setq _v __v)) _v)
-  (:phi
-   (&optional __phi)
-   (if __phi (setq _phi __phi)) _phi)
+  (:psi
+   (&optional __psi)
+   (if __psi (setq _psi __psi)) _psi)
   (:r
    (&optional __r)
    (if __r (setq _r __r)) _r)
@@ -103,7 +103,7 @@
     8
     ;; float64 _v
     8
-    ;; float64 _phi
+    ;; float64 _psi
     8
     ;; float64 _r
     8
@@ -132,8 +132,8 @@
        (sys::poke _y (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
      ;; float64 _v
        (sys::poke _v (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-     ;; float64 _phi
-       (sys::poke _phi (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; float64 _psi
+       (sys::poke _psi (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
      ;; float64 _r
        (sys::poke _r (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
      ;; float64 _rd
@@ -160,8 +160,8 @@
      (setq _y (sys::peek buf ptr- :double)) (incf ptr- 8)
    ;; float64 _v
      (setq _v (sys::peek buf ptr- :double)) (incf ptr- 8)
-   ;; float64 _phi
-     (setq _phi (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; float64 _psi
+     (setq _psi (sys::peek buf ptr- :double)) (incf ptr- 8)
    ;; float64 _r
      (setq _r (sys::peek buf ptr- :double)) (incf ptr- 8)
    ;; float64 _rd
@@ -170,7 +170,7 @@
    self)
   )
 
-(setf (get rctestpkg::CarState :md5sum-) "0b0e5a3f5ddda168d828da3790d8086d")
+(setf (get rctestpkg::CarState :md5sum-) "5c168035e6a7af9bba6d62e824c5dd6a")
 (setf (get rctestpkg::CarState :datatype-) "rctestpkg/CarState")
 (setf (get rctestpkg::CarState :definition-)
       "float64 time
@@ -182,13 +182,14 @@ float64 vl
 float64 u
 float64 y
 float64 v
-float64 phi
+float64 psi
 float64 r
 float64 rd
+
 ")
 
 
 
-(provide :rctestpkg/CarState "0b0e5a3f5ddda168d828da3790d8086d")
+(provide :rctestpkg/CarState "5c168035e6a7af9bba6d62e824c5dd6a")
 
 

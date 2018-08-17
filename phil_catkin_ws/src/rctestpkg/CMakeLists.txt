@@ -64,6 +64,7 @@ add_service_files(
    FILES
    MultTwoInts.srv
    MPC_CC.srv
+   MPC_LK.srv
 #   Service1.srv
 #   Service2.srv
 )
@@ -135,6 +136,7 @@ include_directories(
 #   src/${PROJECT_NAME}/rctestpkg.cpp
 add_library(rs232 STATIC src/rs232.cpp)
 add_library(ccsolver STATIC src/ccsolver.cpp)
+add_library(lksolver STATIC src/lksolver.cpp)
 # )
 
 ## Add cmake target dependencies of the library
@@ -210,30 +212,14 @@ add_library(ccsolver STATIC src/ccsolver.cpp)
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-add_executable(MultTwoIntsServer src/MultTwoIntsServer.cpp)
-target_link_libraries(MultTwoIntsServer ${catkin_LIBRARIES})
-add_dependencies(MultTwoIntsServer rctestpkg_generate_messages_cpp)
-
-add_executable(MultTwoIntsClient src/MultTwoIntsClient.cpp)
-target_link_libraries(MultTwoIntsClient ${catkin_LIBRARIES})
-add_dependencies(MultTwoIntsClient rctestpkg_generate_messages_cpp)
-
-add_executable(timeTalker src/timeTalker.cpp)
-target_link_libraries(timeTalker ${catkin_LIBRARIES})
-add_dependencies(timeTalker rctestpkg_generate_messages_cpp)
-
-add_executable(timeListener src/timeListener.cpp)
-target_link_libraries(timeListener ${catkin_LIBRARIES})
-add_dependencies(timeListener rctestpkg_generate_messages_cpp)
-
 add_executable(IMUtest src/IMUtest.cpp)
 target_link_libraries(IMUtest ${catkin_LIBRARIES})
 add_dependencies(IMUtest rctestpkg_generate_messages_cpp)
 
-add_executable(motorTest src/motorTest.cpp)
-add_dependencies(motorTest rctestpkg_generate_messages_cpp)
+add_executable(motor src/motor.cpp)
+add_dependencies(motor rctestpkg_generate_messages_cpp)
 target_link_libraries(rs232 ${catkin_LIBRARIES})
-target_link_libraries(motorTest ${catkin_LIBRARIES} rs232)
+target_link_libraries(motor ${catkin_LIBRARIES} rs232)
 
 add_executable(motorTestVelocityMode src/motorTestVelocityMode.cpp)
 add_dependencies(motorTestVelocityMode rctestpkg_generate_messages_cpp)
@@ -241,24 +227,16 @@ target_link_libraries(rs232 ${catkin_LIBRARIES})
 target_link_libraries(motorTestVelocityMode ${catkin_LIBRARIES} rs232)
 
 
-add_executable(motorTestTalker src/motorTestTalker.cpp)
-target_link_libraries(motorTestTalker ${catkin_LIBRARIES})
-add_dependencies(motorTestTalker rctestpkg_generate_messages_cpp)
-
 find_package(Curses REQUIRED)
 SET(CURSES_USES_NCURSES TRUE)
 
 add_executable(motorCommand src/motorCommand.cpp)
-target_link_libraries(motorCommand ${catkin_LIBRARIES} ${CURSES_LIBRARIES})
+target_link_libraries(motorCommand ${catkin_LIBRARIES})
 add_dependencies(motorCommand rctestpkg_generate_messages_cpp)
 
 add_executable(servoCommandTest src/servoCommandTest.cpp)
 target_link_libraries(servoCommandTest ${catkin_LIBRARIES})
 add_dependencies(servoCommandTest rctestpkg_generate_messages_cpp)
-
-add_executable(mouseTest src/mouseTest.cpp)
-target_link_libraries(mouseTest ${catkin_LIBRARIES})
-add_dependencies(mouseTest rctestpkg_generate_messages_cpp)
 
 add_executable(servoCommand src/servoCommand.cpp)
 target_link_libraries(servoCommand ${catkin_LIBRARIES})
@@ -268,10 +246,28 @@ add_executable(CC src/CC.cpp)
 add_dependencies(CC rctestpkg_generate_messages_cpp)
 target_link_libraries(CC ${catkin_LIBRARIES} ccsolver)
 
-add_executable(lktest src/lktest.cpp)
-add_dependencies(lktest rctestpkg_generate_messages_cpp)
-target_link_libraries(lktest ${catkin_LIBRARIES})
+add_executable(CC_controller src/CC_controller.cpp)
+add_dependencies(CC_controller rctestpkg_generate_messages_cpp)
+target_link_libraries(CC_controller ${catkin_LIBRARIES})
+
+add_executable(lkdata src/lkdata.cpp)
+add_dependencies(lkdata rctestpkg_generate_messages_cpp)
+target_link_libraries(lkdata ${catkin_LIBRARIES})
+
+add_executable(LK_MPC src/LK_MPC.cpp)
+add_dependencies(LK_MPC rctestpkg_generate_messages_cpp)
+target_link_libraries(LK_MPC ${catkin_LIBRARIES} lksolver)
+
+add_executable(GetCarState src/GetCarState.cpp)
+add_dependencies(GetCarState rctestpkg_generate_messages_cpp)
+target_link_libraries(GetCarState ${catkin_LIBRARIES})
+
+add_executable(central_controller src/central_controller.cpp)
+add_dependencies(central_controller rctestpkg_generate_messages_cpp)
+target_link_libraries(central_controller ${catkin_LIBRARIES})
 
 
+catkin_install_python(PROGRAMS src/central_controller.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 

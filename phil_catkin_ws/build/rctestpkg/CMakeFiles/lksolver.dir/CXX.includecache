@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ubuntu/phil_catkin_ws/src/rctestpkg/src/lksolver.cpp
+lksolver.h
+/home/ubuntu/phil_catkin_ws/src/rctestpkg/src/lksolver.h
+time.h
+-
+stdlib.h
+-
+math.h
+-
+
+/home/ubuntu/phil_catkin_ws/src/rctestpkg/src/lksolver.h
+mex.h
+/home/ubuntu/phil_catkin_ws/src/rctestpkg/src/mex.h
+stdio.h
+-
+math.h
+-
+

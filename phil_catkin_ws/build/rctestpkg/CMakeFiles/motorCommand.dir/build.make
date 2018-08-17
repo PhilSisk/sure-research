@@ -101,8 +101,6 @@ motorCommand_EXTERNAL_OBJECTS =
 /home/ubuntu/phil_catkin_ws/devel/lib/rctestpkg/motorCommand: /usr/lib/arm-linux-gnueabihf/libboost_thread.so
 /home/ubuntu/phil_catkin_ws/devel/lib/rctestpkg/motorCommand: /usr/lib/arm-linux-gnueabihf/libpthread.so
 /home/ubuntu/phil_catkin_ws/devel/lib/rctestpkg/motorCommand: /usr/lib/arm-linux-gnueabihf/libconsole_bridge.so
-/home/ubuntu/phil_catkin_ws/devel/lib/rctestpkg/motorCommand: /usr/lib/arm-linux-gnueabihf/libcurses.so
-/home/ubuntu/phil_catkin_ws/devel/lib/rctestpkg/motorCommand: /usr/lib/arm-linux-gnueabihf/libform.so
 /home/ubuntu/phil_catkin_ws/devel/lib/rctestpkg/motorCommand: rctestpkg/CMakeFiles/motorCommand.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/ubuntu/phil_catkin_ws/devel/lib/rctestpkg/motorCommand"
 	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/motorCommand.dir/link.txt --verbose=$(VERBOSE)

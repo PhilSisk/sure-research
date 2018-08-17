@@ -8,6 +8,7 @@ FILE(REMOVE_RECURSE
   "/home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/msg/Motor_data.lisp"
   "/home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv/MultTwoInts.lisp"
   "/home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv/MPC_CC.lisp"
+  "/home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv/MPC_LK.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

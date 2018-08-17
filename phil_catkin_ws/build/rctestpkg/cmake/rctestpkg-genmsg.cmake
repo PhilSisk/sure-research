@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "rctestpkg: 6 messages, 2 services")
+message(STATUS "rctestpkg: 6 messages, 3 services")
 
 set(MSG_I_FLAGS "-Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg;-Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg;-Isensor_msgs:/opt/ros/jade/share/sensor_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/jade/share/geometry_msgs/cmake/../msg")
 
@@ -44,6 +44,11 @@ add_custom_target(_rctestpkg_generate_messages_check_deps_${_filename}
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CarState.msg" NAME_WE)
 add_custom_target(_rctestpkg_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "rctestpkg" "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CarState.msg" ""
+)
+
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_LK.srv" NAME_WE)
+add_custom_target(_rctestpkg_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "rctestpkg" "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_LK.srv" ""
 )
 
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv" NAME_WE)
@@ -112,6 +117,12 @@ _generate_srv_cpp(rctestpkg
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/rctestpkg
 )
+_generate_srv_cpp(rctestpkg
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_LK.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/rctestpkg
+)
 
 ### Generating Module File
 _generate_module_cpp(rctestpkg
@@ -136,6 +147,8 @@ add_dependencies(rctestpkg_generate_messages_cpp _rctestpkg_generate_messages_ch
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/IMUdata.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_cpp _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CarState.msg" NAME_WE)
+add_dependencies(rctestpkg_generate_messages_cpp _rctestpkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_LK.srv" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_cpp _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_cpp _rctestpkg_generate_messages_check_deps_${_filename})
@@ -201,6 +214,12 @@ _generate_srv_eus(rctestpkg
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/rctestpkg
 )
+_generate_srv_eus(rctestpkg
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_LK.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/rctestpkg
+)
 
 ### Generating Module File
 _generate_module_eus(rctestpkg
@@ -225,6 +244,8 @@ add_dependencies(rctestpkg_generate_messages_eus _rctestpkg_generate_messages_ch
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/IMUdata.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_eus _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CarState.msg" NAME_WE)
+add_dependencies(rctestpkg_generate_messages_eus _rctestpkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_LK.srv" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_eus _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_eus _rctestpkg_generate_messages_check_deps_${_filename})
@@ -290,6 +311,12 @@ _generate_srv_lisp(rctestpkg
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/rctestpkg
 )
+_generate_srv_lisp(rctestpkg
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_LK.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/rctestpkg
+)
 
 ### Generating Module File
 _generate_module_lisp(rctestpkg
@@ -314,6 +341,8 @@ add_dependencies(rctestpkg_generate_messages_lisp _rctestpkg_generate_messages_c
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/IMUdata.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_lisp _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CarState.msg" NAME_WE)
+add_dependencies(rctestpkg_generate_messages_lisp _rctestpkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_LK.srv" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_lisp _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_lisp _rctestpkg_generate_messages_check_deps_${_filename})
@@ -379,6 +408,12 @@ _generate_srv_py(rctestpkg
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/rctestpkg
 )
+_generate_srv_py(rctestpkg
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_LK.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/rctestpkg
+)
 
 ### Generating Module File
 _generate_module_py(rctestpkg
@@ -403,6 +438,8 @@ add_dependencies(rctestpkg_generate_messages_py _rctestpkg_generate_messages_che
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/IMUdata.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_py _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CarState.msg" NAME_WE)
+add_dependencies(rctestpkg_generate_messages_py _rctestpkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_LK.srv" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_py _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_py _rctestpkg_generate_messages_check_deps_${_filename})

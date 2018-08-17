@@ -17,8 +17,8 @@
           Y
           V-VAL
           V
-          PHI-VAL
-          PHI
+          PSI-VAL
+          PSI
           R-VAL
           R
           RD-VAL

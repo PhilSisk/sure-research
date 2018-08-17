@@ -8,4 +8,6 @@
     (:file "_package_MPC_CC" :depends-on ("_package"))
     (:file "MultTwoInts" :depends-on ("_package_MultTwoInts"))
     (:file "_package_MultTwoInts" :depends-on ("_package"))
+    (:file "MPC_LK" :depends-on ("_package_MPC_LK"))
+    (:file "_package_MPC_LK" :depends-on ("_package"))
   ))

@@ -13,6 +13,7 @@ http://docs.ros.org/groovy/api/turtlesim/html/teleop__turtle__key_8cpp_source.ht
 #include <sstream>
 #include <std_msgs/Float32.h>
 #include <rctestpkg/Motor_data.h>
+#include "rctestpkg/MPC_CC.h"
 #include <stdio.h>
 #include <unistd.h>
 #include <iostream>
@@ -24,8 +25,11 @@ http://docs.ros.org/groovy/api/turtlesim/html/teleop__turtle__key_8cpp_source.ht
 #define KEYCODE_U 0x41	// up arrow
 #define KEYCODE_D 0x42	// down arrow
 #define KEYCODE_Q 0x71	// 'Q' key
+#define KEYCODE_C 0x63  // 'C' key
 
-#define CURRENT 3.0	// Current constant (3.0 AMPS)
+#define CURRENT 4.0	// Current constant (in amps)
+#define SRV_REQ_VEL 0.2 // cruise control velocity (in m/s)
+#define CPS2V 0.004653	//countPerSecond to velocity
 
 // class TeleopCar - defines functions for controlling car via keyboard
 class TeleopCar {
@@ -33,17 +37,27 @@ private:
 	// Private member variables+
 	int kfd; // File descriptor for keyboard input, is equal to stdin = 0
 	const float FWD_CURRENT, RVS_CURRENT;
+	double velocity, cruise_vel;
 	struct termios oldt, newt;
 	ros::NodeHandle n;
 	ros::Publisher command_pub;
 	std_msgs::Float32 motor_cmd_msg;
-	ros::Rate loop_rate; // Loops at 10 Hz (this isn't currently used)
+	ros::Rate loop_rate; // Loops at 10 Hz
+	rctestpkg::Motor_data motor_data_msg;
+	
+	ros::ServiceClient cc_client;	// Cruise control service client
+	rctestpkg::MPC_CC cc_srv;	// Cruise control service message
+
+	ros::Subscriber motor_msg_sub;
+
 
 
 	// Private member functions
 	void send_forward_cmd();
 	void send_reverse_cmd();
 	void send_stop_cmd();
+	void call_cc_service();
+	void motor_callback(const rctestpkg::Motor_data::ConstPtr& msg);
 
 	
 public:
@@ -51,7 +65,9 @@ public:
 	TeleopCar() :	kfd(STDIN_FILENO),		// fd for the keyboard (STDIN_FILENO = 0)
 			FWD_CURRENT(CURRENT),		// 3.0 AMPS
 			RVS_CURRENT(-CURRENT),		// -3.0 AMPS
-			loop_rate(10)			// loop at 10 Hz (not currently used)
+			velocity(0.0),
+			cruise_vel(0.0),
+			loop_rate(20)			// loop at 10 Hz (not currently used)
 	{
 		// Update keyboard input settings
 		tcgetattr(kfd, &oldt);			// Save old input mode for resetting input
@@ -63,6 +79,8 @@ public:
 
 		// ROS setup
 		command_pub = n.advertise<std_msgs::Float32>("Motor_command2", 1);
+		cc_client = n.serviceClient<rctestpkg::MPC_CC>("MPC_CC2");
+		motor_msg_sub = n.subscribe("Motor_data2", 10, &TeleopCar::motor_callback, this);
 
 	}
 	// Destructor
@@ -81,13 +99,22 @@ void TeleopCar::keyLoop() {
 	char c;
 	int count = 0;	// Keeps track of successive inputs to avoid jerky control
 	bool forward = 0, reverse = 0;
+	bool cruise_control = false;
 	while (ros::ok()) {
+		// Spin for callback functions
+		ros::spinOnce();
+		std::cout << "Velocity: " << velocity << std::endl;
+		if (cruise_control) {
+			call_cc_service();
+		}
 		// Reads one character from the input
 		if (!(read(kfd, &c, 1) > 0)) { 
-			send_stop_cmd();
-			forward = reverse = false;
-			count = 0;
-			//loop_rate.sleep();
+			if (!cruise_control) {
+				send_stop_cmd();
+				forward = reverse = false;
+				count = 0;
+				loop_rate.sleep();
+			}
 			continue;
 		}
 		
@@ -106,45 +133,51 @@ void TeleopCar::keyLoop() {
 		// Parse keyboard input
 		switch(c) {
 
-		/*
-		case KEYCODE_L:
-			break;
-		case KEYCODE_R:
-			break;
-		*/
-		case KEYCODE_U:	// Up arrow pressed
-			if (reverse) {
-				std::cout << "Change to forward\n";
-				reverse = false;
-				count = 0;
+		case KEYCODE_C:
+			if (cruise_control)
+				std::cout << "cruise control off\n";
+			else {
+				std::cout << "cruise control on\n";
+				cruise_vel = velocity;
 			}
-			forward = true;
-			if (count > 2) send_forward_cmd();
-			else { 
-				++count;
-				send_stop_cmd();
+			cruise_control = !cruise_control;
+			break;
+		case KEYCODE_U:	// Up arrow pressed
+			if (!cruise_control) {
+				if (reverse) {
+					std::cout << "Change to forward\n";
+					reverse = false;
+					count = 0;
+				}
+				forward = true;
+				if (count > 2) send_forward_cmd();
+				else { 
+					++count;
+					send_stop_cmd();
+				}
 			}
 			break;
 		case KEYCODE_D: // Down arrow pressed
-			if (forward) {
-				std::cout << "Change to reverse\n";
-				forward = false;
-				count = 0;
-			}
-			reverse = true;
-			if (count > 2) send_reverse_cmd();
-			else { 
-				++count;
-				send_stop_cmd();
+			if (!cruise_control) {
+				if (forward) {
+					std::cout << "Change to reverse\n";
+					forward = false;
+					count = 0;
+				}
+				reverse = true;
+				if (count > 2) send_reverse_cmd();
+				else { 
+					++count;
+					send_stop_cmd();
+				}
 			}
 			break;
 		default: // send stop command if anything else is pressed
-			send_stop_cmd();
-			forward = reverse = false;
+			if (!cruise_control) {
+				send_stop_cmd();
+				forward = reverse = false;
+			}
 		} // switch(c)
-
-		// Spin for callback functions
-		ros::spinOnce();
 	} // while(ros::ok())
 }
 
@@ -167,6 +200,32 @@ void TeleopCar::send_stop_cmd() {
 	motor_cmd_msg.data = 0.0;
 	command_pub.publish(motor_cmd_msg);
 	std::cout << "Stop command sent" << std::endl;
+}
+
+void TeleopCar::call_cc_service() {
+	std::cout << "requesting cruise at " << SRV_REQ_VEL << std::endl;
+
+	cc_srv.request.vr = SRV_REQ_VEL;
+	cc_srv.request.u0 = motor_data_msg.countPerSecond * CPS2V ;
+	cc_srv.request.i0 = motor_data_msg.current;
+	cc_srv.request.wv = 10000;
+	cc_srv.request.wi = 400,
+	cc_srv.request.i_max = 4.5;
+	cc_srv.request.i_min = -3;
+	if (cc_client.call(cc_srv)) {
+		std::cout << "called service; response = " << cc_srv.response.i << std::endl;
+		motor_cmd_msg.data = (float)cc_srv.response.i;
+		command_pub.publish(motor_cmd_msg);
+	}
+
+	else {
+		ROS_ERROR("Failed to call service MPC_CC");
+	}
+}
+
+void TeleopCar::motor_callback(const rctestpkg::Motor_data::ConstPtr& msg) {
+	velocity = msg->countPerSecond * CPS2V;
+	motor_data_msg = *msg;
 }
 
 

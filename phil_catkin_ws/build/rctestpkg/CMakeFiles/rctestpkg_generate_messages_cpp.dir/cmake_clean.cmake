@@ -8,6 +8,7 @@ FILE(REMOVE_RECURSE
   "/home/ubuntu/phil_catkin_ws/devel/include/rctestpkg/Motor_data.h"
   "/home/ubuntu/phil_catkin_ws/devel/include/rctestpkg/MultTwoInts.h"
   "/home/ubuntu/phil_catkin_ws/devel/include/rctestpkg/MPC_CC.h"
+  "/home/ubuntu/phil_catkin_ws/devel/include/rctestpkg/MPC_LK.h"
 )
 
 # Per-language clean rules from dependency scanning.
