@@ -212,9 +212,9 @@ add_library(lksolver STATIC src/lksolver.cpp)
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-add_executable(IMUtest src/IMUtest.cpp)
-target_link_libraries(IMUtest ${catkin_LIBRARIES})
-add_dependencies(IMUtest rctestpkg_generate_messages_cpp)
+add_executable(IMU src/IMU.cpp)
+target_link_libraries(IMU ${catkin_LIBRARIES})
+add_dependencies(IMU rctestpkg_generate_messages_cpp)
 
 add_executable(motor src/motor.cpp)
 add_dependencies(motor rctestpkg_generate_messages_cpp)
@@ -261,7 +261,9 @@ add_dependencies(central_controller rctestpkg_generate_messages_cpp)
 target_link_libraries(central_controller ${catkin_LIBRARIES})
 
 
-catkin_install_python(PROGRAMS src/central_controller.py
+catkin_install_python(
+  PROGRAMS
+  src/central_controller.py
+  src/matrix_test.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
-
 

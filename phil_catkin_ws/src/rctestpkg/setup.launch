@@ -1,6 +1,6 @@
 <launch>
   <node name="arduino_interface2" pkg="rosserial_python" type="serial_node.py" args="_port:=/dev/arduino _baud:=57600" />
-  <node name="IMUtest2" pkg="rctestpkg" type="IMUtest"/>
+  <node name="IMU" pkg="rctestpkg" type="IMU"/>
 
   <node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="screen">
   <param name="serial_port"         type="string" value="/dev/ttyUSB0"/>  
@@ -15,7 +15,7 @@
   <node name="getCarState2" pkg="rctestpkg" type="GetCarState" />
   <node name="CC_MPC2" pkg="rctestpkg" type="CC" />
   <node name="LK_MPC2" pkg="rctestpkg" type="LK_MPC" />
-  <node name="central_controller" pkg="rctestpkg" type="central_controller.py" />
+  <node name="central_controller" pkg="rctestpkg" type="central_controller" />
   <node name="motorCommand2" pkg="rctestpkg" type="motorCommand" output="screen" launch-prefix="gnome-terminal --command"/>  
 
 </launch>

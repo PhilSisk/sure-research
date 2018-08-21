@@ -907,17 +907,17 @@ GetCarState/fast:
 .PHONY : GetCarState/fast
 
 #=============================================================================
-# Target rules for targets named IMUtest
+# Target rules for targets named IMU
 
 # Build rule for target.
-IMUtest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 IMUtest
-.PHONY : IMUtest
+IMU: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 IMU
+.PHONY : IMU
 
 # fast build rule for target.
-IMUtest/fast:
-	$(MAKE) -f rctestpkg/CMakeFiles/IMUtest.dir/build.make rctestpkg/CMakeFiles/IMUtest.dir/build
-.PHONY : IMUtest/fast
+IMU/fast:
+	$(MAKE) -f rctestpkg/CMakeFiles/IMU.dir/build.make rctestpkg/CMakeFiles/IMU.dir/build
+.PHONY : IMU/fast
 
 #=============================================================================
 # Target rules for targets named LK_MPC
@@ -1978,7 +1978,7 @@ help:
 	@echo "... CC"
 	@echo "... CC_controller"
 	@echo "... GetCarState"
-	@echo "... IMUtest"
+	@echo "... IMU"
 	@echo "... LK_MPC"
 	@echo "... _rctestpkg_generate_messages_check_deps_CarState"
 	@echo "... _rctestpkg_generate_messages_check_deps_IMUdata"

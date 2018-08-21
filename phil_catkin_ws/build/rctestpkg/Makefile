@@ -195,18 +195,18 @@ GetCarState/fast:
 .PHONY : GetCarState/fast
 
 # Convenience name for target.
-rctestpkg/CMakeFiles/IMUtest.dir/rule:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/IMUtest.dir/rule
-.PHONY : rctestpkg/CMakeFiles/IMUtest.dir/rule
+rctestpkg/CMakeFiles/IMU.dir/rule:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/IMU.dir/rule
+.PHONY : rctestpkg/CMakeFiles/IMU.dir/rule
 
 # Convenience name for target.
-IMUtest: rctestpkg/CMakeFiles/IMUtest.dir/rule
-.PHONY : IMUtest
+IMU: rctestpkg/CMakeFiles/IMU.dir/rule
+.PHONY : IMU
 
 # fast build rule for target.
-IMUtest/fast:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/IMUtest.dir/build.make rctestpkg/CMakeFiles/IMUtest.dir/build
-.PHONY : IMUtest/fast
+IMU/fast:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/IMU.dir/build.make rctestpkg/CMakeFiles/IMU.dir/build
+.PHONY : IMU/fast
 
 # Convenience name for target.
 rctestpkg/CMakeFiles/LK_MPC.dir/rule:
@@ -952,29 +952,29 @@ src/GetCarState.cpp.s:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/GetCarState.dir/build.make rctestpkg/CMakeFiles/GetCarState.dir/src/GetCarState.cpp.s
 .PHONY : src/GetCarState.cpp.s
 
-src/IMUtest.o: src/IMUtest.cpp.o
-.PHONY : src/IMUtest.o
+src/IMU.o: src/IMU.cpp.o
+.PHONY : src/IMU.o
 
 # target to build an object file
-src/IMUtest.cpp.o:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/IMUtest.dir/build.make rctestpkg/CMakeFiles/IMUtest.dir/src/IMUtest.cpp.o
-.PHONY : src/IMUtest.cpp.o
+src/IMU.cpp.o:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/IMU.dir/build.make rctestpkg/CMakeFiles/IMU.dir/src/IMU.cpp.o
+.PHONY : src/IMU.cpp.o
 
-src/IMUtest.i: src/IMUtest.cpp.i
-.PHONY : src/IMUtest.i
+src/IMU.i: src/IMU.cpp.i
+.PHONY : src/IMU.i
 
 # target to preprocess a source file
-src/IMUtest.cpp.i:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/IMUtest.dir/build.make rctestpkg/CMakeFiles/IMUtest.dir/src/IMUtest.cpp.i
-.PHONY : src/IMUtest.cpp.i
+src/IMU.cpp.i:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/IMU.dir/build.make rctestpkg/CMakeFiles/IMU.dir/src/IMU.cpp.i
+.PHONY : src/IMU.cpp.i
 
-src/IMUtest.s: src/IMUtest.cpp.s
-.PHONY : src/IMUtest.s
+src/IMU.s: src/IMU.cpp.s
+.PHONY : src/IMU.s
 
 # target to generate assembly for a file
-src/IMUtest.cpp.s:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/IMUtest.dir/build.make rctestpkg/CMakeFiles/IMUtest.dir/src/IMUtest.cpp.s
-.PHONY : src/IMUtest.cpp.s
+src/IMU.cpp.s:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/IMU.dir/build.make rctestpkg/CMakeFiles/IMU.dir/src/IMU.cpp.s
+.PHONY : src/IMU.cpp.s
 
 src/LK_MPC.o: src/LK_MPC.cpp.o
 .PHONY : src/LK_MPC.o
@@ -1225,7 +1225,7 @@ help:
 	@echo "... CC"
 	@echo "... CC_controller"
 	@echo "... GetCarState"
-	@echo "... IMUtest"
+	@echo "... IMU"
 	@echo "... LK_MPC"
 	@echo "... _rctestpkg_generate_messages_check_deps_CarState"
 	@echo "... _rctestpkg_generate_messages_check_deps_IMUdata"
@@ -1290,9 +1290,9 @@ help:
 	@echo "... src/GetCarState.o"
 	@echo "... src/GetCarState.i"
 	@echo "... src/GetCarState.s"
-	@echo "... src/IMUtest.o"
-	@echo "... src/IMUtest.i"
-	@echo "... src/IMUtest.s"
+	@echo "... src/IMU.o"
+	@echo "... src/IMU.i"
+	@echo "... src/IMU.s"
 	@echo "... src/LK_MPC.o"
 	@echo "... src/LK_MPC.i"
 	@echo "... src/LK_MPC.s"

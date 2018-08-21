@@ -26,7 +26,6 @@ def CarState_callback(data):
     psi = data.psi
     r = data.r
     rd = data.rd
-    print "u: ", u
 
 def Control_callback(data):
     global manual_steer, right_lane, manual_v, stop, command_v
@@ -73,7 +72,8 @@ servoMsg.data = SERVOMID
 rate = rospy.Rate(10.0)
 
 while not rospy.is_shutdown():
-	u_current = u
+	rate.sleep()
+	u_current = 0.5
 	if u_current > 0.1:
 		print "start LK"
 		rospy.wait_for_service('MPC_LK2', 0.1)
@@ -87,12 +87,13 @@ while not rospy.is_shutdown():
 			wy,wv,wp,wr,ws = 100.0, 10.0, 50.0, 30.0, 10.0
 			y_max,y_min,v_max,p_max,r_max,s_max = 0.8,-0.8,0.5,50.0/180.0*np.pi,20.0/180.0*np.pi,15.0/180.0*np.pi
 			A,B,E = getLatDynMat(u_current)
+			print A
+			print B
+			print E
 			rd = tuple(np.zeros((21,), dtype = np.float64))
 			resp = MPC_LK_compute(y0,v0,p0,r0,s0,wy,wv,wp,wr,ws,y_max,y_min,v_max,p_max,r_max,s_max,A,B,E,rd)
 			servoMsg.data = SERVOMID + int(resp.s/servoRatio)
 			print "Computed steer: ", int(resp.s/servoRatio)
 			servo_pub.publish(servoMsg)
 		except rospy.ServiceException, e:
-		    print "Service call failed for LK: %s"%e
-
-	rate.sleep()
+			print "Service call failed for LK: %s"%e

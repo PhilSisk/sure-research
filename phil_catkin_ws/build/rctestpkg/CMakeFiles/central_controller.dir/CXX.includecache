@@ -95,6 +95,10 @@ rctestpkg/MPC_LK.h
 -
 rctestpkg/CarState.h
 -
+eigen3/Eigen/Dense
+-
+vector
+-
 
 /opt/ros/jade/include/XmlRpcDecl.h
 ros/macros.h
