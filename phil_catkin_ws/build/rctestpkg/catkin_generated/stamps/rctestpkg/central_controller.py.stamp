@@ -51,7 +51,7 @@ prev_i = 0.0
 prev_s = 0.0
 servoRatio = 8.9479e-04
 SERVOMID = 1537
-LANEWIDTH = 0.3
+LANEWIDTH = 0.6
 VMAX = 0.5
 
 manual_steer = True

@@ -53,7 +53,6 @@
 /home/ubuntu/phil_catkin_ws/build/rctestpkg/CMakeFiles/lksolver.dir
 /home/ubuntu/phil_catkin_ws/build/rctestpkg/CMakeFiles/motor.dir
 /home/ubuntu/phil_catkin_ws/build/rctestpkg/CMakeFiles/motorCommand.dir
-/home/ubuntu/phil_catkin_ws/build/rctestpkg/CMakeFiles/motorTestVelocityMode.dir
 /home/ubuntu/phil_catkin_ws/build/rosserial/rosserial_windows/CMakeFiles/nav_msgs_generate_messages_cpp.dir
 /home/ubuntu/phil_catkin_ws/build/rosserial/rosserial_windows/CMakeFiles/nav_msgs_generate_messages_eus.dir
 /home/ubuntu/phil_catkin_ws/build/rosserial/rosserial_windows/CMakeFiles/nav_msgs_generate_messages_lisp.dir

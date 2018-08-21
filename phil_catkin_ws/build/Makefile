@@ -1180,19 +1180,6 @@ motorCommand/fast:
 .PHONY : motorCommand/fast
 
 #=============================================================================
-# Target rules for targets named motorTestVelocityMode
-
-# Build rule for target.
-motorTestVelocityMode: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 motorTestVelocityMode
-.PHONY : motorTestVelocityMode
-
-# fast build rule for target.
-motorTestVelocityMode/fast:
-	$(MAKE) -f rctestpkg/CMakeFiles/motorTestVelocityMode.dir/build.make rctestpkg/CMakeFiles/motorTestVelocityMode.dir/build
-.PHONY : motorTestVelocityMode/fast
-
-#=============================================================================
 # Target rules for targets named rctestpkg_gencpp
 
 # Build rule for target.
@@ -2012,7 +1999,6 @@ help:
 	@echo "... lksolver"
 	@echo "... motor"
 	@echo "... motorCommand"
-	@echo "... motorTestVelocityMode"
 	@echo "... rctestpkg_gencpp"
 	@echo "... rctestpkg_generate_messages"
 	@echo "... rctestpkg_generate_messages_cpp"

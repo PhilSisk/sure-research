@@ -221,12 +221,6 @@ add_dependencies(motor rctestpkg_generate_messages_cpp)
 target_link_libraries(rs232 ${catkin_LIBRARIES})
 target_link_libraries(motor ${catkin_LIBRARIES} rs232)
 
-add_executable(motorTestVelocityMode src/motorTestVelocityMode.cpp)
-add_dependencies(motorTestVelocityMode rctestpkg_generate_messages_cpp)
-target_link_libraries(rs232 ${catkin_LIBRARIES})
-target_link_libraries(motorTestVelocityMode ${catkin_LIBRARIES} rs232)
-
-
 find_package(Curses REQUIRED)
 SET(CURSES_USES_NCURSES TRUE)
 

@@ -489,20 +489,6 @@ motorCommand/fast:
 .PHONY : motorCommand/fast
 
 # Convenience name for target.
-rctestpkg/CMakeFiles/motorTestVelocityMode.dir/rule:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/motorTestVelocityMode.dir/rule
-.PHONY : rctestpkg/CMakeFiles/motorTestVelocityMode.dir/rule
-
-# Convenience name for target.
-motorTestVelocityMode: rctestpkg/CMakeFiles/motorTestVelocityMode.dir/rule
-.PHONY : motorTestVelocityMode
-
-# fast build rule for target.
-motorTestVelocityMode/fast:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorTestVelocityMode.dir/build.make rctestpkg/CMakeFiles/motorTestVelocityMode.dir/build
-.PHONY : motorTestVelocityMode/fast
-
-# Convenience name for target.
 rctestpkg/CMakeFiles/rctestpkg_gencpp.dir/rule:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/rctestpkg_gencpp.dir/rule
 .PHONY : rctestpkg/CMakeFiles/rctestpkg_gencpp.dir/rule
@@ -1158,30 +1144,6 @@ src/motorCommand.cpp.s:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorCommand.dir/build.make rctestpkg/CMakeFiles/motorCommand.dir/src/motorCommand.cpp.s
 .PHONY : src/motorCommand.cpp.s
 
-src/motorTestVelocityMode.o: src/motorTestVelocityMode.cpp.o
-.PHONY : src/motorTestVelocityMode.o
-
-# target to build an object file
-src/motorTestVelocityMode.cpp.o:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorTestVelocityMode.dir/build.make rctestpkg/CMakeFiles/motorTestVelocityMode.dir/src/motorTestVelocityMode.cpp.o
-.PHONY : src/motorTestVelocityMode.cpp.o
-
-src/motorTestVelocityMode.i: src/motorTestVelocityMode.cpp.i
-.PHONY : src/motorTestVelocityMode.i
-
-# target to preprocess a source file
-src/motorTestVelocityMode.cpp.i:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorTestVelocityMode.dir/build.make rctestpkg/CMakeFiles/motorTestVelocityMode.dir/src/motorTestVelocityMode.cpp.i
-.PHONY : src/motorTestVelocityMode.cpp.i
-
-src/motorTestVelocityMode.s: src/motorTestVelocityMode.cpp.s
-.PHONY : src/motorTestVelocityMode.s
-
-# target to generate assembly for a file
-src/motorTestVelocityMode.cpp.s:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorTestVelocityMode.dir/build.make rctestpkg/CMakeFiles/motorTestVelocityMode.dir/src/motorTestVelocityMode.cpp.s
-.PHONY : src/motorTestVelocityMode.cpp.s
-
 src/rs232.o: src/rs232.cpp.o
 .PHONY : src/rs232.o
 
@@ -1289,7 +1251,6 @@ help:
 	@echo "... lksolver"
 	@echo "... motor"
 	@echo "... motorCommand"
-	@echo "... motorTestVelocityMode"
 	@echo "... rctestpkg_gencpp"
 	@echo "... rctestpkg_generate_messages"
 	@echo "... rctestpkg_generate_messages_cpp"
@@ -1353,9 +1314,6 @@ help:
 	@echo "... src/motorCommand.o"
 	@echo "... src/motorCommand.i"
 	@echo "... src/motorCommand.s"
-	@echo "... src/motorTestVelocityMode.o"
-	@echo "... src/motorTestVelocityMode.i"
-	@echo "... src/motorTestVelocityMode.s"
 	@echo "... src/rs232.o"
 	@echo "... src/rs232.i"
 	@echo "... src/rs232.s"
