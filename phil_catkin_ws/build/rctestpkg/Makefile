@@ -349,6 +349,20 @@ _rctestpkg_generate_messages_check_deps_currentTime/fast:
 .PHONY : _rctestpkg_generate_messages_check_deps_currentTime/fast
 
 # Convenience name for target.
+rctestpkg/CMakeFiles/calculate_headway.dir/rule:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/calculate_headway.dir/rule
+.PHONY : rctestpkg/CMakeFiles/calculate_headway.dir/rule
+
+# Convenience name for target.
+calculate_headway: rctestpkg/CMakeFiles/calculate_headway.dir/rule
+.PHONY : calculate_headway
+
+# fast build rule for target.
+calculate_headway/fast:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/calculate_headway.dir/build.make rctestpkg/CMakeFiles/calculate_headway.dir/build
+.PHONY : calculate_headway/fast
+
+# Convenience name for target.
 rctestpkg/CMakeFiles/ccsolver.dir/rule:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/ccsolver.dir/rule
 .PHONY : rctestpkg/CMakeFiles/ccsolver.dir/rule
@@ -1000,6 +1014,30 @@ src/LK_MPC.cpp.s:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/LK_MPC.dir/build.make rctestpkg/CMakeFiles/LK_MPC.dir/src/LK_MPC.cpp.s
 .PHONY : src/LK_MPC.cpp.s
 
+src/calculate_headway.o: src/calculate_headway.cpp.o
+.PHONY : src/calculate_headway.o
+
+# target to build an object file
+src/calculate_headway.cpp.o:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/calculate_headway.dir/build.make rctestpkg/CMakeFiles/calculate_headway.dir/src/calculate_headway.cpp.o
+.PHONY : src/calculate_headway.cpp.o
+
+src/calculate_headway.i: src/calculate_headway.cpp.i
+.PHONY : src/calculate_headway.i
+
+# target to preprocess a source file
+src/calculate_headway.cpp.i:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/calculate_headway.dir/build.make rctestpkg/CMakeFiles/calculate_headway.dir/src/calculate_headway.cpp.i
+.PHONY : src/calculate_headway.cpp.i
+
+src/calculate_headway.s: src/calculate_headway.cpp.s
+.PHONY : src/calculate_headway.s
+
+# target to generate assembly for a file
+src/calculate_headway.cpp.s:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/calculate_headway.dir/build.make rctestpkg/CMakeFiles/calculate_headway.dir/src/calculate_headway.cpp.s
+.PHONY : src/calculate_headway.cpp.s
+
 src/ccsolver.o: src/ccsolver.cpp.o
 .PHONY : src/ccsolver.o
 
@@ -1236,6 +1274,7 @@ help:
 	@echo "... _rctestpkg_generate_messages_check_deps_MultTwoInts"
 	@echo "... _rctestpkg_generate_messages_check_deps_TestTalkerMsg"
 	@echo "... _rctestpkg_generate_messages_check_deps_currentTime"
+	@echo "... calculate_headway"
 	@echo "... ccsolver"
 	@echo "... central_controller"
 	@echo "... edit_cache"
@@ -1296,6 +1335,9 @@ help:
 	@echo "... src/LK_MPC.o"
 	@echo "... src/LK_MPC.i"
 	@echo "... src/LK_MPC.s"
+	@echo "... src/calculate_headway.o"
+	@echo "... src/calculate_headway.i"
+	@echo "... src/calculate_headway.s"
 	@echo "... src/ccsolver.o"
 	@echo "... src/ccsolver.i"
 	@echo "... src/ccsolver.s"

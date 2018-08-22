@@ -260,10 +260,13 @@ add_executable(central_controller src/central_controller.cpp)
 add_dependencies(central_controller rctestpkg_generate_messages_cpp)
 target_link_libraries(central_controller ${catkin_LIBRARIES})
 
+add_executable(calculate_headway src/central_controller.cpp)
+add_dependencies(central_controller rctestpkg_generate_messages_cpp)
+target_link_libraries(central_controller ${catkin_LIBRARIES})
 
 catkin_install_python(
-   PROGRAMS
-   src/central_controller.py
-   src/matrix_test.py
+  PROGRAMS
+  src/central_controller.py
+  src/matrix_test.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 

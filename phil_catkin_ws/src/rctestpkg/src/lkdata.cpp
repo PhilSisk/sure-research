@@ -82,11 +82,13 @@ private:
 			lat_velocity,
 			yaw_rate,
 			road_disturbance;
-	std::deque<float> y_deque;
+	std::deque<float>	y_deque,
+				yaw_deque;
 	butterworth yaw_angle_filt, road_disturb_filt;
 	
 	// Private helper function
 	float calculate_angle(const std::vector<float> & x_vec, const std::vector<float> & y_vec);
+
 public:
 	lkdata() : range_size(RANGE_SIZE), middle_of_scan(MID_SCAN), distance(0),
 			yaw_angle(0), y(0), lat_velocity(0), yaw_rate(0) {
@@ -96,13 +98,37 @@ public:
 		y_index = 0;
 		road_disturbance = 0;
 	}
+	
+	// Function declarations
 	float calculate_yaw_angle(const sensor_msgs::LaserScan::ConstPtr& msg);
 	void calculate_distance(const sensor_msgs::LaserScan::ConstPtr& msg);
 	void calculate_lat_vel();
+	void calculate_yaw_rate();
 	void set_yaw_rate(float y_r) { yaw_rate = y_r; }
 	void calculate_disturbance(const sensor_msgs::LaserScan::ConstPtr& msg);
 	void create_lk_msg(rctestpkg::LKdata& msg);
 	void print();
+
+
+	/* CALLBACK FUNCTIONS */
+
+	void lk_callback(const sensor_msgs::LaserScan::ConstPtr& msg) {
+		calculate_yaw_angle(msg);
+		print();
+	}
+
+	void IMU_callback(const rctestpkg::IMUdata::ConstPtr &msg) {
+		float y_r = (float)msg->gz;
+		//set_yaw_rate(y_r);		// Currently not using IMU yaw rate due to noise
+	}
+
+	// A timed callback is used to ensure accuracy in calculating lateral velocity
+	void timed_callback(const ros::TimerEvent &) {
+		calculate_lat_vel();
+		calculate_yaw_rate();
+	}
+	
+	/* END CALLBACK FUNCTIONS */
 };
 
 // This function calculates the vehicle's yaw in radians based on the distance to the wall to
@@ -150,7 +176,6 @@ float lkdata::calculate_yaw_angle(const sensor_msgs::LaserScan::ConstPtr& msg) {
 		std::cout << "back_angle: " << back_angle / 3.1415 * 180 << std::endl;
 		std::cout << "front_angle: " << front_angle / 3.1415 * 180 << std::endl;
 		road_disturbance = road_disturb_filt.filt(back_angle- front_angle);
-			
 	}
 	return yaw_angle;
 }
@@ -178,6 +203,8 @@ void lkdata::calculate_distance(const sensor_msgs::LaserScan::ConstPtr& msg) {
 	distance = running_sum/count;
 }
 
+// Calculates the car's lateral velocity as the slope of the last NUM_Y y position
+// readings versus time.
 void lkdata::calculate_lat_vel() {
 	y_deque.push_back(y);
 	if (y_deque.size() >= NUM_Y) {
@@ -199,6 +226,29 @@ void lkdata::calculate_lat_vel() {
 	
 }
 
+// Calculates the car's yaw rate as the slope of the last NUM_Y yaw angle
+// readings versus time.
+void lkdata::calculate_yaw_rate() {
+	yaw_deque.push_back(yaw_angle);
+	if (yaw_deque.size() > 2) {
+		yaw_deque.pop_front();
+	}	
+	std::vector<float> t(yaw_deque.size());
+	float x = 0.0;
+	for (unsigned int i = 0; i < t.size(); ++i) {
+		t[i] = x;
+		x += 0.1;
+	}
+	float n = float(t.size());
+	float s_x = std::accumulate(t.begin(), t.end(), 0.0);
+	float s_y = std::accumulate(yaw_deque.begin(), yaw_deque.end(), 0.0);
+	float s_xx = std::inner_product(t.begin(), t.end(), t.begin(), 0.0);
+	float s_xy = std::inner_product(t.begin(), t.end(), yaw_deque.begin(), 0.0);
+	float slope = (n * s_xy - s_x * s_y) / (n * s_xx - s_x * s_x);
+	yaw_rate = slope;
+	
+}
+
 // Packs lk data into an LKdata message
 void lkdata::create_lk_msg(rctestpkg::LKdata & msg) {
 	msg.y = y;
@@ -210,13 +260,12 @@ void lkdata::create_lk_msg(rctestpkg::LKdata & msg) {
 
 // Prints lk data to the screen
 void lkdata::print() {
-	std::cout << "distance to wall: " << y << " meters" << std::endl;
-	std::cout << "yaw_angle:        " << yaw_angle / 3.1415 * 180 << " degrees" << std::endl;
-	std::cout << "lateral velocity: " << lat_velocity << " m/s" << std::endl;
-	std::cout << "yaw_rate:         " << yaw_rate << " rad/s" << std::endl;
-	std::cout << "road_disturbance: " << road_disturbance / 3.1415 * 180 << " degrees";
-
-	std::cout << std::endl << std::endl;
+	std::cout << "distance to wall: " << y << " meters" << std::endl
+		<< "yaw_angle:        " << yaw_angle / 3.1415 * 180 << " degrees" << std::endl
+		<< "lateral velocity: " << lat_velocity << " m/s" << std::endl
+		<< "yaw_rate:         " << yaw_rate / 3.1415 * 180 << " degrees/s" << std::endl
+		<< "road_disturbance: " << road_disturbance / 3.1415 * 180 << " degrees"
+		<< std::endl << std::endl;
 }
 
 // Uses linear regression to calculate an angle given a set of laser scan points in cartesian
@@ -231,52 +280,25 @@ float lkdata::calculate_angle(const std::vector<float> & x_vec, const std::vecto
 	return -atan(slope);
 }
 
-
 /* END lkdata CLASS DEFINITION */
-
-
-
-// The lkdata object is globally defined due to ROS's wonky callback functions
-lkdata lk;
-
-
-
-
-/* CALLBACK FUNCTIONS */
-
-void lk_callback(const sensor_msgs::LaserScan::ConstPtr& msg) {
-	lk.calculate_yaw_angle(msg);
-	lk.print();
-}
-
-void IMU_callback(const rctestpkg::IMUdata::ConstPtr &msg) {
-	float y_r = (float)msg->gz;
-	lk.set_yaw_rate(y_r);
-}
-
-// A timed callback is used to ensure accuracy in calculating the lateral velocity
-void timed_callback(const ros::TimerEvent &) {
-	lk.calculate_lat_vel();
-}
-
-/* END CALLBACK FUNCTIONS */
 
 
 // Main function
 int main(int argc, char **argv) {
 	ros::init(argc, argv, "lkdata");
 	ros::NodeHandle n;
-	ros::Subscriber sub = n.subscribe("IMUchatter", 1000, IMU_callback);
-	ros::Subscriber IMU_sub = n.subscribe("scan", 1000, lk_callback);
-	ros::Timer timer1 = n.createTimer(ros::Duration(0.1), timed_callback);
+	lkdata lk;
+	ros::Subscriber sub = n.subscribe("IMUchatter", 1000, &lkdata::IMU_callback, &lk);
+	ros::Subscriber IMU_sub = n.subscribe("scan", 1000, &lkdata::lk_callback, &lk);
+	ros::Timer timer1 = n.createTimer(ros::Duration(0.1), &lkdata::timed_callback, &lk);
 	ros::Publisher pub = n.advertise<rctestpkg::LKdata>("lk_data", 1000);
 	ros::Rate loop_rate(50);
 	while(ros::ok()) {
+		loop_rate.sleep();
 		rctestpkg::LKdata msg;
 		lk.create_lk_msg(msg);
 		pub.publish(msg);
 		ros::spinOnce();
-		loop_rate.sleep();
 	}
 	return 0;
 }

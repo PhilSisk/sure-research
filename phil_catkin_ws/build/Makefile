@@ -1050,6 +1050,19 @@ _rctestpkg_generate_messages_check_deps_currentTime/fast:
 .PHONY : _rctestpkg_generate_messages_check_deps_currentTime/fast
 
 #=============================================================================
+# Target rules for targets named calculate_headway
+
+# Build rule for target.
+calculate_headway: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 calculate_headway
+.PHONY : calculate_headway
+
+# fast build rule for target.
+calculate_headway/fast:
+	$(MAKE) -f rctestpkg/CMakeFiles/calculate_headway.dir/build.make rctestpkg/CMakeFiles/calculate_headway.dir/build
+.PHONY : calculate_headway/fast
+
+#=============================================================================
 # Target rules for targets named ccsolver
 
 # Build rule for target.
@@ -1989,6 +2002,7 @@ help:
 	@echo "... _rctestpkg_generate_messages_check_deps_MultTwoInts"
 	@echo "... _rctestpkg_generate_messages_check_deps_TestTalkerMsg"
 	@echo "... _rctestpkg_generate_messages_check_deps_currentTime"
+	@echo "... calculate_headway"
 	@echo "... ccsolver"
 	@echo "... central_controller"
 	@echo "... geometry_msgs_generate_messages_cpp"
