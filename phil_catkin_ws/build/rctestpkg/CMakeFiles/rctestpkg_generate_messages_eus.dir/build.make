@@ -56,6 +56,8 @@ rctestpkg/CMakeFiles/rctestpkg_generate_messages_eus: /home/ubuntu/phil_catkin_w
 rctestpkg/CMakeFiles/rctestpkg_generate_messages_eus: /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/msg/Motor_data.l
 rctestpkg/CMakeFiles/rctestpkg_generate_messages_eus: /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/MultTwoInts.l
 rctestpkg/CMakeFiles/rctestpkg_generate_messages_eus: /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/MPC_CC.l
+rctestpkg/CMakeFiles/rctestpkg_generate_messages_eus: /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/ComputeControl.l
+rctestpkg/CMakeFiles/rctestpkg_generate_messages_eus: /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/MPC_ACC.l
 rctestpkg/CMakeFiles/rctestpkg_generate_messages_eus: /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/MPC_LK.l
 rctestpkg/CMakeFiles/rctestpkg_generate_messages_eus: /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/manifest.l
 
@@ -107,14 +109,26 @@ rctestpkg/CMakeFiles/rctestpkg_generate_messages_eus: /home/ubuntu/phil_catkin_w
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating EusLisp code from rctestpkg/MPC_CC.srv"
 	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv -Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg -Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg -Isensor_msgs:/opt/ros/jade/share/sensor_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/jade/share/geometry_msgs/cmake/../msg -p rctestpkg -o /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv
 
+/home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/ComputeControl.l: /opt/ros/jade/share/geneus/cmake/../../../lib/geneus/gen_eus.py
+/home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/ComputeControl.l: /home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/ComputeControl.srv
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/phil_catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_9)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating EusLisp code from rctestpkg/ComputeControl.srv"
+	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/ComputeControl.srv -Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg -Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg -Isensor_msgs:/opt/ros/jade/share/sensor_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/jade/share/geometry_msgs/cmake/../msg -p rctestpkg -o /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv
+
+/home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/MPC_ACC.l: /opt/ros/jade/share/geneus/cmake/../../../lib/geneus/gen_eus.py
+/home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/MPC_ACC.l: /home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_ACC.srv
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/phil_catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_10)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating EusLisp code from rctestpkg/MPC_ACC.srv"
+	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_ACC.srv -Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg -Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg -Isensor_msgs:/opt/ros/jade/share/sensor_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/jade/share/geometry_msgs/cmake/../msg -p rctestpkg -o /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv
+
 /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/MPC_LK.l: /opt/ros/jade/share/geneus/cmake/../../../lib/geneus/gen_eus.py
 /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/MPC_LK.l: /home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_LK.srv
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/phil_catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/phil_catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_11)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating EusLisp code from rctestpkg/MPC_LK.srv"
 	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_LK.srv -Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg -Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg -Isensor_msgs:/opt/ros/jade/share/sensor_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/jade/share/geometry_msgs/cmake/../msg -p rctestpkg -o /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv
 
 /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/manifest.l: /opt/ros/jade/share/geneus/cmake/../../../lib/geneus/gen_eus.py
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/phil_catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_10)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/phil_catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_12)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating EusLisp manifest code for rctestpkg"
 	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg rctestpkg std_msgs sensor_msgs
 
@@ -127,6 +141,8 @@ rctestpkg_generate_messages_eus: /home/ubuntu/phil_catkin_ws/devel/share/roseus/
 rctestpkg_generate_messages_eus: /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/msg/Motor_data.l
 rctestpkg_generate_messages_eus: /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/MultTwoInts.l
 rctestpkg_generate_messages_eus: /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/MPC_CC.l
+rctestpkg_generate_messages_eus: /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/ComputeControl.l
+rctestpkg_generate_messages_eus: /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/MPC_ACC.l
 rctestpkg_generate_messages_eus: /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/MPC_LK.l
 rctestpkg_generate_messages_eus: /home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/manifest.l
 rctestpkg_generate_messages_eus: rctestpkg/CMakeFiles/rctestpkg_generate_messages_eus.dir/build.make

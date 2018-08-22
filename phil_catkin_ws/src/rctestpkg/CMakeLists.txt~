@@ -62,9 +62,11 @@ add_message_files(
 ## Generate services in the 'srv' folder
 add_service_files(
    FILES
+   ComputeControl.srv
    MultTwoInts.srv
    MPC_CC.srv
    MPC_LK.srv
+   MPC_ACC.srv
 #   Service1.srv
 #   Service2.srv
 )
@@ -260,9 +262,13 @@ add_executable(central_controller src/central_controller.cpp)
 add_dependencies(central_controller rctestpkg_generate_messages_cpp)
 target_link_libraries(central_controller ${catkin_LIBRARIES})
 
-add_executable(calculate_headway src/central_controller.cpp)
-add_dependencies(central_controller rctestpkg_generate_messages_cpp)
-target_link_libraries(central_controller ${catkin_LIBRARIES})
+add_executable(calculate_headway src/calculate_headway.cpp)
+add_dependencies(calculate_headway rctestpkg_generate_messages_cpp)
+target_link_libraries(calculate_headway ${catkin_LIBRARIES})
+
+add_executable(ACC_MPC src/ACC_MPC.cpp)
+add_dependencies(ACC_MPC rctestpkg_generate_messages_cpp)
+target_link_libraries(ACC_MPC ${catkin_LIBRARIES} accsolver)
 
 catkin_install_python(
   PROGRAMS

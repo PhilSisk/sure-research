@@ -15,7 +15,5 @@
   <node name="getCarState2" pkg="rctestpkg" type="GetCarState" />
   <node name="CC_MPC2" pkg="rctestpkg" type="CC" />
   <node name="LK_MPC2" pkg="rctestpkg" type="LK_MPC" />
-  <node name="central_controller" pkg="rctestpkg" type="central_controller.py" />
-  <node name="motorCommand2" pkg="rctestpkg" type="motorCommand" output="screen" launch-prefix="gnome-terminal --command"/>  
-
+  <node name="servoCommand2" pkg="rctestpkg" type="servoCommand" output="screen" launch-prefix="gnome-terminal --command"/>
 </launch>

@@ -62,9 +62,11 @@ add_message_files(
 ## Generate services in the 'srv' folder
 add_service_files(
    FILES
+   ComputeControl.srv
    MultTwoInts.srv
    MPC_CC.srv
    MPC_LK.srv
+   MPC_ACC.srv
 #   Service1.srv
 #   Service2.srv
 )
@@ -137,6 +139,7 @@ include_directories(
 add_library(rs232 STATIC src/rs232.cpp)
 add_library(ccsolver STATIC src/ccsolver.cpp)
 add_library(lksolver STATIC src/lksolver.cpp)
+add_library(accsolver STATIC src/accsolver.cpp)
 # )
 
 ## Add cmake target dependencies of the library
@@ -263,6 +266,10 @@ target_link_libraries(central_controller ${catkin_LIBRARIES})
 add_executable(calculate_headway src/calculate_headway.cpp)
 add_dependencies(calculate_headway rctestpkg_generate_messages_cpp)
 target_link_libraries(calculate_headway ${catkin_LIBRARIES})
+
+add_executable(ACC_MPC src/ACC_MPC.cpp)
+add_dependencies(ACC_MPC rctestpkg_generate_messages_cpp)
+target_link_libraries(ACC_MPC ${catkin_LIBRARIES} accsolver)
 
 catkin_install_python(
   PROGRAMS

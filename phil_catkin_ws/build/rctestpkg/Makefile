@@ -153,6 +153,20 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+rctestpkg/CMakeFiles/ACC_MPC.dir/rule:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/ACC_MPC.dir/rule
+.PHONY : rctestpkg/CMakeFiles/ACC_MPC.dir/rule
+
+# Convenience name for target.
+ACC_MPC: rctestpkg/CMakeFiles/ACC_MPC.dir/rule
+.PHONY : ACC_MPC
+
+# fast build rule for target.
+ACC_MPC/fast:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/ACC_MPC.dir/build.make rctestpkg/CMakeFiles/ACC_MPC.dir/build
+.PHONY : ACC_MPC/fast
+
+# Convenience name for target.
 rctestpkg/CMakeFiles/CC.dir/rule:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/CC.dir/rule
 .PHONY : rctestpkg/CMakeFiles/CC.dir/rule
@@ -237,6 +251,20 @@ _rctestpkg_generate_messages_check_deps_CarState/fast:
 .PHONY : _rctestpkg_generate_messages_check_deps_CarState/fast
 
 # Convenience name for target.
+rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_ComputeControl.dir/rule:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_ComputeControl.dir/rule
+.PHONY : rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_ComputeControl.dir/rule
+
+# Convenience name for target.
+_rctestpkg_generate_messages_check_deps_ComputeControl: rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_ComputeControl.dir/rule
+.PHONY : _rctestpkg_generate_messages_check_deps_ComputeControl
+
+# fast build rule for target.
+_rctestpkg_generate_messages_check_deps_ComputeControl/fast:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_ComputeControl.dir/build.make rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_ComputeControl.dir/build
+.PHONY : _rctestpkg_generate_messages_check_deps_ComputeControl/fast
+
+# Convenience name for target.
 rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_IMUdata.dir/rule:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_IMUdata.dir/rule
 .PHONY : rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_IMUdata.dir/rule
@@ -263,6 +291,20 @@ _rctestpkg_generate_messages_check_deps_LKdata: rctestpkg/CMakeFiles/_rctestpkg_
 _rctestpkg_generate_messages_check_deps_LKdata/fast:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_LKdata.dir/build.make rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_LKdata.dir/build
 .PHONY : _rctestpkg_generate_messages_check_deps_LKdata/fast
+
+# Convenience name for target.
+rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MPC_ACC.dir/rule:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MPC_ACC.dir/rule
+.PHONY : rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MPC_ACC.dir/rule
+
+# Convenience name for target.
+_rctestpkg_generate_messages_check_deps_MPC_ACC: rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MPC_ACC.dir/rule
+.PHONY : _rctestpkg_generate_messages_check_deps_MPC_ACC
+
+# fast build rule for target.
+_rctestpkg_generate_messages_check_deps_MPC_ACC/fast:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MPC_ACC.dir/build.make rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MPC_ACC.dir/build
+.PHONY : _rctestpkg_generate_messages_check_deps_MPC_ACC/fast
 
 # Convenience name for target.
 rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MPC_CC.dir/rule:
@@ -347,6 +389,20 @@ _rctestpkg_generate_messages_check_deps_currentTime: rctestpkg/CMakeFiles/_rctes
 _rctestpkg_generate_messages_check_deps_currentTime/fast:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_currentTime.dir/build.make rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_currentTime.dir/build
 .PHONY : _rctestpkg_generate_messages_check_deps_currentTime/fast
+
+# Convenience name for target.
+rctestpkg/CMakeFiles/accsolver.dir/rule:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/accsolver.dir/rule
+.PHONY : rctestpkg/CMakeFiles/accsolver.dir/rule
+
+# Convenience name for target.
+accsolver: rctestpkg/CMakeFiles/accsolver.dir/rule
+.PHONY : accsolver
+
+# fast build rule for target.
+accsolver/fast:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/accsolver.dir/build.make rctestpkg/CMakeFiles/accsolver.dir/build
+.PHONY : accsolver/fast
 
 # Convenience name for target.
 rctestpkg/CMakeFiles/calculate_headway.dir/rule:
@@ -894,6 +950,30 @@ std_msgs_generate_messages_py/fast:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/std_msgs_generate_messages_py.dir/build.make rctestpkg/CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
 
+src/ACC_MPC.o: src/ACC_MPC.cpp.o
+.PHONY : src/ACC_MPC.o
+
+# target to build an object file
+src/ACC_MPC.cpp.o:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/ACC_MPC.dir/build.make rctestpkg/CMakeFiles/ACC_MPC.dir/src/ACC_MPC.cpp.o
+.PHONY : src/ACC_MPC.cpp.o
+
+src/ACC_MPC.i: src/ACC_MPC.cpp.i
+.PHONY : src/ACC_MPC.i
+
+# target to preprocess a source file
+src/ACC_MPC.cpp.i:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/ACC_MPC.dir/build.make rctestpkg/CMakeFiles/ACC_MPC.dir/src/ACC_MPC.cpp.i
+.PHONY : src/ACC_MPC.cpp.i
+
+src/ACC_MPC.s: src/ACC_MPC.cpp.s
+.PHONY : src/ACC_MPC.s
+
+# target to generate assembly for a file
+src/ACC_MPC.cpp.s:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/ACC_MPC.dir/build.make rctestpkg/CMakeFiles/ACC_MPC.dir/src/ACC_MPC.cpp.s
+.PHONY : src/ACC_MPC.cpp.s
+
 src/CC.o: src/CC.cpp.o
 .PHONY : src/CC.o
 
@@ -1013,6 +1093,30 @@ src/LK_MPC.s: src/LK_MPC.cpp.s
 src/LK_MPC.cpp.s:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/LK_MPC.dir/build.make rctestpkg/CMakeFiles/LK_MPC.dir/src/LK_MPC.cpp.s
 .PHONY : src/LK_MPC.cpp.s
+
+src/accsolver.o: src/accsolver.cpp.o
+.PHONY : src/accsolver.o
+
+# target to build an object file
+src/accsolver.cpp.o:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/accsolver.dir/build.make rctestpkg/CMakeFiles/accsolver.dir/src/accsolver.cpp.o
+.PHONY : src/accsolver.cpp.o
+
+src/accsolver.i: src/accsolver.cpp.i
+.PHONY : src/accsolver.i
+
+# target to preprocess a source file
+src/accsolver.cpp.i:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/accsolver.dir/build.make rctestpkg/CMakeFiles/accsolver.dir/src/accsolver.cpp.i
+.PHONY : src/accsolver.cpp.i
+
+src/accsolver.s: src/accsolver.cpp.s
+.PHONY : src/accsolver.s
+
+# target to generate assembly for a file
+src/accsolver.cpp.s:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/accsolver.dir/build.make rctestpkg/CMakeFiles/accsolver.dir/src/accsolver.cpp.s
+.PHONY : src/accsolver.cpp.s
 
 src/calculate_headway.o: src/calculate_headway.cpp.o
 .PHONY : src/calculate_headway.o
@@ -1260,20 +1364,24 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... ACC_MPC"
 	@echo "... CC"
 	@echo "... CC_controller"
 	@echo "... GetCarState"
 	@echo "... IMU"
 	@echo "... LK_MPC"
 	@echo "... _rctestpkg_generate_messages_check_deps_CarState"
+	@echo "... _rctestpkg_generate_messages_check_deps_ComputeControl"
 	@echo "... _rctestpkg_generate_messages_check_deps_IMUdata"
 	@echo "... _rctestpkg_generate_messages_check_deps_LKdata"
+	@echo "... _rctestpkg_generate_messages_check_deps_MPC_ACC"
 	@echo "... _rctestpkg_generate_messages_check_deps_MPC_CC"
 	@echo "... _rctestpkg_generate_messages_check_deps_MPC_LK"
 	@echo "... _rctestpkg_generate_messages_check_deps_Motor_data"
 	@echo "... _rctestpkg_generate_messages_check_deps_MultTwoInts"
 	@echo "... _rctestpkg_generate_messages_check_deps_TestTalkerMsg"
 	@echo "... _rctestpkg_generate_messages_check_deps_currentTime"
+	@echo "... accsolver"
 	@echo "... calculate_headway"
 	@echo "... ccsolver"
 	@echo "... central_controller"
@@ -1320,6 +1428,9 @@ help:
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... test"
+	@echo "... src/ACC_MPC.o"
+	@echo "... src/ACC_MPC.i"
+	@echo "... src/ACC_MPC.s"
 	@echo "... src/CC.o"
 	@echo "... src/CC.i"
 	@echo "... src/CC.s"
@@ -1335,6 +1446,9 @@ help:
 	@echo "... src/LK_MPC.o"
 	@echo "... src/LK_MPC.i"
 	@echo "... src/LK_MPC.s"
+	@echo "... src/accsolver.o"
+	@echo "... src/accsolver.i"
+	@echo "... src/accsolver.s"
 	@echo "... src/calculate_headway.o"
 	@echo "... src/calculate_headway.i"
 	@echo "... src/calculate_headway.s"

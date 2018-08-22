@@ -56,6 +56,8 @@ rctestpkg/CMakeFiles/rctestpkg_generate_messages_lisp: /home/ubuntu/phil_catkin_
 rctestpkg/CMakeFiles/rctestpkg_generate_messages_lisp: /home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/msg/Motor_data.lisp
 rctestpkg/CMakeFiles/rctestpkg_generate_messages_lisp: /home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv/MultTwoInts.lisp
 rctestpkg/CMakeFiles/rctestpkg_generate_messages_lisp: /home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv/MPC_CC.lisp
+rctestpkg/CMakeFiles/rctestpkg_generate_messages_lisp: /home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv/ComputeControl.lisp
+rctestpkg/CMakeFiles/rctestpkg_generate_messages_lisp: /home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv/MPC_ACC.lisp
 rctestpkg/CMakeFiles/rctestpkg_generate_messages_lisp: /home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv/MPC_LK.lisp
 
 /home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/msg/TestTalkerMsg.lisp: /opt/ros/jade/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py
@@ -106,9 +108,21 @@ rctestpkg/CMakeFiles/rctestpkg_generate_messages_lisp: /home/ubuntu/phil_catkin_
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Lisp code from rctestpkg/MPC_CC.srv"
 	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv -Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg -Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg -Isensor_msgs:/opt/ros/jade/share/sensor_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/jade/share/geometry_msgs/cmake/../msg -p rctestpkg -o /home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv
 
+/home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv/ComputeControl.lisp: /opt/ros/jade/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py
+/home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv/ComputeControl.lisp: /home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/ComputeControl.srv
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/phil_catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_9)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Lisp code from rctestpkg/ComputeControl.srv"
+	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/ComputeControl.srv -Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg -Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg -Isensor_msgs:/opt/ros/jade/share/sensor_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/jade/share/geometry_msgs/cmake/../msg -p rctestpkg -o /home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv
+
+/home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv/MPC_ACC.lisp: /opt/ros/jade/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py
+/home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv/MPC_ACC.lisp: /home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_ACC.srv
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/phil_catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_10)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Lisp code from rctestpkg/MPC_ACC.srv"
+	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_ACC.srv -Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg -Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg -Isensor_msgs:/opt/ros/jade/share/sensor_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/jade/share/geometry_msgs/cmake/../msg -p rctestpkg -o /home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv
+
 /home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv/MPC_LK.lisp: /opt/ros/jade/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py
 /home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv/MPC_LK.lisp: /home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_LK.srv
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/phil_catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/phil_catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_11)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Lisp code from rctestpkg/MPC_LK.srv"
 	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/jade/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_LK.srv -Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg -Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg -Isensor_msgs:/opt/ros/jade/share/sensor_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/jade/share/geometry_msgs/cmake/../msg -p rctestpkg -o /home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv
 
@@ -121,6 +135,8 @@ rctestpkg_generate_messages_lisp: /home/ubuntu/phil_catkin_ws/devel/share/common
 rctestpkg_generate_messages_lisp: /home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/msg/Motor_data.lisp
 rctestpkg_generate_messages_lisp: /home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv/MultTwoInts.lisp
 rctestpkg_generate_messages_lisp: /home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv/MPC_CC.lisp
+rctestpkg_generate_messages_lisp: /home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv/ComputeControl.lisp
+rctestpkg_generate_messages_lisp: /home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv/MPC_ACC.lisp
 rctestpkg_generate_messages_lisp: /home/ubuntu/phil_catkin_ws/devel/share/common-lisp/ros/rctestpkg/srv/MPC_LK.lisp
 rctestpkg_generate_messages_lisp: rctestpkg/CMakeFiles/rctestpkg_generate_messages_lisp.dir/build.make
 .PHONY : rctestpkg_generate_messages_lisp

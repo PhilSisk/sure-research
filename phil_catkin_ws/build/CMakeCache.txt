@@ -305,6 +305,9 @@ _CATKIN_GTEST_SRC:FILEPATH=/usr/src/gtest/src/gtest.cc
 //Path to a file.
 _file_name:FILEPATH=/home/ubuntu/phil_catkin_ws/src/rosserial/rosserial_test/test/rosserial_python_socket.test
 
+//Dependencies for target
+accsolver_LIB_DEPENDS:STATIC=
+
 //The directory containing a CMake configuration file for actionlib_msgs.
 actionlib_msgs_DIR:PATH=/opt/ros/jade/share/actionlib_msgs/cmake
 

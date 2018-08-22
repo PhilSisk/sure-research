@@ -8,6 +8,8 @@ FILE(REMOVE_RECURSE
   "/home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/msg/Motor_data.l"
   "/home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/MultTwoInts.l"
   "/home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/MPC_CC.l"
+  "/home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/ComputeControl.l"
+  "/home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/MPC_ACC.l"
   "/home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/srv/MPC_LK.l"
   "/home/ubuntu/phil_catkin_ws/devel/share/roseus/ros/rctestpkg/manifest.l"
 )

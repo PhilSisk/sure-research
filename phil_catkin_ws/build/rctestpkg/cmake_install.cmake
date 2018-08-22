@@ -45,9 +45,11 @@ ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unsp
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rctestpkg/srv" TYPE FILE FILES
+    "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/ComputeControl.srv"
     "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv"
     "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv"
     "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_LK.srv"
+    "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_ACC.srv"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
