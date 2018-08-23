@@ -1,5 +1,18 @@
 /* central_controller.cpp
-Implements the central_controller class, which calls LK, CC, and ACC MPC nodes
+Implements the central_controller class, which sends control commands to the motors
+Phil Sisk
+
+		Type				Name
+Subscriptions:	rctestpkg::Motor_data		Motor_data2
+		rctestpkg::CentralSignal	centralSignal
+		rctestpkg::CarState		car_state
+
+Publications:	std_msgs::Float32		Motor_command2
+		std_msgs::UInt16		servo
+
+Services:	rctestpkg::MPC_LK		LK_MPC2		(client)
+		rctestpkg::MPC_CC		CC_MPC2		(client)
+
 */
 
 #include <iostream>
@@ -8,11 +21,13 @@ Implements the central_controller class, which calls LK, CC, and ACC MPC nodes
 #include <std_msgs/Float64.h>		
 #include <std_msgs/UInt16.h>		// Servo command
 #include <rctestpkg/Motor_data.h>	// Data from the motor
+#include <rctestpkg/CentralSignal.h>	// Data from Teleop
 #include <rctestpkg/MPC_LK.h>		// Lanekeeping service
 #include <rctestpkg/MPC_CC.h>		// Cruise control service
 #include <rctestpkg/CarState.h>		// Car state information
 #include <eigen3/Eigen/Dense>   	// Used in computing discretized dynamics matrices
 #include <vector>
+#include <cmath>
 
 #define SERVO_RATIO 0.00089479		// convert from lk response to servo command
 #define SERVO_MID 1537			// PWM command for straight servo
@@ -25,18 +40,36 @@ Implements the central_controller class, which calls LK, CC, and ACC MPC nodes
 class central_controller {
 private:
 	ros::NodeHandle n;
-	rctestpkg::CarState car_state;	// Car state info
-	rctestpkg::MPC_LK lk_srv;	// Lanekeeping service message
-	rctestpkg::MPC_CC cc_srv;	// Cruise control service message
+	rctestpkg::CarState car_state;		// Car state info
+	rctestpkg::MPC_LK lk_srv;		// Lanekeeping service message
+	rctestpkg::MPC_CC cc_srv;		// Cruise control service message
 	ros::ServiceClient	lk_client,	// Lanekeeping service client
 				cc_client;	// Cruise control service client
-	ros::Subscriber car_state_sub;
-	ros::Subscriber motor_sub;
-	ros::Publisher servo_pub;
+	ros::Subscriber car_state_sub;		// Car state subscriber
+	ros::Subscriber signal_sub;		// Central signal subscriber
+	ros::Subscriber motor_sub;		// Motor data subscriber
+	ros::Publisher servo_pub;		// Servo command publisher
+	ros::Publisher motor_pub;		// Motor command publisher
 	std_msgs::UInt16 servo_msg;
 	rctestpkg::Motor_data motor_msg;
-	float	servo_control,
-		motor_control;
+	rctestpkg::CentralSignal signal_msg;
+	int 	servo_control;
+	float	motor_control;
+
+	float call_lanekeeping_service();
+	float call_cc_service();
+	void getLateralDynamicsMatrices(double current_u);
+
+	/* CALLBACK FUNCTIONS */
+	void car_state_callback(const rctestpkg::CarState::ConstPtr & msg) {
+		car_state = *msg;
+	}
+	void motor_callback(const rctestpkg::Motor_data::ConstPtr & msg) {
+		motor_msg = *msg;
+	}
+	void signal_callback(const rctestpkg::CentralSignal::ConstPtr &msg) {
+		signal_msg = *msg;
+	}
 public:
 	// Constructor
 	central_controller() : servo_control(SERVO_MID), motor_control(0.0) {
@@ -46,22 +79,21 @@ public:
 			&central_controller::car_state_callback, this);
 		motor_sub = n.subscribe("Motor_data2", 10,
 			&central_controller::motor_callback, this);
+		signal_sub = n.subscribe("centralSignal", 1,
+			&central_controller::signal_callback, this);
 		servo_pub = n.advertise<std_msgs::UInt16>("servo", 10);
+		motor_pub = n.advertise<std_msgs::Float32>("Motor_command2", 10);
 	}
-	void publish_servo_msg();
-	float call_lanekeeping_service();
-	float call_cc_service();
-	void getLateralDynamicsMatrices(double current_u);
-	void car_state_callback(const rctestpkg::CarState::ConstPtr & msg);
-	void motor_callback(const rctestpkg::Motor_data::ConstPtr & msg) {
-		motor_msg = *msg;
-	}
-};
+	
+	void publish_commands();
+		
+}; // class central_controller
 
 float central_controller::call_cc_service() {
-	std::cout << "requesting cruise at " << SRV_REQ_VEL << std::endl;
+	float command_v = signal_msg.command_v;
+	std::cout << "requesting cruise at " << command_v << std::endl;
 
-	cc_srv.request.vr = SRV_REQ_VEL;
+	cc_srv.request.vr = command_v;
 	cc_srv.request.u0 = motor_msg.countPerSecond * CPS2V ;
 	cc_srv.request.i0 = motor_msg.current;
 	cc_srv.request.wv = 10000;
@@ -184,20 +216,43 @@ void central_controller::getLateralDynamicsMatrices(double u) {
 	}	
 }
 
-void central_controller::car_state_callback(const rctestpkg::CarState::ConstPtr & msg) {
-	car_state = *msg;
+// Publishes commands for the servo and motor depending on inputs
+void central_controller::publish_commands() {
+	std_msgs::Float32 motor_command;
+	std_msgs::UInt16 servo_command;
+
+	// Determine whether to send a 0 message based on value of command_v
+	// May change this
+	if ((signal_msg.cruise_control || fabs(signal_msg.command_v) > 0.01)
+			&& !signal_msg.stop) {
+		motor_command.data = call_cc_service();
+	}
+	else {
+		motor_command.data = 0.0;
+	}
+
+	// Send manual or auto lanekeeping depending on central signal
+	if (signal_msg.lanekeeping) {
+		servo_command.data = call_lanekeeping_service();
+	}
+	else {
+		servo_command.data = signal_msg.servo_pwm;
+	}
+
+	// Publish commands
+	motor_pub.publish(motor_command);
+	servo_pub.publish(servo_command);		
 }
 
 int main(int argc, char ** argv) {
+	std::cout << "Starting central controller...\n";
 	ros::init(argc, argv, "central_control2");
 	central_controller controller;
-	//ros::Publisher motor_pub = n.advertise<std_msgs::Float32>("Motor_command2", 10);
-	std::cout << "Servo ratio: " << SERVO_RATIO << std::endl;
-	ros::Rate loop_rate(10);
+	ros::Rate loop_rate(20);
 	while (ros::ok()) {
 		ros::spinOnce();
 		loop_rate.sleep();
-		controller.call_lanekeeping_service();
+		controller.publish_commands();
 	}
 	return 0;
 }

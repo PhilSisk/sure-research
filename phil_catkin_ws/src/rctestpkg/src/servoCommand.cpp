@@ -2,9 +2,14 @@
 Phil Sisk
 6/19/2018
 
-motorCommand.cpp
-basic code for reading in motor commands from the keyboard.
-Based roughly on teleop_turtle_key.cpp, which defines the "teleop_turtle" ROS node:
+servoCommand.cpp
+Reads in motor commands from the keyboard, or calls automatic controllers if
+the user desires.
+USAGE:
+ARROW KEYS: UP = forward, DOWN = reverse, LEFT = forward left, RIGHT = forward right
+OTHER KEYS: C = toggle cruise control, V = toggle auto lanekeeping
+
+Teleop control based on teleop_turtle_key.cpp, which defines the "teleop_turtle" ROS node:
 http://docs.ros.org/groovy/api/turtlesim/html/teleop__turtle__key_8cpp_source.html
 */
 
