@@ -13,8 +13,9 @@
   <node name="motor2" pkg="rctestpkg" type="motor" />
   <node name="LKdata" pkg="rctestpkg" type="lkdata" />
   <node name="getCarState2" pkg="rctestpkg" type="GetCarState" />
-  <node name="CC_MPC2" pkg="rctestpkg" type="CC" />
+  <node name="CC_MPC2" pkg="rctestpkg" type="CC_MPC" />
   <node name="LK_MPC2" pkg="rctestpkg" type="LK_MPC" />
-  <node name="servoCommand" pkg="rctestpkg" type="servoCommand" output="screen" launch-prefix="gnome-terminal --command"/>  
+  <node name="central_controller" pkg="rctestpkg" type="central_controller" />
+  <node name="Teleop" pkg="rctestpkg" type="Teleop" output="screen" launch-prefix="gnome-terminal --command"/>  
 
 </launch>

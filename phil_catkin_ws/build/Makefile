@@ -881,30 +881,17 @@ ACC_MPC/fast:
 .PHONY : ACC_MPC/fast
 
 #=============================================================================
-# Target rules for targets named CC
+# Target rules for targets named CC_MPC
 
 # Build rule for target.
-CC: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 CC
-.PHONY : CC
+CC_MPC: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 CC_MPC
+.PHONY : CC_MPC
 
 # fast build rule for target.
-CC/fast:
-	$(MAKE) -f rctestpkg/CMakeFiles/CC.dir/build.make rctestpkg/CMakeFiles/CC.dir/build
-.PHONY : CC/fast
-
-#=============================================================================
-# Target rules for targets named CC_controller
-
-# Build rule for target.
-CC_controller: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 CC_controller
-.PHONY : CC_controller
-
-# fast build rule for target.
-CC_controller/fast:
-	$(MAKE) -f rctestpkg/CMakeFiles/CC_controller.dir/build.make rctestpkg/CMakeFiles/CC_controller.dir/build
-.PHONY : CC_controller/fast
+CC_MPC/fast:
+	$(MAKE) -f rctestpkg/CMakeFiles/CC_MPC.dir/build.make rctestpkg/CMakeFiles/CC_MPC.dir/build
+.PHONY : CC_MPC/fast
 
 #=============================================================================
 # Target rules for targets named GetCarState
@@ -946,6 +933,19 @@ LK_MPC/fast:
 .PHONY : LK_MPC/fast
 
 #=============================================================================
+# Target rules for targets named Teleop
+
+# Build rule for target.
+Teleop: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Teleop
+.PHONY : Teleop
+
+# fast build rule for target.
+Teleop/fast:
+	$(MAKE) -f rctestpkg/CMakeFiles/Teleop.dir/build.make rctestpkg/CMakeFiles/Teleop.dir/build
+.PHONY : Teleop/fast
+
+#=============================================================================
 # Target rules for targets named _rctestpkg_generate_messages_check_deps_CarState
 
 # Build rule for target.
@@ -957,6 +957,19 @@ _rctestpkg_generate_messages_check_deps_CarState: cmake_check_build_system
 _rctestpkg_generate_messages_check_deps_CarState/fast:
 	$(MAKE) -f rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_CarState.dir/build.make rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_CarState.dir/build
 .PHONY : _rctestpkg_generate_messages_check_deps_CarState/fast
+
+#=============================================================================
+# Target rules for targets named _rctestpkg_generate_messages_check_deps_CentralSignal
+
+# Build rule for target.
+_rctestpkg_generate_messages_check_deps_CentralSignal: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _rctestpkg_generate_messages_check_deps_CentralSignal
+.PHONY : _rctestpkg_generate_messages_check_deps_CentralSignal
+
+# fast build rule for target.
+_rctestpkg_generate_messages_check_deps_CentralSignal/fast:
+	$(MAKE) -f rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_CentralSignal.dir/build.make rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_CentralSignal.dir/build
+.PHONY : _rctestpkg_generate_messages_check_deps_CentralSignal/fast
 
 #=============================================================================
 # Target rules for targets named _rctestpkg_generate_messages_check_deps_ComputeControl
@@ -1048,45 +1061,6 @@ _rctestpkg_generate_messages_check_deps_Motor_data: cmake_check_build_system
 _rctestpkg_generate_messages_check_deps_Motor_data/fast:
 	$(MAKE) -f rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_Motor_data.dir/build.make rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_Motor_data.dir/build
 .PHONY : _rctestpkg_generate_messages_check_deps_Motor_data/fast
-
-#=============================================================================
-# Target rules for targets named _rctestpkg_generate_messages_check_deps_MultTwoInts
-
-# Build rule for target.
-_rctestpkg_generate_messages_check_deps_MultTwoInts: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _rctestpkg_generate_messages_check_deps_MultTwoInts
-.PHONY : _rctestpkg_generate_messages_check_deps_MultTwoInts
-
-# fast build rule for target.
-_rctestpkg_generate_messages_check_deps_MultTwoInts/fast:
-	$(MAKE) -f rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MultTwoInts.dir/build.make rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MultTwoInts.dir/build
-.PHONY : _rctestpkg_generate_messages_check_deps_MultTwoInts/fast
-
-#=============================================================================
-# Target rules for targets named _rctestpkg_generate_messages_check_deps_TestTalkerMsg
-
-# Build rule for target.
-_rctestpkg_generate_messages_check_deps_TestTalkerMsg: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _rctestpkg_generate_messages_check_deps_TestTalkerMsg
-.PHONY : _rctestpkg_generate_messages_check_deps_TestTalkerMsg
-
-# fast build rule for target.
-_rctestpkg_generate_messages_check_deps_TestTalkerMsg/fast:
-	$(MAKE) -f rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_TestTalkerMsg.dir/build.make rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_TestTalkerMsg.dir/build
-.PHONY : _rctestpkg_generate_messages_check_deps_TestTalkerMsg/fast
-
-#=============================================================================
-# Target rules for targets named _rctestpkg_generate_messages_check_deps_currentTime
-
-# Build rule for target.
-_rctestpkg_generate_messages_check_deps_currentTime: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _rctestpkg_generate_messages_check_deps_currentTime
-.PHONY : _rctestpkg_generate_messages_check_deps_currentTime
-
-# fast build rule for target.
-_rctestpkg_generate_messages_check_deps_currentTime/fast:
-	$(MAKE) -f rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_currentTime.dir/build.make rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_currentTime.dir/build
-.PHONY : _rctestpkg_generate_messages_check_deps_currentTime/fast
 
 #=============================================================================
 # Target rules for targets named accsolver
@@ -1542,19 +1516,6 @@ servoCommand: cmake_check_build_system
 servoCommand/fast:
 	$(MAKE) -f rctestpkg/CMakeFiles/servoCommand.dir/build.make rctestpkg/CMakeFiles/servoCommand.dir/build
 .PHONY : servoCommand/fast
-
-#=============================================================================
-# Target rules for targets named servoCommandTest
-
-# Build rule for target.
-servoCommandTest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 servoCommandTest
-.PHONY : servoCommandTest
-
-# fast build rule for target.
-servoCommandTest/fast:
-	$(MAKE) -f rctestpkg/CMakeFiles/servoCommandTest.dir/build.make rctestpkg/CMakeFiles/servoCommandTest.dir/build
-.PHONY : servoCommandTest/fast
 
 #=============================================================================
 # Target rules for targets named std_msgs_generate_messages_cpp
@@ -2041,12 +2002,13 @@ help:
 	@echo "... run_tests_rosserial_client_gtest_subscriber_test"
 	@echo "... subscriber_test"
 	@echo "... ACC_MPC"
-	@echo "... CC"
-	@echo "... CC_controller"
+	@echo "... CC_MPC"
 	@echo "... GetCarState"
 	@echo "... IMU"
 	@echo "... LK_MPC"
+	@echo "... Teleop"
 	@echo "... _rctestpkg_generate_messages_check_deps_CarState"
+	@echo "... _rctestpkg_generate_messages_check_deps_CentralSignal"
 	@echo "... _rctestpkg_generate_messages_check_deps_ComputeControl"
 	@echo "... _rctestpkg_generate_messages_check_deps_IMUdata"
 	@echo "... _rctestpkg_generate_messages_check_deps_LKdata"
@@ -2054,9 +2016,6 @@ help:
 	@echo "... _rctestpkg_generate_messages_check_deps_MPC_CC"
 	@echo "... _rctestpkg_generate_messages_check_deps_MPC_LK"
 	@echo "... _rctestpkg_generate_messages_check_deps_Motor_data"
-	@echo "... _rctestpkg_generate_messages_check_deps_MultTwoInts"
-	@echo "... _rctestpkg_generate_messages_check_deps_TestTalkerMsg"
-	@echo "... _rctestpkg_generate_messages_check_deps_currentTime"
 	@echo "... accsolver"
 	@echo "... calculate_headway"
 	@echo "... ccsolver"
@@ -2092,7 +2051,6 @@ help:
 	@echo "... sensor_msgs_generate_messages_lisp"
 	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... servoCommand"
-	@echo "... servoCommandTest"
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_eus"
 	@echo "... std_msgs_generate_messages_lisp"

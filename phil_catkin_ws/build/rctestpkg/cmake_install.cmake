@@ -34,19 +34,17 @@ ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rctestpkg/msg" TYPE FILE FILES
-    "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/TestTalkerMsg.msg"
-    "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/currentTime.msg"
     "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/IMUdata.msg"
     "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg"
     "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CarState.msg"
     "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/LKdata.msg"
+    "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CentralSignal.msg"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rctestpkg/srv" TYPE FILE FILES
     "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/ComputeControl.srv"
-    "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MultTwoInts.srv"
     "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv"
     "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_LK.srv"
     "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_ACC.srv"

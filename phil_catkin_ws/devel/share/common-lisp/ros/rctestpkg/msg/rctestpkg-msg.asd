@@ -12,6 +12,8 @@
     (:file "_package_TestTalkerMsg" :depends-on ("_package"))
     (:file "CarState" :depends-on ("_package_CarState"))
     (:file "_package_CarState" :depends-on ("_package"))
+    (:file "CentralSignal" :depends-on ("_package_CentralSignal"))
+    (:file "_package_CentralSignal" :depends-on ("_package"))
     (:file "IMUdata" :depends-on ("_package_IMUdata"))
     (:file "_package_IMUdata" :depends-on ("_package"))
     (:file "Motor_data" :depends-on ("_package_Motor_data"))

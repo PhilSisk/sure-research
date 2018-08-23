@@ -167,32 +167,18 @@ ACC_MPC/fast:
 .PHONY : ACC_MPC/fast
 
 # Convenience name for target.
-rctestpkg/CMakeFiles/CC.dir/rule:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/CC.dir/rule
-.PHONY : rctestpkg/CMakeFiles/CC.dir/rule
+rctestpkg/CMakeFiles/CC_MPC.dir/rule:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/CC_MPC.dir/rule
+.PHONY : rctestpkg/CMakeFiles/CC_MPC.dir/rule
 
 # Convenience name for target.
-CC: rctestpkg/CMakeFiles/CC.dir/rule
-.PHONY : CC
+CC_MPC: rctestpkg/CMakeFiles/CC_MPC.dir/rule
+.PHONY : CC_MPC
 
 # fast build rule for target.
-CC/fast:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC.dir/build.make rctestpkg/CMakeFiles/CC.dir/build
-.PHONY : CC/fast
-
-# Convenience name for target.
-rctestpkg/CMakeFiles/CC_controller.dir/rule:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/CC_controller.dir/rule
-.PHONY : rctestpkg/CMakeFiles/CC_controller.dir/rule
-
-# Convenience name for target.
-CC_controller: rctestpkg/CMakeFiles/CC_controller.dir/rule
-.PHONY : CC_controller
-
-# fast build rule for target.
-CC_controller/fast:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC_controller.dir/build.make rctestpkg/CMakeFiles/CC_controller.dir/build
-.PHONY : CC_controller/fast
+CC_MPC/fast:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC_MPC.dir/build.make rctestpkg/CMakeFiles/CC_MPC.dir/build
+.PHONY : CC_MPC/fast
 
 # Convenience name for target.
 rctestpkg/CMakeFiles/GetCarState.dir/rule:
@@ -237,6 +223,20 @@ LK_MPC/fast:
 .PHONY : LK_MPC/fast
 
 # Convenience name for target.
+rctestpkg/CMakeFiles/Teleop.dir/rule:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/Teleop.dir/rule
+.PHONY : rctestpkg/CMakeFiles/Teleop.dir/rule
+
+# Convenience name for target.
+Teleop: rctestpkg/CMakeFiles/Teleop.dir/rule
+.PHONY : Teleop
+
+# fast build rule for target.
+Teleop/fast:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/Teleop.dir/build.make rctestpkg/CMakeFiles/Teleop.dir/build
+.PHONY : Teleop/fast
+
+# Convenience name for target.
 rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_CarState.dir/rule:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_CarState.dir/rule
 .PHONY : rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_CarState.dir/rule
@@ -249,6 +249,20 @@ _rctestpkg_generate_messages_check_deps_CarState: rctestpkg/CMakeFiles/_rctestpk
 _rctestpkg_generate_messages_check_deps_CarState/fast:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_CarState.dir/build.make rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_CarState.dir/build
 .PHONY : _rctestpkg_generate_messages_check_deps_CarState/fast
+
+# Convenience name for target.
+rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_CentralSignal.dir/rule:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_CentralSignal.dir/rule
+.PHONY : rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_CentralSignal.dir/rule
+
+# Convenience name for target.
+_rctestpkg_generate_messages_check_deps_CentralSignal: rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_CentralSignal.dir/rule
+.PHONY : _rctestpkg_generate_messages_check_deps_CentralSignal
+
+# fast build rule for target.
+_rctestpkg_generate_messages_check_deps_CentralSignal/fast:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_CentralSignal.dir/build.make rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_CentralSignal.dir/build
+.PHONY : _rctestpkg_generate_messages_check_deps_CentralSignal/fast
 
 # Convenience name for target.
 rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_ComputeControl.dir/rule:
@@ -347,48 +361,6 @@ _rctestpkg_generate_messages_check_deps_Motor_data: rctestpkg/CMakeFiles/_rctest
 _rctestpkg_generate_messages_check_deps_Motor_data/fast:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_Motor_data.dir/build.make rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_Motor_data.dir/build
 .PHONY : _rctestpkg_generate_messages_check_deps_Motor_data/fast
-
-# Convenience name for target.
-rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MultTwoInts.dir/rule:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MultTwoInts.dir/rule
-.PHONY : rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MultTwoInts.dir/rule
-
-# Convenience name for target.
-_rctestpkg_generate_messages_check_deps_MultTwoInts: rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MultTwoInts.dir/rule
-.PHONY : _rctestpkg_generate_messages_check_deps_MultTwoInts
-
-# fast build rule for target.
-_rctestpkg_generate_messages_check_deps_MultTwoInts/fast:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MultTwoInts.dir/build.make rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_MultTwoInts.dir/build
-.PHONY : _rctestpkg_generate_messages_check_deps_MultTwoInts/fast
-
-# Convenience name for target.
-rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_TestTalkerMsg.dir/rule:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_TestTalkerMsg.dir/rule
-.PHONY : rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_TestTalkerMsg.dir/rule
-
-# Convenience name for target.
-_rctestpkg_generate_messages_check_deps_TestTalkerMsg: rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_TestTalkerMsg.dir/rule
-.PHONY : _rctestpkg_generate_messages_check_deps_TestTalkerMsg
-
-# fast build rule for target.
-_rctestpkg_generate_messages_check_deps_TestTalkerMsg/fast:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_TestTalkerMsg.dir/build.make rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_TestTalkerMsg.dir/build
-.PHONY : _rctestpkg_generate_messages_check_deps_TestTalkerMsg/fast
-
-# Convenience name for target.
-rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_currentTime.dir/rule:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_currentTime.dir/rule
-.PHONY : rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_currentTime.dir/rule
-
-# Convenience name for target.
-_rctestpkg_generate_messages_check_deps_currentTime: rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_currentTime.dir/rule
-.PHONY : _rctestpkg_generate_messages_check_deps_currentTime
-
-# fast build rule for target.
-_rctestpkg_generate_messages_check_deps_currentTime/fast:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_currentTime.dir/build.make rctestpkg/CMakeFiles/_rctestpkg_generate_messages_check_deps_currentTime.dir/build
-.PHONY : _rctestpkg_generate_messages_check_deps_currentTime/fast
 
 # Convenience name for target.
 rctestpkg/CMakeFiles/accsolver.dir/rule:
@@ -881,20 +853,6 @@ servoCommand/fast:
 .PHONY : servoCommand/fast
 
 # Convenience name for target.
-rctestpkg/CMakeFiles/servoCommandTest.dir/rule:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/servoCommandTest.dir/rule
-.PHONY : rctestpkg/CMakeFiles/servoCommandTest.dir/rule
-
-# Convenience name for target.
-servoCommandTest: rctestpkg/CMakeFiles/servoCommandTest.dir/rule
-.PHONY : servoCommandTest
-
-# fast build rule for target.
-servoCommandTest/fast:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/servoCommandTest.dir/build.make rctestpkg/CMakeFiles/servoCommandTest.dir/build
-.PHONY : servoCommandTest/fast
-
-# Convenience name for target.
 rctestpkg/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 .PHONY : rctestpkg/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
@@ -979,7 +937,7 @@ src/CC.o: src/CC.cpp.o
 
 # target to build an object file
 src/CC.cpp.o:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC.dir/build.make rctestpkg/CMakeFiles/CC.dir/src/CC.cpp.o
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC_MPC.dir/build.make rctestpkg/CMakeFiles/CC_MPC.dir/src/CC.cpp.o
 .PHONY : src/CC.cpp.o
 
 src/CC.i: src/CC.cpp.i
@@ -987,7 +945,7 @@ src/CC.i: src/CC.cpp.i
 
 # target to preprocess a source file
 src/CC.cpp.i:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC.dir/build.make rctestpkg/CMakeFiles/CC.dir/src/CC.cpp.i
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC_MPC.dir/build.make rctestpkg/CMakeFiles/CC_MPC.dir/src/CC.cpp.i
 .PHONY : src/CC.cpp.i
 
 src/CC.s: src/CC.cpp.s
@@ -995,32 +953,8 @@ src/CC.s: src/CC.cpp.s
 
 # target to generate assembly for a file
 src/CC.cpp.s:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC.dir/build.make rctestpkg/CMakeFiles/CC.dir/src/CC.cpp.s
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC_MPC.dir/build.make rctestpkg/CMakeFiles/CC_MPC.dir/src/CC.cpp.s
 .PHONY : src/CC.cpp.s
-
-src/CC_controller.o: src/CC_controller.cpp.o
-.PHONY : src/CC_controller.o
-
-# target to build an object file
-src/CC_controller.cpp.o:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC_controller.dir/build.make rctestpkg/CMakeFiles/CC_controller.dir/src/CC_controller.cpp.o
-.PHONY : src/CC_controller.cpp.o
-
-src/CC_controller.i: src/CC_controller.cpp.i
-.PHONY : src/CC_controller.i
-
-# target to preprocess a source file
-src/CC_controller.cpp.i:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC_controller.dir/build.make rctestpkg/CMakeFiles/CC_controller.dir/src/CC_controller.cpp.i
-.PHONY : src/CC_controller.cpp.i
-
-src/CC_controller.s: src/CC_controller.cpp.s
-.PHONY : src/CC_controller.s
-
-# target to generate assembly for a file
-src/CC_controller.cpp.s:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC_controller.dir/build.make rctestpkg/CMakeFiles/CC_controller.dir/src/CC_controller.cpp.s
-.PHONY : src/CC_controller.cpp.s
 
 src/GetCarState.o: src/GetCarState.cpp.o
 .PHONY : src/GetCarState.o
@@ -1093,6 +1027,30 @@ src/LK_MPC.s: src/LK_MPC.cpp.s
 src/LK_MPC.cpp.s:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/LK_MPC.dir/build.make rctestpkg/CMakeFiles/LK_MPC.dir/src/LK_MPC.cpp.s
 .PHONY : src/LK_MPC.cpp.s
+
+src/Teleop.o: src/Teleop.cpp.o
+.PHONY : src/Teleop.o
+
+# target to build an object file
+src/Teleop.cpp.o:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/Teleop.dir/build.make rctestpkg/CMakeFiles/Teleop.dir/src/Teleop.cpp.o
+.PHONY : src/Teleop.cpp.o
+
+src/Teleop.i: src/Teleop.cpp.i
+.PHONY : src/Teleop.i
+
+# target to preprocess a source file
+src/Teleop.cpp.i:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/Teleop.dir/build.make rctestpkg/CMakeFiles/Teleop.dir/src/Teleop.cpp.i
+.PHONY : src/Teleop.cpp.i
+
+src/Teleop.s: src/Teleop.cpp.s
+.PHONY : src/Teleop.s
+
+# target to generate assembly for a file
+src/Teleop.cpp.s:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/Teleop.dir/build.make rctestpkg/CMakeFiles/Teleop.dir/src/Teleop.cpp.s
+.PHONY : src/Teleop.cpp.s
 
 src/accsolver.o: src/accsolver.cpp.o
 .PHONY : src/accsolver.o
@@ -1334,30 +1292,6 @@ src/servoCommand.cpp.s:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/servoCommand.dir/build.make rctestpkg/CMakeFiles/servoCommand.dir/src/servoCommand.cpp.s
 .PHONY : src/servoCommand.cpp.s
 
-src/servoCommandTest.o: src/servoCommandTest.cpp.o
-.PHONY : src/servoCommandTest.o
-
-# target to build an object file
-src/servoCommandTest.cpp.o:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/servoCommandTest.dir/build.make rctestpkg/CMakeFiles/servoCommandTest.dir/src/servoCommandTest.cpp.o
-.PHONY : src/servoCommandTest.cpp.o
-
-src/servoCommandTest.i: src/servoCommandTest.cpp.i
-.PHONY : src/servoCommandTest.i
-
-# target to preprocess a source file
-src/servoCommandTest.cpp.i:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/servoCommandTest.dir/build.make rctestpkg/CMakeFiles/servoCommandTest.dir/src/servoCommandTest.cpp.i
-.PHONY : src/servoCommandTest.cpp.i
-
-src/servoCommandTest.s: src/servoCommandTest.cpp.s
-.PHONY : src/servoCommandTest.s
-
-# target to generate assembly for a file
-src/servoCommandTest.cpp.s:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/servoCommandTest.dir/build.make rctestpkg/CMakeFiles/servoCommandTest.dir/src/servoCommandTest.cpp.s
-.PHONY : src/servoCommandTest.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1365,12 +1299,13 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... ACC_MPC"
-	@echo "... CC"
-	@echo "... CC_controller"
+	@echo "... CC_MPC"
 	@echo "... GetCarState"
 	@echo "... IMU"
 	@echo "... LK_MPC"
+	@echo "... Teleop"
 	@echo "... _rctestpkg_generate_messages_check_deps_CarState"
+	@echo "... _rctestpkg_generate_messages_check_deps_CentralSignal"
 	@echo "... _rctestpkg_generate_messages_check_deps_ComputeControl"
 	@echo "... _rctestpkg_generate_messages_check_deps_IMUdata"
 	@echo "... _rctestpkg_generate_messages_check_deps_LKdata"
@@ -1378,9 +1313,6 @@ help:
 	@echo "... _rctestpkg_generate_messages_check_deps_MPC_CC"
 	@echo "... _rctestpkg_generate_messages_check_deps_MPC_LK"
 	@echo "... _rctestpkg_generate_messages_check_deps_Motor_data"
-	@echo "... _rctestpkg_generate_messages_check_deps_MultTwoInts"
-	@echo "... _rctestpkg_generate_messages_check_deps_TestTalkerMsg"
-	@echo "... _rctestpkg_generate_messages_check_deps_currentTime"
 	@echo "... accsolver"
 	@echo "... calculate_headway"
 	@echo "... ccsolver"
@@ -1422,7 +1354,6 @@ help:
 	@echo "... sensor_msgs_generate_messages_lisp"
 	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... servoCommand"
-	@echo "... servoCommandTest"
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_eus"
 	@echo "... std_msgs_generate_messages_lisp"
@@ -1434,9 +1365,6 @@ help:
 	@echo "... src/CC.o"
 	@echo "... src/CC.i"
 	@echo "... src/CC.s"
-	@echo "... src/CC_controller.o"
-	@echo "... src/CC_controller.i"
-	@echo "... src/CC_controller.s"
 	@echo "... src/GetCarState.o"
 	@echo "... src/GetCarState.i"
 	@echo "... src/GetCarState.s"
@@ -1446,6 +1374,9 @@ help:
 	@echo "... src/LK_MPC.o"
 	@echo "... src/LK_MPC.i"
 	@echo "... src/LK_MPC.s"
+	@echo "... src/Teleop.o"
+	@echo "... src/Teleop.i"
+	@echo "... src/Teleop.s"
 	@echo "... src/accsolver.o"
 	@echo "... src/accsolver.i"
 	@echo "... src/accsolver.s"
@@ -1476,9 +1407,6 @@ help:
 	@echo "... src/servoCommand.o"
 	@echo "... src/servoCommand.i"
 	@echo "... src/servoCommand.s"
-	@echo "... src/servoCommandTest.o"
-	@echo "... src/servoCommandTest.i"
-	@echo "... src/servoCommandTest.s"
 .PHONY : help
 
 

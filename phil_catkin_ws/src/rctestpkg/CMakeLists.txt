@@ -51,24 +51,20 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate messages in the 'msg' folder
 add_message_files(
    FILES
-   TestTalkerMsg.msg
-   currentTime.msg
    IMUdata.msg
    Motor_data.msg
    CarState.msg
    LKdata.msg
+   CentralSignal.msg
 )
 
 ## Generate services in the 'srv' folder
 add_service_files(
    FILES
    ComputeControl.srv
-   MultTwoInts.srv
    MPC_CC.srv
    MPC_LK.srv
    MPC_ACC.srv
-#   Service1.srv
-#   Service2.srv
 )
 
 ## Generate actions in the 'action' folder
@@ -215,6 +211,9 @@ add_library(accsolver STATIC src/accsolver.cpp)
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
+find_package(Curses REQUIRED)
+SET(CURSES_USES_NCURSES TRUE)
+
 add_executable(IMU src/IMU.cpp)
 target_link_libraries(IMU ${catkin_LIBRARIES})
 add_dependencies(IMU rctestpkg_generate_messages_cpp)
@@ -224,28 +223,17 @@ add_dependencies(motor rctestpkg_generate_messages_cpp)
 target_link_libraries(rs232 ${catkin_LIBRARIES})
 target_link_libraries(motor ${catkin_LIBRARIES} rs232)
 
-find_package(Curses REQUIRED)
-SET(CURSES_USES_NCURSES TRUE)
-
 add_executable(motorCommand src/motorCommand.cpp)
 target_link_libraries(motorCommand ${catkin_LIBRARIES})
 add_dependencies(motorCommand rctestpkg_generate_messages_cpp)
-
-add_executable(servoCommandTest src/servoCommandTest.cpp)
-target_link_libraries(servoCommandTest ${catkin_LIBRARIES})
-add_dependencies(servoCommandTest rctestpkg_generate_messages_cpp)
 
 add_executable(servoCommand src/servoCommand.cpp)
 target_link_libraries(servoCommand ${catkin_LIBRARIES})
 add_dependencies(servoCommand rctestpkg_generate_messages_cpp)
 
-add_executable(CC src/CC.cpp)
-add_dependencies(CC rctestpkg_generate_messages_cpp)
-target_link_libraries(CC ${catkin_LIBRARIES} ccsolver)
-
-add_executable(CC_controller src/CC_controller.cpp)
-add_dependencies(CC_controller rctestpkg_generate_messages_cpp)
-target_link_libraries(CC_controller ${catkin_LIBRARIES})
+add_executable(CC_MPC src/CC.cpp)
+add_dependencies(CC_MPC rctestpkg_generate_messages_cpp)
+target_link_libraries(CC_MPC ${catkin_LIBRARIES} ccsolver)
 
 add_executable(lkdata src/lkdata.cpp)
 add_dependencies(lkdata rctestpkg_generate_messages_cpp)
@@ -266,6 +254,10 @@ target_link_libraries(central_controller ${catkin_LIBRARIES})
 add_executable(calculate_headway src/calculate_headway.cpp)
 add_dependencies(calculate_headway rctestpkg_generate_messages_cpp)
 target_link_libraries(calculate_headway ${catkin_LIBRARIES})
+
+add_executable(Teleop src/Teleop.cpp)
+add_dependencies(Teleop rctestpkg_generate_messages_cpp)
+target_link_libraries(Teleop ${catkin_LIBRARIES})
 
 add_executable(ACC_MPC src/ACC_MPC.cpp)
 add_dependencies(ACC_MPC rctestpkg_generate_messages_cpp)
