@@ -6,8 +6,6 @@
 
 /*
 CC.cpp
-Original code by Tiancheng Ge
-Adapted by Phil Sisk
 
 */
 #include <ros/ros.h>

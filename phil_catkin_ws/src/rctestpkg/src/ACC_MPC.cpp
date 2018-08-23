@@ -7,13 +7,13 @@
 /* Filename: testsolver.c. */
 /* Description: Basic test harness for solver.c. */
 #include "accsolver.h"
-#include <um_acc/MPC_ACC.h>
+#include <rctestpkg/MPC_ACC.h>
 #include <ros/ros.h>
 Vars vars;
 Params params;
 Workspace work;
 Settings settings;
-bool compute(um_acc::MPC_ACC::Request &req, um_acc::MPC_ACC::Response &res);
+bool compute(rctestpkg::MPC_ACC::Request &req, rctestpkg::MPC_ACC::Response &res);
 
 int main(int argc, char **argv)
 {
@@ -27,7 +27,8 @@ int main(int argc, char **argv)
     return 0;
 }
 
-bool compute(um_acc::MPC_ACC::Request &req, um_acc::MPC_ACC::Response &res) {
+bool compute(rctestpkg::MPC_ACC::Request &req, rctestpkg::MPC_ACC::Response &res) {
+    std::cout << "I have been called upon\n";
     set_defaults();
     setup_indexing();
     /* Make this a diagonal PSD matrix, even though it's not diagonal. */
@@ -64,9 +65,28 @@ bool compute(um_acc::MPC_ACC::Request &req, um_acc::MPC_ACC::Response &res) {
     params.h_min[0] = req.h_min;
     params.u_max[0] = req.i_max;
     params.u_min[0] = req.i_min;
+    std::cout << "All setup successful.\n";
     /* Solve problem instance for the record. */
     settings.verbose = 0;
     solve();
+    std::cout << "Problem I was given:\n";
+    std::cout << req.u0
+	<< req.h0 << "\n"
+	<< req.vl << "\n"
+	<< req.i0 << "\n"
+	<< req.wv << "\n"
+	<< req.wh << "\n"
+	<< req.wi << "\n"
+	<< req.h_stop << "\n"
+	<< req.T_gap << "\n"
+	<< req.v_max << "\n"
+	<< req.v_min << "\n"
+	<< req.h_min << "\n"
+	<< req.i_max << "\n"
+	<< req.i_min << "\n";
+    
     res.i = *vars.u[1];
+    std::cout << "Solve successful. Result = " << res.i << "\n";
+    std::cout << "work.converged: " << work.converged << "\n";
     return work.converged;
 }

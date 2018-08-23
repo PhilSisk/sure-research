@@ -60,7 +60,12 @@ void calculate_headway::calculate(const sensor_msgs::LaserScan::ConstPtr & msg) 
 	}
 	std::cout << "Number of successful scans: " << front_scans.size() << std::endl;
 	
+	if (front_scans.size() < 4) {
+		ROS_ERROR("Cannot calculate headway due to bad scan data.");
+		return;
+	}
 	// Debug output:
+	/*
 	std::vector<float> ranges(front_scans.size());
 	for (int i = 0; i < front_scans.size(); ++i) {
 		ranges[i] = front_scans[i].first * cos(front_scans[i].second);
@@ -74,6 +79,7 @@ void calculate_headway::calculate(const sensor_msgs::LaserScan::ConstPtr & msg) 
 		}
 		std::cout << std::endl;
 	}
+	*/
 
 	// Find three closest points in scan
 	int min_dist_index = 0;
@@ -103,7 +109,9 @@ void calculate_headway::calculate(const sensor_msgs::LaserScan::ConstPtr & msg) 
 	headway = 0;
 	headway = std::accumulate(headway_deque.begin(), headway_deque.end(), 0.0)
 			/ headway_deque.size();
-	std::cout << "Headway: " << headway << std::endl;
+	headway -= 0.3; // subtract distance from front of car (approx. 30 cm)
+	std::cout << "Headway: " << headway << std::endl << std::endl;
+
 }
 
 

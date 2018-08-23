@@ -12,6 +12,7 @@ Publications:	std_msgs::Float32		Motor_command2
 
 Services:	rctestpkg::MPC_LK		LK_MPC2		(client)
 		rctestpkg::MPC_CC		CC_MPC2		(client)
+		rctestpkg::MPC_ACC		CC_ACC2		(client)
 
 */
 
@@ -24,6 +25,7 @@ Services:	rctestpkg::MPC_LK		LK_MPC2		(client)
 #include <rctestpkg/CentralSignal.h>	// Data from Teleop
 #include <rctestpkg/MPC_LK.h>		// Lanekeeping service
 #include <rctestpkg/MPC_CC.h>		// Cruise control service
+#include <rctestpkg/MPC_ACC.h>		// Adaptive cruise control service
 #include <rctestpkg/CarState.h>		// Car state information
 #include <eigen3/Eigen/Dense>   	// Used in computing discretized dynamics matrices
 #include <vector>
@@ -43,8 +45,10 @@ private:
 	rctestpkg::CarState car_state;		// Car state info
 	rctestpkg::MPC_LK lk_srv;		// Lanekeeping service message
 	rctestpkg::MPC_CC cc_srv;		// Cruise control service message
+	rctestpkg::MPC_ACC acc_srv;		// ACC service message
 	ros::ServiceClient	lk_client,	// Lanekeeping service client
-				cc_client;	// Cruise control service client
+				cc_client,	// Cruise control service client
+				acc_client;	// Adaptive cruise control service
 	ros::Subscriber car_state_sub;		// Car state subscriber
 	ros::Subscriber signal_sub;		// Central signal subscriber
 	ros::Subscriber motor_sub;		// Motor data subscriber
@@ -58,6 +62,7 @@ private:
 
 	float call_lanekeeping_service();
 	float call_cc_service();
+	float call_acc_service();
 	void getLateralDynamicsMatrices(double current_u);
 
 	/* CALLBACK FUNCTIONS */
@@ -73,14 +78,18 @@ private:
 public:
 	// Constructor
 	central_controller() : servo_control(SERVO_MID), motor_control(0.0) {
+		
 		lk_client = n.serviceClient<rctestpkg::MPC_LK>("MPC_LK2");
 		cc_client = n.serviceClient<rctestpkg::MPC_CC>("MPC_CC2");
+		acc_client = n.serviceClient<rctestpkg::MPC_ACC>("MPC_ACC2");
+		
 		car_state_sub = n.subscribe("car_state", 1,
 			&central_controller::car_state_callback, this);
 		motor_sub = n.subscribe("Motor_data2", 10,
 			&central_controller::motor_callback, this);
 		signal_sub = n.subscribe("centralSignal", 1,
 			&central_controller::signal_callback, this);
+
 		servo_pub = n.advertise<std_msgs::UInt16>("servo", 10);
 		motor_pub = n.advertise<std_msgs::Float32>("Motor_command2", 10);
 	}
@@ -111,11 +120,41 @@ float central_controller::call_cc_service() {
 	return motor_control;
 }
 
+float central_controller::call_acc_service() {
+	float command_v = signal_msg.command_v;
+	std::cout << "requesting cruise at " << command_v << std::endl;
+	if (command_v < 0.0) command_v = 0.0;
+	
+
+	acc_srv.request.u0 = motor_msg.countPerSecond * CPS2V ;
+	acc_srv.request.h0 = car_state.h;
+	acc_srv.request.vl = car_state.vl;
+	acc_srv.request.i0 = motor_msg.current;
+	acc_srv.request.wv = 10;
+	acc_srv.request.wh = 100;
+	acc_srv.request.wi = 5;
+	acc_srv.request.h_stop = 0.5;
+	acc_srv.request.T_gap = 0.5;
+	acc_srv.request.v_max = command_v;
+	acc_srv.request.v_min = -0.1;
+	acc_srv.request.h_min = 0.3;
+	acc_srv.request.i_max = 4.5;
+	acc_srv.request.i_min = -3;
+	if (acc_client.call(acc_srv)) {
+		std::cout << "called acc service; response = " << acc_srv.response.i << std::endl;
+		motor_control =  (float)acc_srv.response.i;
+	}
+
+	else {
+		ROS_ERROR("Failed to call service MPC_ACC");
+	}
+	return motor_control;
+}
+
 float central_controller::call_lanekeeping_service() {
 	// Due to possible numerical problems if car's longitudinal speed is less than
 	// 0.1, only compute lanekeeping when speed is greater than 0.1
 	double current_u = car_state.u;
-	std::cout << "Current forward velocity: " << current_u << std::endl;
 	if (current_u < 0.1) return servo_control;
 
 	// Fill in data for service request
@@ -221,22 +260,36 @@ void central_controller::publish_commands() {
 	std_msgs::Float32 motor_command;
 	std_msgs::UInt16 servo_command;
 
-	// Determine whether to send a 0 message based on value of command_v
-	// May change this
-	if ((signal_msg.cruise_control || fabs(signal_msg.command_v) > 0.01)
-			&& !signal_msg.stop) {
-		motor_command.data = call_cc_service();
-	}
-	else {
+	if (signal_msg.stop) {
 		motor_command.data = 0.0;
-	}
-
-	// Send manual or auto lanekeeping depending on central signal
-	if (signal_msg.lanekeeping) {
-		servo_command.data = call_lanekeeping_service();
+		servo_command.data = SERVO_MID;
 	}
 	else {
-		servo_command.data = signal_msg.servo_pwm;
+		if (!signal_msg.cruise_control) {	// Manual speed control
+			if (fabs(signal_msg.command_v) > 0.01) {
+					motor_command.data = call_cc_service();
+			}
+			else {
+				motor_command.data = 0.0;
+			}
+		}
+	
+		else {	// Cruise control (ACC or CC depending on heaadway and desired speed)
+			if (signal_msg.command_v > 0.0 && car_state.h < 4.0) {
+				motor_command.data = call_acc_service();
+			}
+			else {
+				motor_command.data = call_cc_service();
+			}
+		}
+	
+		// Send manual or auto lanekeeping depending on central signal
+		if (signal_msg.lanekeeping) {
+			servo_command.data = call_lanekeeping_service();
+		}
+		else {
+			servo_command.data = signal_msg.servo_pwm;
+		}
 	}
 
 	// Publish commands
