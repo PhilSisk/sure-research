@@ -1219,19 +1219,6 @@ motor/fast:
 .PHONY : motor/fast
 
 #=============================================================================
-# Target rules for targets named motorCommand
-
-# Build rule for target.
-motorCommand: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 motorCommand
-.PHONY : motorCommand
-
-# fast build rule for target.
-motorCommand/fast:
-	$(MAKE) -f rctestpkg/CMakeFiles/motorCommand.dir/build.make rctestpkg/CMakeFiles/motorCommand.dir/build
-.PHONY : motorCommand/fast
-
-#=============================================================================
 # Target rules for targets named rctestpkg_gencpp
 
 # Build rule for target.
@@ -1516,19 +1503,6 @@ sensor_msgs_generate_messages_py: cmake_check_build_system
 sensor_msgs_generate_messages_py/fast:
 	$(MAKE) -f rctestpkg/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make rctestpkg/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
 .PHONY : sensor_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named servoCommand
-
-# Build rule for target.
-servoCommand: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 servoCommand
-.PHONY : servoCommand
-
-# fast build rule for target.
-servoCommand/fast:
-	$(MAKE) -f rctestpkg/CMakeFiles/servoCommand.dir/build.make rctestpkg/CMakeFiles/servoCommand.dir/build
-.PHONY : servoCommand/fast
 
 #=============================================================================
 # Target rules for targets named std_msgs_generate_messages_cpp
@@ -2041,7 +2015,6 @@ help:
 	@echo "... lkdata"
 	@echo "... lksolver"
 	@echo "... motor"
-	@echo "... motorCommand"
 	@echo "... rctestpkg_gencpp"
 	@echo "... rctestpkg_generate_messages"
 	@echo "... rctestpkg_generate_messages_cpp"
@@ -2064,7 +2037,6 @@ help:
 	@echo "... sensor_msgs_generate_messages_eus"
 	@echo "... sensor_msgs_generate_messages_lisp"
 	@echo "... sensor_msgs_generate_messages_py"
-	@echo "... servoCommand"
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_eus"
 	@echo "... std_msgs_generate_messages_lisp"

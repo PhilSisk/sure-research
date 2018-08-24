@@ -531,20 +531,6 @@ motor/fast:
 .PHONY : motor/fast
 
 # Convenience name for target.
-rctestpkg/CMakeFiles/motorCommand.dir/rule:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/motorCommand.dir/rule
-.PHONY : rctestpkg/CMakeFiles/motorCommand.dir/rule
-
-# Convenience name for target.
-motorCommand: rctestpkg/CMakeFiles/motorCommand.dir/rule
-.PHONY : motorCommand
-
-# fast build rule for target.
-motorCommand/fast:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorCommand.dir/build.make rctestpkg/CMakeFiles/motorCommand.dir/build
-.PHONY : motorCommand/fast
-
-# Convenience name for target.
 rctestpkg/CMakeFiles/rctestpkg_gencpp.dir/rule:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/rctestpkg_gencpp.dir/rule
 .PHONY : rctestpkg/CMakeFiles/rctestpkg_gencpp.dir/rule
@@ -851,20 +837,6 @@ sensor_msgs_generate_messages_py: rctestpkg/CMakeFiles/sensor_msgs_generate_mess
 sensor_msgs_generate_messages_py/fast:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make rctestpkg/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
 .PHONY : sensor_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-rctestpkg/CMakeFiles/servoCommand.dir/rule:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rctestpkg/CMakeFiles/servoCommand.dir/rule
-.PHONY : rctestpkg/CMakeFiles/servoCommand.dir/rule
-
-# Convenience name for target.
-servoCommand: rctestpkg/CMakeFiles/servoCommand.dir/rule
-.PHONY : servoCommand
-
-# fast build rule for target.
-servoCommand/fast:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/servoCommand.dir/build.make rctestpkg/CMakeFiles/servoCommand.dir/build
-.PHONY : servoCommand/fast
 
 # Convenience name for target.
 rctestpkg/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
@@ -1234,30 +1206,6 @@ src/motor.cpp.s:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motor.dir/build.make rctestpkg/CMakeFiles/motor.dir/src/motor.cpp.s
 .PHONY : src/motor.cpp.s
 
-src/motorCommand.o: src/motorCommand.cpp.o
-.PHONY : src/motorCommand.o
-
-# target to build an object file
-src/motorCommand.cpp.o:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorCommand.dir/build.make rctestpkg/CMakeFiles/motorCommand.dir/src/motorCommand.cpp.o
-.PHONY : src/motorCommand.cpp.o
-
-src/motorCommand.i: src/motorCommand.cpp.i
-.PHONY : src/motorCommand.i
-
-# target to preprocess a source file
-src/motorCommand.cpp.i:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorCommand.dir/build.make rctestpkg/CMakeFiles/motorCommand.dir/src/motorCommand.cpp.i
-.PHONY : src/motorCommand.cpp.i
-
-src/motorCommand.s: src/motorCommand.cpp.s
-.PHONY : src/motorCommand.s
-
-# target to generate assembly for a file
-src/motorCommand.cpp.s:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/motorCommand.dir/build.make rctestpkg/CMakeFiles/motorCommand.dir/src/motorCommand.cpp.s
-.PHONY : src/motorCommand.cpp.s
-
 src/rs232.o: src/rs232.cpp.o
 .PHONY : src/rs232.o
 
@@ -1281,30 +1229,6 @@ src/rs232.s: src/rs232.cpp.s
 src/rs232.cpp.s:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/rs232.dir/build.make rctestpkg/CMakeFiles/rs232.dir/src/rs232.cpp.s
 .PHONY : src/rs232.cpp.s
-
-src/servoCommand.o: src/servoCommand.cpp.o
-.PHONY : src/servoCommand.o
-
-# target to build an object file
-src/servoCommand.cpp.o:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/servoCommand.dir/build.make rctestpkg/CMakeFiles/servoCommand.dir/src/servoCommand.cpp.o
-.PHONY : src/servoCommand.cpp.o
-
-src/servoCommand.i: src/servoCommand.cpp.i
-.PHONY : src/servoCommand.i
-
-# target to preprocess a source file
-src/servoCommand.cpp.i:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/servoCommand.dir/build.make rctestpkg/CMakeFiles/servoCommand.dir/src/servoCommand.cpp.i
-.PHONY : src/servoCommand.cpp.i
-
-src/servoCommand.s: src/servoCommand.cpp.s
-.PHONY : src/servoCommand.s
-
-# target to generate assembly for a file
-src/servoCommand.cpp.s:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/servoCommand.dir/build.make rctestpkg/CMakeFiles/servoCommand.dir/src/servoCommand.cpp.s
-.PHONY : src/servoCommand.cpp.s
 
 # Help Target
 help:
@@ -1344,7 +1268,6 @@ help:
 	@echo "... lkdata"
 	@echo "... lksolver"
 	@echo "... motor"
-	@echo "... motorCommand"
 	@echo "... rctestpkg_gencpp"
 	@echo "... rctestpkg_generate_messages"
 	@echo "... rctestpkg_generate_messages_cpp"
@@ -1368,7 +1291,6 @@ help:
 	@echo "... sensor_msgs_generate_messages_eus"
 	@echo "... sensor_msgs_generate_messages_lisp"
 	@echo "... sensor_msgs_generate_messages_py"
-	@echo "... servoCommand"
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_eus"
 	@echo "... std_msgs_generate_messages_lisp"
@@ -1413,15 +1335,9 @@ help:
 	@echo "... src/motor.o"
 	@echo "... src/motor.i"
 	@echo "... src/motor.s"
-	@echo "... src/motorCommand.o"
-	@echo "... src/motorCommand.i"
-	@echo "... src/motorCommand.s"
 	@echo "... src/rs232.o"
 	@echo "... src/rs232.i"
 	@echo "... src/rs232.s"
-	@echo "... src/servoCommand.o"
-	@echo "... src/servoCommand.i"
-	@echo "... src/servoCommand.s"
 .PHONY : help
 
 

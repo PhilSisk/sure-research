@@ -256,7 +256,9 @@ add_executable(ACC_MPC src/ACC_MPC.cpp)
 add_dependencies(ACC_MPC rctestpkg_generate_messages_cpp)
 target_link_libraries(ACC_MPC ${catkin_LIBRARIES} accsolver)
 
-#catkin_install_python(
-#  PROGRAMS
-#  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(
+  PROGRAMS
+  src/central_controller.py
+  src/matrix_test.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 

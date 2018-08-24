@@ -43,7 +43,7 @@ http://docs.ros.org/groovy/api/turtlesim/html/teleop__turtle__key_8cpp_source.ht
 #define MIN_PWM		1237
 #define MIN_V		-1.0	// Min velocity (m/s)
 #define MAX_V		1.0	// Max velocity (m/s)
-#define FWD_VEL		0.4	// Nominal forward speed for teleop
+#define FWD_VEL		0.5	// Nominal forward speed for teleop
 
 // class TeleopCar - defines functions for controlling car via keyboard
 class TeleopCar {

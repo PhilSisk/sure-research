@@ -1,7 +1,15 @@
 /*
 lkdata.cpp
 Processes rplidar signal to create lanekeeping data based on distance and angle to left wall.
-Gets yaw rate from IMU data and publishes all lanekeeping data on an LKdata message
+
+
+		Type				Name
+Subscriptions:	sensor_msgs::LaserScan		scan
+		rctestpkg::IMUdata		IMUchatter
+
+Publications:	rctestpkg::LKdata		lk_data
+
+Services:	(none)
 */
 
 #include <iostream>
@@ -21,47 +29,6 @@ Gets yaw rate from IMU data and publishes all lanekeeping data on an LKdata mess
 #define RANGE_SIZE 40		// Number of scans from rplidar used in calculations
 #define MID_SCAN 270		// scan used as center of calculation (can be calibrated)
 #define NUM_Y 3			// Number of previous y measurements used to calculate lat vel
-
-
-
-/* butterworth CLASS DEFINITION
-// A second-order low-pass butterworth filter used to smooth yaw reading
-// State space matrices calculated using MATLAB [A,B,C,D] = butter(n, Wn) function
-// with n = 2 and Wn = .2
-class butterworth {
-private:
-	Eigen::Matrix2d A;
-	Eigen::Matrix<double, 2, 1> B;
-	Eigen::Matrix<double, 1, 2> C;
-	double D;
-	Eigen::Vector2d x;
-public:
-	butterworth() {
-	        x << 0, 0;
-		// Note: making the LPF even more extreme, using n = 0.1:
-		A << 0.601184806929141, -0.253602759501623,
-			0.253602759501623, 0.959833268871577;
-		B << 0.358648461942437,
-			0.056804335818009;
-		C << 0.089662115485609, 0.692905697207045;
-		D = 0.020083365564211; 
-	/*
-		A << 0.277891050318045, -0.415211971888089,
-			0.415211971888089, 0.865089452221856;
-		B << 0.587198401903811,
-			0.190792326375034;
-		C << 0.146799600475953, 0.659408699592789;
-		D = 0.067455273889072;
-	}
-	float filt(float input) {
-		x = A * x + B * double(input);
-		return float(C * x + D * double(input));
-	}
-};
-
-END butterworth CLASS DEFINITION */
-
-
 
 
 /* lkdata CLASS DEFINITION */

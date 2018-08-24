@@ -33,7 +33,7 @@ Services:	rctestpkg::MPC_LK		LK_MPC2		(client)
 
 #define SERVO_RATIO 0.00089479		// convert from lk response to servo command
 #define SERVO_MID 1537			// PWM command for straight servo
-#define LANEWIDTH 0.6			// Width of lane (in meters)
+#define LANEWIDTH 1.0			// Width of lane (in meters)
 #define VMAX 0.5			// max velocity (m/s)
 #define PI 3.14159
 #define SRV_REQ_VEL 0.2 // cruise control velocity (in m/s)
@@ -97,7 +97,14 @@ public:
 		servo_pub = n.advertise<std_msgs::UInt16>("servo", 10);
 		motor_pub = n.advertise<std_msgs::Float32>("Motor_command2", 10);
 	}
-	
+	~central_controller() {
+		std_msgs::Float32 motor_command;
+		std_msgs::UInt16 servo_command;
+		motor_command.data = 0.0;
+		servo_command.data = SERVO_MID;
+		servo_pub.publish(servo_command);
+		motor_pub.publish(motor_command);
+	}
 	void publish_commands();
 		
 }; // class central_controller
@@ -137,7 +144,7 @@ float central_controller::call_acc_service() {
 	acc_srv.request.wv = 10;
 	acc_srv.request.wh = 100;
 	acc_srv.request.wi = 5;
-	acc_srv.request.h_stop = 0.5;
+	acc_srv.request.h_stop = 0.6;
 	acc_srv.request.T_gap = 0.5;
 	acc_srv.request.v_max = command_v;
 	acc_srv.request.v_min = -0.1;
@@ -280,7 +287,7 @@ void central_controller::publish_commands() {
 		else {	// Cruise control (ACC or CC depending on heaadway and desired speed)
 			if (signal_msg.command_v > 0.0 &&
 				car_state.h < 2.0 &&
-				fabs(car_state.h_angle) < 15 / 180 * PI) { // < 15 degrees
+				fabs(car_state.h_angle) < (20.0 / 180.0 * PI)) { // < 20 degrees
 				motor_command.data = call_acc_service();
 			}
 			else {

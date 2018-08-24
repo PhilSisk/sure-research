@@ -2,6 +2,14 @@
 Phil Sisk
 6/14/2018
 Reads data from the IMU and publishes it to an IMUdata message
+
+		Type				Name
+Subscriptions:	(none)
+
+Publications:	IMUdata				IMUchatter
+
+Services:	(none)
+
 */
 
 

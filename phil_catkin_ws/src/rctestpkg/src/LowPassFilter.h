@@ -6,7 +6,7 @@
 /* LowPassFilter CLASS DEFINITION */
 // A second-order low-pass butterworth filter used to smooth yaw reading
 // State space matrices calculated using MATLAB [A,B,C,D] = butter(n, Wn) function
-// with n = 2 and Wn = .2
+// with n = 2s
 class LowPassFilter {
 private:
 	Eigen::Matrix2d A;
@@ -16,7 +16,7 @@ private:
 	Eigen::Vector2d x;
 public:
 	// Constructor
-	LowPassFilter(float Wn = 0.1) {
+	LowPassFilter(float Wn = 0.2) {
 		x << 0, 0;
 		if (Wn == 0.1) {
 			A << 0.601184806929141, -0.253602759501623,
@@ -53,6 +53,6 @@ public:
 	}
 };
 
-/* END butterworth CLASS DEFINITION */
+/* END LowPassFilter CLASS DEFINITION */
 
 #endif
