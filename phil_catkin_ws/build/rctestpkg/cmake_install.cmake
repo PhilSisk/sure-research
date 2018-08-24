@@ -39,6 +39,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
     "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CarState.msg"
     "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/LKdata.msg"
     "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CentralSignal.msg"
+    "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Headway.msg"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

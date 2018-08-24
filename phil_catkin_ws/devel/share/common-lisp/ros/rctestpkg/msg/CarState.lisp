@@ -32,6 +32,11 @@
     :initarg :h
     :type cl:float
     :initform 0.0)
+   (h_angle
+    :reader h_angle
+    :initarg :h_angle
+    :type cl:float
+    :initform 0.0)
    (vl
     :reader vl
     :initarg :vl
@@ -101,6 +106,11 @@
 (cl:defmethod h-val ((m <CarState>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader rctestpkg-msg:h-val is deprecated.  Use rctestpkg-msg:h instead.")
   (h m))
+
+(cl:ensure-generic-function 'h_angle-val :lambda-list '(m))
+(cl:defmethod h_angle-val ((m <CarState>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader rctestpkg-msg:h_angle-val is deprecated.  Use rctestpkg-msg:h_angle instead.")
+  (h_angle m))
 
 (cl:ensure-generic-function 'vl-val :lambda-list '(m))
 (cl:defmethod vl-val ((m <CarState>))
@@ -175,6 +185,15 @@
     (cl:write-byte (cl:ldb (cl:byte 8 48) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 56) bits) ostream))
   (cl:let ((bits (roslisp-utils:encode-double-float-bits (cl:slot-value msg 'h))))
+    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 32) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 40) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 48) bits) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 56) bits) ostream))
+  (cl:let ((bits (roslisp-utils:encode-double-float-bits (cl:slot-value msg 'h_angle))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
@@ -308,6 +327,16 @@
       (cl:setf (cl:ldb (cl:byte 8 40) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 48) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 56) bits) (cl:read-byte istream))
+    (cl:setf (cl:slot-value msg 'h_angle) (roslisp-utils:decode-double-float-bits bits)))
+    (cl:let ((bits 0))
+      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 32) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 40) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 48) bits) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 56) bits) (cl:read-byte istream))
     (cl:setf (cl:slot-value msg 'vl) (roslisp-utils:decode-double-float-bits bits)))
     (cl:let ((bits 0))
       (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
@@ -379,18 +408,19 @@
   "rctestpkg/CarState")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<CarState>)))
   "Returns md5sum for a message object of type '<CarState>"
-  "5c168035e6a7af9bba6d62e824c5dd6a")
+  "546fdc741d393a86a6853d0d0c25fc49")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'CarState)))
   "Returns md5sum for a message object of type 'CarState"
-  "5c168035e6a7af9bba6d62e824c5dd6a")
+  "546fdc741d393a86a6853d0d0c25fc49")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<CarState>)))
   "Returns full string definition for message of type '<CarState>"
-  (cl:format cl:nil "float64 time~%float64 x_global~%float64 y_global~%float64 yaw_global~%float64 h~%float64 vl~%float64 u~%float64 y~%float64 v~%float64 psi~%float64 r~%float64 rd~%~%~%"))
+  (cl:format cl:nil "float64 time~%float64 x_global~%float64 y_global~%float64 yaw_global~%float64 h~%float64 h_angle~%float64 vl~%float64 u~%float64 y~%float64 v~%float64 psi~%float64 r~%float64 rd~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'CarState)))
   "Returns full string definition for message of type 'CarState"
-  (cl:format cl:nil "float64 time~%float64 x_global~%float64 y_global~%float64 yaw_global~%float64 h~%float64 vl~%float64 u~%float64 y~%float64 v~%float64 psi~%float64 r~%float64 rd~%~%~%"))
+  (cl:format cl:nil "float64 time~%float64 x_global~%float64 y_global~%float64 yaw_global~%float64 h~%float64 h_angle~%float64 vl~%float64 u~%float64 y~%float64 v~%float64 psi~%float64 r~%float64 rd~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <CarState>))
   (cl:+ 0
+     8
      8
      8
      8
@@ -412,6 +442,7 @@
     (cl:cons ':y_global (y_global msg))
     (cl:cons ':yaw_global (yaw_global msg))
     (cl:cons ':h (h msg))
+    (cl:cons ':h_angle (h_angle msg))
     (cl:cons ':vl (vl msg))
     (cl:cons ':u (u msg))
     (cl:cons ':y (y msg))

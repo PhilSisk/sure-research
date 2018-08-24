@@ -1,8 +1,6 @@
 (cl:defpackage rctestpkg-msg
   (:use )
   (:export
-   "<CURRENTTIME>"
-   "CURRENTTIME"
    "<LKDATA>"
    "LKDATA"
    "<TESTTALKERMSG>"
@@ -11,6 +9,8 @@
    "CARSTATE"
    "<CENTRALSIGNAL>"
    "CENTRALSIGNAL"
+   "<HEADWAY>"
+   "HEADWAY"
    "<IMUDATA>"
    "IMUDATA"
    "<MOTOR_DATA>"

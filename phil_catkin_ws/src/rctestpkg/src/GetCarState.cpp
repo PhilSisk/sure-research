@@ -10,14 +10,22 @@
 #include <rctestpkg/Motor_data.h>
 #include <rctestpkg/CarState.h>
 #include <std_msgs/Float64.h>
+#include <rctestpkg/Headway.h>
+#include <deque>		// Used in v_lead calculation
+#include <numeric>		// For std::inner_product
+
+#include "LowPassFilter.h"	// LPF used by lead car velocity
 
 class car_state {
 private:
 	rctestpkg::CarState state_msg;
+	std::deque<double> h_deque;
+	LowPassFilter vl_lpf;	// Lead car velocity filter
 public: 
+	car_state() : vl_lpf(0.4) {}
 	void set_lk_data(const rctestpkg::LKdata::ConstPtr& msg);
 	void set_motor_data(const rctestpkg::Motor_data::ConstPtr& msg);
-	void set_headway_data(const std_msgs::Float64::ConstPtr& msg);
+	void calculate_v_lead();
 	rctestpkg::CarState get_state_msg() { return state_msg; }
 
 	/* CALLBACK FUNCTIONS */
@@ -31,9 +39,14 @@ public:
 		set_lk_data(msg);
 	}
 
-	void headway_callback(const std_msgs::Float64::ConstPtr& msg){
+	void headway_callback(const rctestpkg::Headway::ConstPtr& msg){
 		std::cout << "headway_callback\n";
-		set_headway_data(msg);
+		state_msg.h = msg->h;
+		state_msg.h_angle = msg->angle;
+	}
+
+	void timed_callback(const ros::TimerEvent &) {
+		calculate_v_lead();
 	}
 };
 
@@ -54,8 +67,14 @@ void car_state::set_motor_data(const rctestpkg::Motor_data::ConstPtr& msg) {
 	state_msg.u = msg->countPerSecond*CPS2V;
 }
 
-void car_state::set_headway_data(const std_msgs::Float64::ConstPtr& msg) {
-	state_msg.h = msg->data;
+void car_state::calculate_v_lead() {
+	h_deque.push_back(state_msg.h);
+	double delta_h = 0;
+	if (h_deque.size() > 2) {
+		h_deque.pop_front();
+		delta_h = (h_deque[1] - h_deque[0]) / 0.1;
+	}
+	state_msg.vl = vl_lpf.filt(delta_h + state_msg.u);
 }
 
 
@@ -67,6 +86,7 @@ int main(int argc, char ** argv) {
 	ros::Subscriber motor_sub = n.subscribe("Motor_data2", 10, &car_state::motor_callback, &cs);
 	ros::Subscriber lk_sub = n.subscribe("lk_data", 10, &car_state::LK_callback, &cs);
 	ros::Subscriber headway_sub = n.subscribe("headway", 10, &car_state::headway_callback, &cs);
+	ros::Timer timer1 = n.createTimer(ros::Duration(0.1), &car_state::timed_callback, &cs);
 	ros::Rate loop_rate(50);
 	ros::spinOnce();
 	while(ros::ok()) {

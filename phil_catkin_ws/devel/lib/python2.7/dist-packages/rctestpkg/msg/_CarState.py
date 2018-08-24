@@ -7,7 +7,7 @@ import struct
 
 
 class CarState(genpy.Message):
-  _md5sum = "5c168035e6a7af9bba6d62e824c5dd6a"
+  _md5sum = "546fdc741d393a86a6853d0d0c25fc49"
   _type = "rctestpkg/CarState"
   _has_header = False #flag to mark the presence of a Header object
   _full_text = """float64 time
@@ -15,6 +15,7 @@ float64 x_global
 float64 y_global
 float64 yaw_global
 float64 h
+float64 h_angle
 float64 vl
 float64 u
 float64 y
@@ -23,8 +24,8 @@ float64 psi
 float64 r
 float64 rd
 """
-  __slots__ = ['time','x_global','y_global','yaw_global','h','vl','u','y','v','psi','r','rd']
-  _slot_types = ['float64','float64','float64','float64','float64','float64','float64','float64','float64','float64','float64','float64']
+  __slots__ = ['time','x_global','y_global','yaw_global','h','h_angle','vl','u','y','v','psi','r','rd']
+  _slot_types = ['float64','float64','float64','float64','float64','float64','float64','float64','float64','float64','float64','float64','float64']
 
   def __init__(self, *args, **kwds):
     """
@@ -34,7 +35,7 @@ float64 rd
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       time,x_global,y_global,yaw_global,h,vl,u,y,v,psi,r,rd
+       time,x_global,y_global,yaw_global,h,h_angle,vl,u,y,v,psi,r,rd
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -53,6 +54,8 @@ float64 rd
         self.yaw_global = 0.
       if self.h is None:
         self.h = 0.
+      if self.h_angle is None:
+        self.h_angle = 0.
       if self.vl is None:
         self.vl = 0.
       if self.u is None:
@@ -73,6 +76,7 @@ float64 rd
       self.y_global = 0.
       self.yaw_global = 0.
       self.h = 0.
+      self.h_angle = 0.
       self.vl = 0.
       self.u = 0.
       self.y = 0.
@@ -94,7 +98,7 @@ float64 rd
     """
     try:
       _x = self
-      buff.write(_struct_12d.pack(_x.time, _x.x_global, _x.y_global, _x.yaw_global, _x.h, _x.vl, _x.u, _x.y, _x.v, _x.psi, _x.r, _x.rd))
+      buff.write(_struct_13d.pack(_x.time, _x.x_global, _x.y_global, _x.yaw_global, _x.h, _x.h_angle, _x.vl, _x.u, _x.y, _x.v, _x.psi, _x.r, _x.rd))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -107,8 +111,8 @@ float64 rd
       end = 0
       _x = self
       start = end
-      end += 96
-      (_x.time, _x.x_global, _x.y_global, _x.yaw_global, _x.h, _x.vl, _x.u, _x.y, _x.v, _x.psi, _x.r, _x.rd,) = _struct_12d.unpack(str[start:end])
+      end += 104
+      (_x.time, _x.x_global, _x.y_global, _x.yaw_global, _x.h, _x.h_angle, _x.vl, _x.u, _x.y, _x.v, _x.psi, _x.r, _x.rd,) = _struct_13d.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -122,7 +126,7 @@ float64 rd
     """
     try:
       _x = self
-      buff.write(_struct_12d.pack(_x.time, _x.x_global, _x.y_global, _x.yaw_global, _x.h, _x.vl, _x.u, _x.y, _x.v, _x.psi, _x.r, _x.rd))
+      buff.write(_struct_13d.pack(_x.time, _x.x_global, _x.y_global, _x.yaw_global, _x.h, _x.h_angle, _x.vl, _x.u, _x.y, _x.v, _x.psi, _x.r, _x.rd))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -136,11 +140,11 @@ float64 rd
       end = 0
       _x = self
       start = end
-      end += 96
-      (_x.time, _x.x_global, _x.y_global, _x.yaw_global, _x.h, _x.vl, _x.u, _x.y, _x.v, _x.psi, _x.r, _x.rd,) = _struct_12d.unpack(str[start:end])
+      end += 104
+      (_x.time, _x.x_global, _x.y_global, _x.yaw_global, _x.h, _x.h_angle, _x.vl, _x.u, _x.y, _x.v, _x.psi, _x.r, _x.rd,) = _struct_13d.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_12d = struct.Struct("<12d")
+_struct_13d = struct.Struct("<13d")

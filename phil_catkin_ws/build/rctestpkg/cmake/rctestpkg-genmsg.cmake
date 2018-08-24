@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "rctestpkg: 5 messages, 4 services")
+message(STATUS "rctestpkg: 6 messages, 4 services")
 
 set(MSG_I_FLAGS "-Irctestpkg:/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg;-Istd_msgs:/opt/ros/jade/share/std_msgs/cmake/../msg;-Isensor_msgs:/opt/ros/jade/share/sensor_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/jade/share/geometry_msgs/cmake/../msg")
 
@@ -21,9 +21,9 @@ add_custom_target(_rctestpkg_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "rctestpkg" "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv" ""
 )
 
-get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/ComputeControl.srv" NAME_WE)
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Headway.msg" NAME_WE)
 add_custom_target(_rctestpkg_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "rctestpkg" "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/ComputeControl.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "rctestpkg" "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Headway.msg" ""
 )
 
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/LKdata.msg" NAME_WE)
@@ -61,6 +61,11 @@ add_custom_target(_rctestpkg_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "rctestpkg" "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg" ""
 )
 
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/ComputeControl.srv" NAME_WE)
+add_custom_target(_rctestpkg_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "rctestpkg" "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/ComputeControl.srv" ""
+)
+
 #
 #  langs = gencpp;geneus;genlisp;genpy
 #
@@ -68,19 +73,7 @@ add_custom_target(_rctestpkg_generate_messages_check_deps_${_filename}
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(rctestpkg
-  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CarState.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/rctestpkg
-)
-_generate_msg_cpp(rctestpkg
-  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/rctestpkg
-)
-_generate_msg_cpp(rctestpkg
-  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CentralSignal.msg"
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Headway.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/rctestpkg
@@ -93,6 +86,24 @@ _generate_msg_cpp(rctestpkg
 )
 _generate_msg_cpp(rctestpkg
   "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/IMUdata.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/rctestpkg
+)
+_generate_msg_cpp(rctestpkg
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CarState.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/rctestpkg
+)
+_generate_msg_cpp(rctestpkg
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CentralSignal.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/rctestpkg
+)
+_generate_msg_cpp(rctestpkg
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/rctestpkg
@@ -138,7 +149,7 @@ add_dependencies(rctestpkg_generate_messages rctestpkg_generate_messages_cpp)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_cpp _rctestpkg_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/ComputeControl.srv" NAME_WE)
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Headway.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_cpp _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/LKdata.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_cpp _rctestpkg_generate_messages_check_deps_${_filename})
@@ -154,6 +165,8 @@ get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/
 add_dependencies(rctestpkg_generate_messages_cpp _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_cpp _rctestpkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/ComputeControl.srv" NAME_WE)
+add_dependencies(rctestpkg_generate_messages_cpp _rctestpkg_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(rctestpkg_gencpp)
@@ -165,19 +178,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS rctestpkg_generate_messages_cpp)
 ### Section generating for lang: geneus
 ### Generating Messages
 _generate_msg_eus(rctestpkg
-  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CarState.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/rctestpkg
-)
-_generate_msg_eus(rctestpkg
-  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/rctestpkg
-)
-_generate_msg_eus(rctestpkg
-  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CentralSignal.msg"
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Headway.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/rctestpkg
@@ -190,6 +191,24 @@ _generate_msg_eus(rctestpkg
 )
 _generate_msg_eus(rctestpkg
   "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/IMUdata.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/rctestpkg
+)
+_generate_msg_eus(rctestpkg
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CarState.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/rctestpkg
+)
+_generate_msg_eus(rctestpkg
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CentralSignal.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/rctestpkg
+)
+_generate_msg_eus(rctestpkg
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/rctestpkg
@@ -235,7 +254,7 @@ add_dependencies(rctestpkg_generate_messages rctestpkg_generate_messages_eus)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_eus _rctestpkg_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/ComputeControl.srv" NAME_WE)
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Headway.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_eus _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/LKdata.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_eus _rctestpkg_generate_messages_check_deps_${_filename})
@@ -251,6 +270,8 @@ get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/
 add_dependencies(rctestpkg_generate_messages_eus _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_eus _rctestpkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/ComputeControl.srv" NAME_WE)
+add_dependencies(rctestpkg_generate_messages_eus _rctestpkg_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(rctestpkg_geneus)
@@ -262,19 +283,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS rctestpkg_generate_messages_eus)
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(rctestpkg
-  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CarState.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/rctestpkg
-)
-_generate_msg_lisp(rctestpkg
-  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/rctestpkg
-)
-_generate_msg_lisp(rctestpkg
-  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CentralSignal.msg"
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Headway.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/rctestpkg
@@ -287,6 +296,24 @@ _generate_msg_lisp(rctestpkg
 )
 _generate_msg_lisp(rctestpkg
   "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/IMUdata.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/rctestpkg
+)
+_generate_msg_lisp(rctestpkg
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CarState.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/rctestpkg
+)
+_generate_msg_lisp(rctestpkg
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CentralSignal.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/rctestpkg
+)
+_generate_msg_lisp(rctestpkg
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/rctestpkg
@@ -332,7 +359,7 @@ add_dependencies(rctestpkg_generate_messages rctestpkg_generate_messages_lisp)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_lisp _rctestpkg_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/ComputeControl.srv" NAME_WE)
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Headway.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_lisp _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/LKdata.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_lisp _rctestpkg_generate_messages_check_deps_${_filename})
@@ -348,6 +375,8 @@ get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/
 add_dependencies(rctestpkg_generate_messages_lisp _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_lisp _rctestpkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/ComputeControl.srv" NAME_WE)
+add_dependencies(rctestpkg_generate_messages_lisp _rctestpkg_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(rctestpkg_genlisp)
@@ -359,19 +388,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS rctestpkg_generate_messages_lisp)
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(rctestpkg
-  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CarState.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/rctestpkg
-)
-_generate_msg_py(rctestpkg
-  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/rctestpkg
-)
-_generate_msg_py(rctestpkg
-  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CentralSignal.msg"
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Headway.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/rctestpkg
@@ -384,6 +401,24 @@ _generate_msg_py(rctestpkg
 )
 _generate_msg_py(rctestpkg
   "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/IMUdata.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/rctestpkg
+)
+_generate_msg_py(rctestpkg
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CarState.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/rctestpkg
+)
+_generate_msg_py(rctestpkg
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/CentralSignal.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/rctestpkg
+)
+_generate_msg_py(rctestpkg
+  "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/rctestpkg
@@ -429,7 +464,7 @@ add_dependencies(rctestpkg_generate_messages rctestpkg_generate_messages_py)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_CC.srv" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_py _rctestpkg_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/ComputeControl.srv" NAME_WE)
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Headway.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_py _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/LKdata.msg" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_py _rctestpkg_generate_messages_check_deps_${_filename})
@@ -444,6 +479,8 @@ add_dependencies(rctestpkg_generate_messages_py _rctestpkg_generate_messages_che
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/MPC_LK.srv" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_py _rctestpkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/msg/Motor_data.msg" NAME_WE)
+add_dependencies(rctestpkg_generate_messages_py _rctestpkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ubuntu/phil_catkin_ws/src/rctestpkg/srv/ComputeControl.srv" NAME_WE)
 add_dependencies(rctestpkg_generate_messages_py _rctestpkg_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

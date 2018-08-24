@@ -56,6 +56,7 @@ add_message_files(
    CarState.msg
    LKdata.msg
    CentralSignal.msg
+   Headway.msg
 )
 
 ## Generate services in the 'srv' folder

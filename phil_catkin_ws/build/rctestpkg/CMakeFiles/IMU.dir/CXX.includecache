@@ -47,6 +47,12 @@ rctestpkg/IMUdata.h
 /home/ubuntu/phil_catkin_ws/src/rctestpkg/src/rctestpkg/IMUdata.h
 iostream
 -
+LowPassFilter.h
+/home/ubuntu/phil_catkin_ws/src/rctestpkg/src/LowPassFilter.h
+
+/home/ubuntu/phil_catkin_ws/src/rctestpkg/src/LowPassFilter.h
+eigen3/Eigen/Dense
+-
 
 /opt/ros/jade/include/XmlRpcDecl.h
 ros/macros.h

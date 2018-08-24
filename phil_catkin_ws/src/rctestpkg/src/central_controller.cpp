@@ -57,10 +57,12 @@ private:
 	std_msgs::UInt16 servo_msg;
 	rctestpkg::Motor_data motor_msg;
 	rctestpkg::CentralSignal signal_msg;
+	float prev_s;				// Previous steering angle
+
 	int 	servo_control;
 	float	motor_control;
 
-	float call_lanekeeping_service();
+	int call_lanekeeping_service();
 	float call_cc_service();
 	float call_acc_service();
 	void getLateralDynamicsMatrices(double current_u);
@@ -77,7 +79,9 @@ private:
 	}
 public:
 	// Constructor
-	central_controller() : servo_control(SERVO_MID), motor_control(0.0) {
+	central_controller() :	servo_control(SERVO_MID),
+				prev_s(0.0),
+				motor_control(0.0) {
 		
 		lk_client = n.serviceClient<rctestpkg::MPC_LK>("MPC_LK2");
 		cc_client = n.serviceClient<rctestpkg::MPC_CC>("MPC_CC2");
@@ -151,7 +155,7 @@ float central_controller::call_acc_service() {
 	return motor_control;
 }
 
-float central_controller::call_lanekeeping_service() {
+int central_controller::call_lanekeeping_service() {
 	// Due to possible numerical problems if car's longitudinal speed is less than
 	// 0.1, only compute lanekeeping when speed is greater than 0.1
 	double current_u = car_state.u;
@@ -162,7 +166,7 @@ float central_controller::call_lanekeeping_service() {
 	lk_srv.request.v0 = car_state.v;
 	lk_srv.request.p0 = car_state.psi;
 	lk_srv.request.r0 = car_state.r;
-	lk_srv.request.s0 = 0.0;			// This is set to "prev_s" in .py code
+	lk_srv.request.s0 = prev_s;			// This is set to "prev_s" in .py code
 	lk_srv.request.wy = 100.0;
 	lk_srv.request.wv = 10.0;
 	lk_srv.request.wp = 50.0;
@@ -179,12 +183,11 @@ float central_controller::call_lanekeeping_service() {
 	// Call service; if call is successful, publish servo command
 	lk_srv.request.rd = std::vector<double>(21, 0);
 	if (lk_client.call(lk_srv)) {
-		double response = int(lk_srv.response.s/SERVO_RATIO);
+		int response = int(lk_srv.response.s/SERVO_RATIO);
+		prev_s = lk_srv.response.s;
 		std::cout << "called service; response = "
 			<< response << std::endl;
 		servo_control = response + SERVO_MID;
-		servo_msg.data = response + SERVO_MID;
-		servo_pub.publish(servo_msg);
 	}
 
 	else {
@@ -275,7 +278,9 @@ void central_controller::publish_commands() {
 		}
 	
 		else {	// Cruise control (ACC or CC depending on heaadway and desired speed)
-			if (signal_msg.command_v > 0.0 && car_state.h < 4.0) {
+			if (signal_msg.command_v > 0.0 &&
+				car_state.h < 2.0 &&
+				fabs(car_state.h_angle) < 15 / 180 * PI) { // < 15 degrees
 				motor_command.data = call_acc_service();
 			}
 			else {
@@ -289,12 +294,14 @@ void central_controller::publish_commands() {
 		}
 		else {
 			servo_command.data = signal_msg.servo_pwm;
+			prev_s = float(signal_msg.servo_pwm - SERVO_MID) * SERVO_RATIO;
 		}
 	}
 
 	// Publish commands
 	motor_pub.publish(motor_command);
-	servo_pub.publish(servo_command);		
+	servo_pub.publish(servo_command);
+	std::cout << "Prev s: " << prev_s << std::endl;		
 }
 
 int main(int argc, char ** argv) {

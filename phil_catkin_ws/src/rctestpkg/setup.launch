@@ -11,11 +11,13 @@
   </node>
 
   <node name="motor2" pkg="rctestpkg" type="motor" />
-  <node name="LKtest" pkg="rctestpkg" type="lkdata" />
+  <node name="LKdata" pkg="rctestpkg" type="lkdata" />
   <node name="getCarState2" pkg="rctestpkg" type="GetCarState" />
-  <node name="CC_MPC2" pkg="rctestpkg" type="CC" />
+  <node name="calculate_headway" pkg="rctestpkg" type="calculate_headway" />
+  <node name="CC_MPC2" pkg="rctestpkg" type="CC_MPC" />
   <node name="LK_MPC2" pkg="rctestpkg" type="LK_MPC" />
+  <node name="ACC_MPC2" pkg="rctestpkg" type="ACC_MPC" />
   <node name="central_controller" pkg="rctestpkg" type="central_controller" />
-  <node name="motorCommand2" pkg="rctestpkg" type="motorCommand" output="screen" launch-prefix="gnome-terminal --command"/>  
+  <node name="Teleop" pkg="rctestpkg" type="Teleop" output="screen" launch-prefix="gnome-terminal --command"/>  
 
 </launch>

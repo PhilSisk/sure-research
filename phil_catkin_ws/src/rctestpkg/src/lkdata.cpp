@@ -1,6 +1,6 @@
 /*
 lkdata.cpp
-Processes rplidar signal to create lanekeeping data based on distance and angle to left wall
+Processes rplidar signal to create lanekeeping data based on distance and angle to left wall.
 Gets yaw rate from IMU data and publishes all lanekeeping data on an LKdata message
 */
 
@@ -16,7 +16,7 @@ Gets yaw rate from IMU data and publishes all lanekeeping data on an LKdata mess
 #include <algorithm>		// For trig stuff 
 #include <numeric>		// For std::inner_product
 #include <deque>
-#include <eigen3/Eigen/Dense>   // For butterworth yaw filter
+#include "LowPassFilter.h"	// Filter delta_psi and lateral v
 
 #define RANGE_SIZE 40		// Number of scans from rplidar used in calculations
 #define MID_SCAN 270		// scan used as center of calculation (can be calibrated)
@@ -24,7 +24,7 @@ Gets yaw rate from IMU data and publishes all lanekeeping data on an LKdata mess
 
 
 
-/* butterworth CLASS DEFINITION */
+/* butterworth CLASS DEFINITION
 // A second-order low-pass butterworth filter used to smooth yaw reading
 // State space matrices calculated using MATLAB [A,B,C,D] = butter(n, Wn) function
 // with n = 2 and Wn = .2
@@ -52,7 +52,6 @@ public:
 			0.190792326375034;
 		C << 0.146799600475953, 0.659408699592789;
 		D = 0.067455273889072;
-	*/
 	}
 	float filt(float input) {
 		x = A * x + B * double(input);
@@ -60,7 +59,7 @@ public:
 	}
 };
 
-/* END butterworth CLASS DEFINITION */
+END butterworth CLASS DEFINITION */
 
 
 
@@ -84,14 +83,27 @@ private:
 			road_disturbance;
 	std::deque<float>	y_deque,
 				yaw_deque;
-	butterworth yaw_angle_filt, road_disturb_filt;
+	// Data filters
+	LowPassFilter	yaw_angle_filt,
+			yaw_rate_filt,
+			road_disturb_filt,
+			v_lat_filt;
 	
 	// Private helper function
 	float calculate_angle(const std::vector<float> & x_vec, const std::vector<float> & y_vec);
 
 public:
-	lkdata() : range_size(RANGE_SIZE), middle_of_scan(MID_SCAN), distance(0),
-			yaw_angle(0), y(0), lat_velocity(0), yaw_rate(0) {
+	lkdata() :	range_size(RANGE_SIZE),
+			middle_of_scan(MID_SCAN),
+			distance(0),
+			yaw_angle(0),
+			y(0),
+			lat_velocity(0),
+			yaw_rate(0),
+			yaw_angle_filt(0.4),
+			yaw_rate_filt(0.4),
+			road_disturb_filt(0.4),
+			v_lat_filt(0.4) {
 		range_beg = middle_of_scan - range_size/2;
 		range_end = middle_of_scan + range_size/2;
 		theta = 0.0174533 * range_size/2;
@@ -207,22 +219,12 @@ void lkdata::calculate_distance(const sensor_msgs::LaserScan::ConstPtr& msg) {
 // readings versus time.
 void lkdata::calculate_lat_vel() {
 	y_deque.push_back(y);
-	if (y_deque.size() >= NUM_Y) {
+	double delta_y = 0;
+	if (y_deque.size() > 2) {
 		y_deque.pop_front();
-	}	
-	std::vector<float> t(y_deque.size());
-	float x = 0.0;
-	for (unsigned int i = 0; i < t.size(); ++i) {
-		t[i] = x;
-		x += 0.1;
+		delta_y = (y_deque[1] - y_deque[0]) / 0.1;
 	}
-	float n = float(t.size());
-	float s_x = std::accumulate(t.begin(), t.end(), 0.0);
-	float s_y = std::accumulate(y_deque.begin(), y_deque.end(), 0.0);
-	float s_xx = std::inner_product(t.begin(), t.end(), t.begin(), 0.0);
-	float s_xy = std::inner_product(t.begin(), t.end(), y_deque.begin(), 0.0);
-	float slope = (n * s_xy - s_x * s_y) / (n * s_xx - s_x * s_x);
-	lat_velocity = slope;
+	lat_velocity = v_lat_filt.filt(delta_y);
 	
 }
 
@@ -230,23 +232,12 @@ void lkdata::calculate_lat_vel() {
 // readings versus time.
 void lkdata::calculate_yaw_rate() {
 	yaw_deque.push_back(yaw_angle);
+	yaw_rate = 0;
 	if (yaw_deque.size() > 2) {
 		yaw_deque.pop_front();
-	}	
-	std::vector<float> t(yaw_deque.size());
-	float x = 0.0;
-	for (unsigned int i = 0; i < t.size(); ++i) {
-		t[i] = x;
-		x += 0.1;
+		yaw_rate = (yaw_deque[1] - yaw_deque[0]) / 0.1;
 	}
-	float n = float(t.size());
-	float s_x = std::accumulate(t.begin(), t.end(), 0.0);
-	float s_y = std::accumulate(yaw_deque.begin(), yaw_deque.end(), 0.0);
-	float s_xx = std::inner_product(t.begin(), t.end(), t.begin(), 0.0);
-	float s_xy = std::inner_product(t.begin(), t.end(), yaw_deque.begin(), 0.0);
-	float slope = (n * s_xy - s_x * s_y) / (n * s_xx - s_x * s_x);
-	yaw_rate = slope;
-	
+	yaw_rate = yaw_rate_filt.filt(yaw_rate);
 }
 
 // Packs lk data into an LKdata message

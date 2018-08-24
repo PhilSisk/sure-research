@@ -3,6 +3,7 @@ float64 x_global
 float64 y_global
 float64 yaw_global
 float64 h
+float64 h_angle
 float64 vl
 float64 u
 float64 y

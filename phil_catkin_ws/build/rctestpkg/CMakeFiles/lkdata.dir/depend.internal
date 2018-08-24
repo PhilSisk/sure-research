@@ -4,6 +4,7 @@
 rctestpkg/CMakeFiles/lkdata.dir/src/lkdata.cpp.o
  /home/ubuntu/phil_catkin_ws/devel/include/rctestpkg/IMUdata.h
  /home/ubuntu/phil_catkin_ws/devel/include/rctestpkg/LKdata.h
+ /home/ubuntu/phil_catkin_ws/src/rctestpkg/src/LowPassFilter.h
  /home/ubuntu/phil_catkin_ws/src/rctestpkg/src/lkdata.cpp
  /opt/ros/jade/include/XmlRpcDecl.h
  /opt/ros/jade/include/XmlRpcValue.h

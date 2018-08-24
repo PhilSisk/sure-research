@@ -17,52 +17,12 @@ Reads data from the IMU and publishes it to an IMUdata message
 #include "ros/ros.h"		// ROS functionality
 #include "rctestpkg/IMUdata.h"  // Message definition
 #include <iostream>
+#include "LowPassFilter.h"	// Yaw rate filter
 
 // Function prototypes
 void tty_setup(termios & tty, int USB);
 int read_IMU_response(char * response, int USB);
 
-// A second-order low-pass butterworth filter for IMU with a cornering frequency of 20 Hz
-// and a sampling frequency of 100 Hz
-// State space matrices calculated using MATLAB [A,B,C,D] = butter(n, Wn) function
-class butterworth {
-private:
-	Eigen::Matrix2d A;
-	Eigen::Matrix<double, 2, 1> B;
-	Eigen::Matrix<double, 1, 2> C;
-	double D;
-	Eigen::Vector2d x;
-public:
-	butterworth() {
-		x << 0, 0;
-		A << 0.601184806929141, -0.253602759501623,
-			0.253602759501623, 0.959833268871577;
-		B << 0.358648461942437,
-			0.056804335818009;
-		C << 0.089662115485609, 0.692905697207045;
-		D = 0.020083365564211; 		
-		// 40 Hz filter matrices
-		/*A << -0.217328454996463, -0.568644162904732,
-			 0.568644162904732,	  0.586855832347704;
-		B << 0.804184287344167,
-			 0.584274085109220;
-		C << 0.201046071836042,	0.561038259909243;
-		D = 0.206572083826148;
-		
-		// 20 Hz filter matrices:
-		A << 0.277891050318045, -0.415211971888089,
-			0.415211971888089, 0.865089452221856;
-		B << 0.587198401903811,
-			0.190792326375034;
-		C << 0.146799600475953, 0.659408699592789;
-		D = 0.067455273889072;
-		*/
-	}
-	double filt(double input) {
-		x = A * x + B * input;
-		return C * x + D * input;
-	}
-};
 
 int main (int argc, char ** argv) {
 	// Open USB port for reading and writing
@@ -89,7 +49,7 @@ int main (int argc, char ** argv) {
 	const int SIZE = 1024;
 	initVec.reserve(SIZE);
 	double mean = 0;
-	butterworth yaw_rate_filter;
+	LowPassFilter yaw_rate_filter(0.2);
 
 	// ROS Loop
 	while (ros::ok()) {

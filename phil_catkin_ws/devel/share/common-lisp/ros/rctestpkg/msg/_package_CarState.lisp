@@ -9,6 +9,8 @@
           YAW_GLOBAL
           H-VAL
           H
+          H_ANGLE-VAL
+          H_ANGLE
           VL-VAL
           VL
           U-VAL
