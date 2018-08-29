@@ -1,1 +1,3 @@
 To see the source code for the ROS nodes currently running on the RC car, go to phil_catkin_ws/src/rctestpkg/src. Some files there are currently duplicates and or experimental nodes.
+rosgraph.png shows an rqt_graph view of the nodes that run and their connections when setup.launch is run.
+ScaledCar2ROS.xlsx is an Excel file detailing the currently implemented nodes, messages, and services and their interactions.
