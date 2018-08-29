@@ -32,7 +32,7 @@ Services:	rctestpkg::MPC_LK		LK_MPC2		(client)
 
 #define SERVO_RATIO 0.00089479		// convert from lk response to servo command
 #define SERVO_MID 1537			// PWM command for straight servo
-#define LANEWIDTH 1.0			// Width of lane (in meters)
+#define LANEWIDTH 0.6			// Width of lane (in meters)
 #define VMAX 0.5			// max velocity (m/s)
 #define PI 3.14159
 #define SRV_REQ_VEL 0.2 // cruise control velocity (in m/s)
@@ -58,6 +58,7 @@ private:
 
 	int 	servo_control;
 	float	motor_control;
+	float lane_position;
 
 	int call_lanekeeping_service();
 	float call_cc_service();
@@ -76,7 +77,8 @@ public:
 	// Constructor
 	central_controller() :	servo_control(SERVO_MID),
 				prev_s(0.0),
-				motor_control(0.0) {
+				motor_control(0.0),
+				lane_position(LANEWIDTH) {
 		
 		lk_client = n.serviceClient<rctestpkg::MPC_LK>("MPC_LK2");
 		cc_client = n.serviceClient<rctestpkg::MPC_CC>("MPC_CC2");
@@ -161,9 +163,20 @@ int central_controller::call_lanekeeping_service() {
 	// 0.1, only compute lanekeeping when speed is greater than 0.1
 	double current_u = car_state.u;
 	if (current_u < 0.1) return servo_control;
+	// Calculate desired current lane_position
+	if (signal_msg.right_lane) {
+		if (lane_position < LANEWIDTH) {
+			lane_position += 0.01;
+		}
+	}
+	else {
+		if (lane_position > 0.0) {
+			lane_position -= 0.01;
+		}
+	}
 
 	// Fill in data for service request
-	lk_srv.request.y0 = car_state.y - LANEWIDTH;
+	lk_srv.request.y0 = car_state.y - LANEWIDTH - lane_position;
 	lk_srv.request.v0 = car_state.v;
 	lk_srv.request.p0 = car_state.psi;
 	lk_srv.request.r0 = car_state.r;
@@ -281,7 +294,7 @@ void central_controller::publish_commands() {
 		else {	// Cruise control (ACC or CC depending on heaadway and desired speed)
 			if (signal_msg.command_v > 0.0 &&
 				car_state.h < 2.0 &&
-				fabs(car_state.h_angle) < (20.0 / 180.0 * PI)) { // < 20 degrees
+				fabs(car_state.h_angle) < (10.0 / 180.0 * PI)) { // < 20 degrees
 				motor_command.data = call_acc_service();
 			}
 			else {

@@ -36,6 +36,7 @@ http://docs.ros.org/groovy/api/turtlesim/html/teleop__turtle__key_8cpp_source.ht
 #define KEYCODE_C 0x63 	// 'C' key
 #define KEYCODE_V 0x76 	// 'V' key
 #define KEYCODE_S 0x73	// 'S' key
+#define KEYCODE_B 0x62	// 'B' key
 
 // Constants
 #define SERVO_MID	1537 	// Number of microseconds per pulse for straight wheels
@@ -119,7 +120,8 @@ void TeleopCar::keyLoop() {
 	std::cout << "Press 'c' for cruise control and 's' for manual steering.\n";
 	bool	cruise_control = false,
 		lanekeeping = false,
-		stop = false;
+		stop = false,
+		right_lane = true;
 	double 	command_v = 0.0,
 		cruise_v = 0.0;
 	int servo_pwm = SERVO_MID;
@@ -132,6 +134,7 @@ void TeleopCar::keyLoop() {
 		signal_msg.stop = stop;
 		signal_msg.command_v = command_v;
 		signal_msg.servo_pwm = servo_pwm;
+		signal_msg.right_lane = right_lane;
 		signal_pub.publish(signal_msg);
 		
 		// Reads one character from the input
@@ -165,6 +168,16 @@ void TeleopCar::keyLoop() {
 
 		// Parse keyboard input
 		switch(c) {
+		case KEYCODE_B:		// Lane change command
+			if (!right_lane)	{
+				std::cout << "\nchanging to right lane\n";
+				right_lane = true;
+			}
+			else	{
+				std::cout << "\nChanging to left lane\n";
+				right_lane = false;
+			}
+			break;
 		case KEYCODE_S:		// Stop command
 			if (!stop)	{
 				std::cout << "\nStopping car\n";
