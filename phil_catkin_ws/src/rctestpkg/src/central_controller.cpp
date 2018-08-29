@@ -3,8 +3,7 @@ Implements the central_controller class, which sends control commands to the mot
 Phil Sisk
 
 		Type				Name
-Subscriptions:	rctestpkg::Motor_data		Motor_data2
-		rctestpkg::CentralSignal	centralSignal
+Subscriptions:	rctestpkg::CentralSignal	centralSignal
 		rctestpkg::CarState		car_state
 
 Publications:	std_msgs::Float32		Motor_command2
@@ -51,11 +50,9 @@ private:
 				acc_client;	// Adaptive cruise control service
 	ros::Subscriber car_state_sub;		// Car state subscriber
 	ros::Subscriber signal_sub;		// Central signal subscriber
-	ros::Subscriber motor_sub;		// Motor data subscriber
 	ros::Publisher servo_pub;		// Servo command publisher
 	ros::Publisher motor_pub;		// Motor command publisher
 	std_msgs::UInt16 servo_msg;
-	rctestpkg::Motor_data motor_msg;
 	rctestpkg::CentralSignal signal_msg;
 	float prev_s;				// Previous steering angle
 
@@ -71,9 +68,7 @@ private:
 	void car_state_callback(const rctestpkg::CarState::ConstPtr & msg) {
 		car_state = *msg;
 	}
-	void motor_callback(const rctestpkg::Motor_data::ConstPtr & msg) {
-		motor_msg = *msg;
-	}
+
 	void signal_callback(const rctestpkg::CentralSignal::ConstPtr &msg) {
 		signal_msg = *msg;
 	}
@@ -89,8 +84,7 @@ public:
 		
 		car_state_sub = n.subscribe("car_state", 1,
 			&central_controller::car_state_callback, this);
-		motor_sub = n.subscribe("Motor_data2", 10,
-			&central_controller::motor_callback, this);
+
 		signal_sub = n.subscribe("centralSignal", 1,
 			&central_controller::signal_callback, this);
 
@@ -114,8 +108,8 @@ float central_controller::call_cc_service() {
 	std::cout << "requesting cruise at " << command_v << std::endl;
 
 	cc_srv.request.vr = command_v;
-	cc_srv.request.u0 = motor_msg.countPerSecond * CPS2V ;
-	cc_srv.request.i0 = motor_msg.current;
+	cc_srv.request.u0 = car_state.u;
+	cc_srv.request.i0 = car_state.i;
 	cc_srv.request.wv = 10000;
 	cc_srv.request.wi = 400;
 	cc_srv.request.i_max = 4.5;
@@ -137,10 +131,10 @@ float central_controller::call_acc_service() {
 	if (command_v < 0.0) command_v = 0.0;
 	
 
-	acc_srv.request.u0 = motor_msg.countPerSecond * CPS2V ;
+	acc_srv.request.u0 = car_state.u;
 	acc_srv.request.h0 = car_state.h;
 	acc_srv.request.vl = car_state.vl;
-	acc_srv.request.i0 = motor_msg.current;
+	acc_srv.request.i0 = car_state.i;
 	acc_srv.request.wv = 10;
 	acc_srv.request.wh = 100;
 	acc_srv.request.wi = 5;

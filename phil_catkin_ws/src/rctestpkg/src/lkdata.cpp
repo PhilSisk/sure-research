@@ -5,7 +5,7 @@ Processes rplidar signal to create lanekeeping data based on distance and angle 
 
 		Type				Name
 Subscriptions:	sensor_msgs::LaserScan		scan
-		rctestpkg::IMUdata		IMUchatter
+		rctestpkg::IMUdata		IMUdata
 
 Publications:	rctestpkg::LKdata		lk_data
 
@@ -246,7 +246,7 @@ int main(int argc, char **argv) {
 	ros::init(argc, argv, "lkdata");
 	ros::NodeHandle n;
 	lkdata lk;
-	ros::Subscriber sub = n.subscribe("IMUchatter", 1000, &lkdata::IMU_callback, &lk);
+	ros::Subscriber sub = n.subscribe("IMUdata", 1000, &lkdata::IMU_callback, &lk);
 	ros::Subscriber IMU_sub = n.subscribe("scan", 1000, &lkdata::lk_callback, &lk);
 	ros::Timer timer1 = n.createTimer(ros::Duration(0.1), &lkdata::timed_callback, &lk);
 	ros::Publisher pub = n.advertise<rctestpkg::LKdata>("lk_data", 1000);

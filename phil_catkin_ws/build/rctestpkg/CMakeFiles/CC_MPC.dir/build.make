@@ -52,37 +52,37 @@ include rctestpkg/CMakeFiles/CC_MPC.dir/progress.make
 # Include the compile flags for this target's objects.
 include rctestpkg/CMakeFiles/CC_MPC.dir/flags.make
 
-rctestpkg/CMakeFiles/CC_MPC.dir/src/CC.cpp.o: rctestpkg/CMakeFiles/CC_MPC.dir/flags.make
-rctestpkg/CMakeFiles/CC_MPC.dir/src/CC.cpp.o: /home/ubuntu/phil_catkin_ws/src/rctestpkg/src/CC.cpp
+rctestpkg/CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.o: rctestpkg/CMakeFiles/CC_MPC.dir/flags.make
+rctestpkg/CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.o: /home/ubuntu/phil_catkin_ws/src/rctestpkg/src/CC_MPC.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/ubuntu/phil_catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object rctestpkg/CMakeFiles/CC_MPC.dir/src/CC.cpp.o"
-	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CC_MPC.dir/src/CC.cpp.o -c /home/ubuntu/phil_catkin_ws/src/rctestpkg/src/CC.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object rctestpkg/CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.o"
+	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.o -c /home/ubuntu/phil_catkin_ws/src/rctestpkg/src/CC_MPC.cpp
 
-rctestpkg/CMakeFiles/CC_MPC.dir/src/CC.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CC_MPC.dir/src/CC.cpp.i"
-	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ubuntu/phil_catkin_ws/src/rctestpkg/src/CC.cpp > CMakeFiles/CC_MPC.dir/src/CC.cpp.i
+rctestpkg/CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.i"
+	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ubuntu/phil_catkin_ws/src/rctestpkg/src/CC_MPC.cpp > CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.i
 
-rctestpkg/CMakeFiles/CC_MPC.dir/src/CC.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CC_MPC.dir/src/CC.cpp.s"
-	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ubuntu/phil_catkin_ws/src/rctestpkg/src/CC.cpp -o CMakeFiles/CC_MPC.dir/src/CC.cpp.s
+rctestpkg/CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.s"
+	cd /home/ubuntu/phil_catkin_ws/build/rctestpkg && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ubuntu/phil_catkin_ws/src/rctestpkg/src/CC_MPC.cpp -o CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.s
 
-rctestpkg/CMakeFiles/CC_MPC.dir/src/CC.cpp.o.requires:
-.PHONY : rctestpkg/CMakeFiles/CC_MPC.dir/src/CC.cpp.o.requires
+rctestpkg/CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.o.requires:
+.PHONY : rctestpkg/CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.o.requires
 
-rctestpkg/CMakeFiles/CC_MPC.dir/src/CC.cpp.o.provides: rctestpkg/CMakeFiles/CC_MPC.dir/src/CC.cpp.o.requires
-	$(MAKE) -f rctestpkg/CMakeFiles/CC_MPC.dir/build.make rctestpkg/CMakeFiles/CC_MPC.dir/src/CC.cpp.o.provides.build
-.PHONY : rctestpkg/CMakeFiles/CC_MPC.dir/src/CC.cpp.o.provides
+rctestpkg/CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.o.provides: rctestpkg/CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.o.requires
+	$(MAKE) -f rctestpkg/CMakeFiles/CC_MPC.dir/build.make rctestpkg/CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.o.provides.build
+.PHONY : rctestpkg/CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.o.provides
 
-rctestpkg/CMakeFiles/CC_MPC.dir/src/CC.cpp.o.provides.build: rctestpkg/CMakeFiles/CC_MPC.dir/src/CC.cpp.o
+rctestpkg/CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.o.provides.build: rctestpkg/CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.o
 
 # Object files for target CC_MPC
 CC_MPC_OBJECTS = \
-"CMakeFiles/CC_MPC.dir/src/CC.cpp.o"
+"CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.o"
 
 # External object files for target CC_MPC
 CC_MPC_EXTERNAL_OBJECTS =
 
-/home/ubuntu/phil_catkin_ws/devel/lib/rctestpkg/CC_MPC: rctestpkg/CMakeFiles/CC_MPC.dir/src/CC.cpp.o
+/home/ubuntu/phil_catkin_ws/devel/lib/rctestpkg/CC_MPC: rctestpkg/CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.o
 /home/ubuntu/phil_catkin_ws/devel/lib/rctestpkg/CC_MPC: rctestpkg/CMakeFiles/CC_MPC.dir/build.make
 /home/ubuntu/phil_catkin_ws/devel/lib/rctestpkg/CC_MPC: /opt/ros/jade/lib/libroscpp.so
 /home/ubuntu/phil_catkin_ws/devel/lib/rctestpkg/CC_MPC: /usr/lib/arm-linux-gnueabihf/libboost_signals.so
@@ -110,7 +110,7 @@ CC_MPC_EXTERNAL_OBJECTS =
 rctestpkg/CMakeFiles/CC_MPC.dir/build: /home/ubuntu/phil_catkin_ws/devel/lib/rctestpkg/CC_MPC
 .PHONY : rctestpkg/CMakeFiles/CC_MPC.dir/build
 
-rctestpkg/CMakeFiles/CC_MPC.dir/requires: rctestpkg/CMakeFiles/CC_MPC.dir/src/CC.cpp.o.requires
+rctestpkg/CMakeFiles/CC_MPC.dir/requires: rctestpkg/CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.o.requires
 .PHONY : rctestpkg/CMakeFiles/CC_MPC.dir/requires
 
 rctestpkg/CMakeFiles/CC_MPC.dir/clean:

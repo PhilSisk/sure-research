@@ -224,7 +224,7 @@ add_dependencies(motor rctestpkg_generate_messages_cpp)
 target_link_libraries(rs232 ${catkin_LIBRARIES})
 target_link_libraries(motor ${catkin_LIBRARIES} rs232)
 
-add_executable(CC_MPC src/CC.cpp)
+add_executable(CC_MPC src/CC_MPC.cpp)
 add_dependencies(CC_MPC rctestpkg_generate_messages_cpp)
 target_link_libraries(CC_MPC ${catkin_LIBRARIES} ccsolver)
 

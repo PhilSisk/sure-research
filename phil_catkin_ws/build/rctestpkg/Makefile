@@ -918,29 +918,29 @@ src/ACC_MPC.cpp.s:
 	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/ACC_MPC.dir/build.make rctestpkg/CMakeFiles/ACC_MPC.dir/src/ACC_MPC.cpp.s
 .PHONY : src/ACC_MPC.cpp.s
 
-src/CC.o: src/CC.cpp.o
-.PHONY : src/CC.o
+src/CC_MPC.o: src/CC_MPC.cpp.o
+.PHONY : src/CC_MPC.o
 
 # target to build an object file
-src/CC.cpp.o:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC_MPC.dir/build.make rctestpkg/CMakeFiles/CC_MPC.dir/src/CC.cpp.o
-.PHONY : src/CC.cpp.o
+src/CC_MPC.cpp.o:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC_MPC.dir/build.make rctestpkg/CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.o
+.PHONY : src/CC_MPC.cpp.o
 
-src/CC.i: src/CC.cpp.i
-.PHONY : src/CC.i
+src/CC_MPC.i: src/CC_MPC.cpp.i
+.PHONY : src/CC_MPC.i
 
 # target to preprocess a source file
-src/CC.cpp.i:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC_MPC.dir/build.make rctestpkg/CMakeFiles/CC_MPC.dir/src/CC.cpp.i
-.PHONY : src/CC.cpp.i
+src/CC_MPC.cpp.i:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC_MPC.dir/build.make rctestpkg/CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.i
+.PHONY : src/CC_MPC.cpp.i
 
-src/CC.s: src/CC.cpp.s
-.PHONY : src/CC.s
+src/CC_MPC.s: src/CC_MPC.cpp.s
+.PHONY : src/CC_MPC.s
 
 # target to generate assembly for a file
-src/CC.cpp.s:
-	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC_MPC.dir/build.make rctestpkg/CMakeFiles/CC_MPC.dir/src/CC.cpp.s
-.PHONY : src/CC.cpp.s
+src/CC_MPC.cpp.s:
+	cd /home/ubuntu/phil_catkin_ws/build && $(MAKE) -f rctestpkg/CMakeFiles/CC_MPC.dir/build.make rctestpkg/CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.s
+.PHONY : src/CC_MPC.cpp.s
 
 src/GetCarState.o: src/GetCarState.cpp.o
 .PHONY : src/GetCarState.o
@@ -1299,9 +1299,9 @@ help:
 	@echo "... src/ACC_MPC.o"
 	@echo "... src/ACC_MPC.i"
 	@echo "... src/ACC_MPC.s"
-	@echo "... src/CC.o"
-	@echo "... src/CC.i"
-	@echo "... src/CC.s"
+	@echo "... src/CC_MPC.o"
+	@echo "... src/CC_MPC.i"
+	@echo "... src/CC_MPC.s"
 	@echo "... src/GetCarState.o"
 	@echo "... src/GetCarState.i"
 	@echo "... src/GetCarState.s"

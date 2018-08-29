@@ -46,7 +46,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/ubuntu/phil_catkin_ws/src/rctestpkg/src/CC.cpp
+/home/ubuntu/phil_catkin_ws/src/rctestpkg/src/CC_MPC.cpp
 ros/ros.h
 -
 rctestpkg/MPC_CC.h

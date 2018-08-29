@@ -65,6 +65,7 @@ void car_state::set_lk_data(const rctestpkg::LKdata::ConstPtr& msg) {
 
 void car_state::set_motor_data(const rctestpkg::Motor_data::ConstPtr& msg) {
 	state_msg.u = msg->countPerSecond*CPS2V;
+	state_msg.i = msg->current;
 }
 
 void car_state::calculate_v_lead() {

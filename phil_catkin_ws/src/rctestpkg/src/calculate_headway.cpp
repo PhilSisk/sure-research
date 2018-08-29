@@ -1,6 +1,6 @@
 /*
 calculate_headway.cpp
-This ROS node uses rplidar scan data to calculate the distance between this scaled
+This node uses rplidar scan data to calculate the distance between this scaled
 car and the other one (the lead car). Used in ACC/takeover calculations.
 Note that this node is able to calculate headway even when the "lead" car is to
 the right of or behind this scaled car. However, since the laser scan data to its

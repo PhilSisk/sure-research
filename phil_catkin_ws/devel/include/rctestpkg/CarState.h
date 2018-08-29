@@ -32,6 +32,7 @@ struct CarState_
     , h_angle(0.0)
     , vl(0.0)
     , u(0.0)
+    , i(0.0)
     , y(0.0)
     , v(0.0)
     , psi(0.0)
@@ -47,6 +48,7 @@ struct CarState_
     , h_angle(0.0)
     , vl(0.0)
     , u(0.0)
+    , i(0.0)
     , y(0.0)
     , v(0.0)
     , psi(0.0)
@@ -80,6 +82,9 @@ struct CarState_
 
    typedef double _u_type;
   _u_type u;
+
+   typedef double _i_type;
+  _i_type i;
 
    typedef double _y_type;
   _y_type y;
@@ -173,12 +178,12 @@ struct MD5Sum< ::rctestpkg::CarState_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "546fdc741d393a86a6853d0d0c25fc49";
+    return "804573b2542a5290b5b4ce74d3f838b9";
   }
 
   static const char* value(const ::rctestpkg::CarState_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x546fdc741d393a86ULL;
-  static const uint64_t static_value2 = 0xa6853d0d0c25fc49ULL;
+  static const uint64_t static_value1 = 0x804573b2542a5290ULL;
+  static const uint64_t static_value2 = 0xb5b4ce74d3f838b9ULL;
 };
 
 template<class ContainerAllocator>
@@ -205,6 +210,7 @@ float64 h\n\
 float64 h_angle\n\
 float64 vl\n\
 float64 u\n\
+float64 i\n\
 float64 y\n\
 float64 v\n\
 float64 psi\n\
@@ -236,6 +242,7 @@ namespace serialization
       stream.next(m.h_angle);
       stream.next(m.vl);
       stream.next(m.u);
+      stream.next(m.i);
       stream.next(m.y);
       stream.next(m.v);
       stream.next(m.psi);
@@ -275,6 +282,8 @@ struct Printer< ::rctestpkg::CarState_<ContainerAllocator> >
     Printer<double>::stream(s, indent + "  ", v.vl);
     s << indent << "u: ";
     Printer<double>::stream(s, indent + "  ", v.u);
+    s << indent << "i: ";
+    Printer<double>::stream(s, indent + "  ", v.i);
     s << indent << "y: ";
     Printer<double>::stream(s, indent + "  ", v.y);
     s << indent << "v: ";

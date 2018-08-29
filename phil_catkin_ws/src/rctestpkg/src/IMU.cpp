@@ -6,7 +6,7 @@ Reads data from the IMU and publishes it to an IMUdata message
 		Type				Name
 Subscriptions:	(none)
 
-Publications:	IMUdata				IMUchatter
+Publications:	IMUdata				IMUdata
 
 Services:	(none)
 
@@ -47,7 +47,7 @@ int main (int argc, char ** argv) {
 	// Initialize ROS node and handle, create publisher object
 	ros::init(argc, argv, "IMUtest");
 	ros::NodeHandle n;
-	ros::Publisher IMU_pub = n.advertise<rctestpkg::IMUdata>("IMUchatter", 1000);
+	ros::Publisher IMU_pub = n.advertise<rctestpkg::IMUdata>("IMUdata", 1000);
 	rctestpkg::IMUdata msg;  // IMUdata message object;
 
 	char response[1024];	
@@ -64,7 +64,7 @@ int main (int argc, char ** argv) {
 		// Read in response from IMU (don't publish invalid messages)
 		if (!(read_IMU_response(response, USB) > 0)) continue;
 
-		// Shove response into ROS message and publish to topic IMUchatter
+		// Shove response into ROS message and publish to topic IMUdata
 		ss.clear();
 		ss.str("");
 		ss << response;

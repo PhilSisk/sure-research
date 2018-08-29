@@ -1,5 +1,5 @@
 FILE(REMOVE_RECURSE
-  "CMakeFiles/CC_MPC.dir/src/CC.cpp.o"
+  "CMakeFiles/CC_MPC.dir/src/CC_MPC.cpp.o"
   "/home/ubuntu/phil_catkin_ws/devel/lib/rctestpkg/CC_MPC.pdb"
   "/home/ubuntu/phil_catkin_ws/devel/lib/rctestpkg/CC_MPC"
 )
