@@ -1,0 +1,2 @@
+/usr/bin/ar cr /home/ubuntu/phil_catkin_ws/devel/lib/librs232.a  CMakeFiles/rs232.dir/src/rs232.cpp.o
+/usr/bin/ranlib /home/ubuntu/phil_catkin_ws/devel/lib/librs232.a

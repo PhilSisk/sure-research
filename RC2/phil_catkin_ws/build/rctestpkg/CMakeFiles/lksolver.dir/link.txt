@@ -1,0 +1,2 @@
+/usr/bin/ar cr /home/ubuntu/phil_catkin_ws/devel/lib/liblksolver.a  CMakeFiles/lksolver.dir/src/lksolver.cpp.o
+/usr/bin/ranlib /home/ubuntu/phil_catkin_ws/devel/lib/liblksolver.a

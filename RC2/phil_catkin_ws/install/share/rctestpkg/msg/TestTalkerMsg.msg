@@ -1,0 +1,2 @@
+string TestTalkerString
+int64 TestTalkerInt
